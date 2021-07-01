@@ -97,4 +97,4 @@
     </div>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Tong hop de cuong on tap\hoc_Tailwindcss\qlgvsv\resources\views/layouts/layouts_admin/menu.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/layouts_admin/menu.blade.php ENDPATH**/ ?>

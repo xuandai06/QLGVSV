@@ -7,4 +7,4 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\QLGV\QLGVSV\resources\views/layouts/home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/home.blade.php ENDPATH**/ ?>
