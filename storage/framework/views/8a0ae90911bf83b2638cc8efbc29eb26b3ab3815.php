@@ -9,8 +9,7 @@
                 </div>
                 <div class="flex justify-between">
                     <form action="" class="w-full">
-                        <?php echo csrf_field(); ?>
-
+                        <?php echo csrf_field(); ?>   
                         <div class="mb-4">
                                 <input type="text" name="ma" id="ma" placeholder="Enter the your code ..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
                                 <?php $__errorArgs = ['ma'];
