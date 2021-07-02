@@ -7,11 +7,11 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
 Route::get('/admin', function(){
-    return view('layouts.layouts_admin.menu');
+    return view('layouts.admin.menu');
 });
 
 Route::get('/student', function(){
-    return view('layouts.layouts_student.menu');
+    return view('layouts.student.menu');
 });
 
 Route::get('/', function () {
