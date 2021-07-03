@@ -8,10 +8,12 @@
                     <h1 class="">Login</h1>
                 </div>
                 <div class="flex justify-between">
-                    <?php if(session('status')): ?>
-                        <?php echo e(session('status')); ?>
+                    
+                            <?php if(session('status')): ?>
+                                <?php echo e(session('status')); ?>
 
-                    <?php endif; ?>
+                            <?php endif; ?>
+                    
                     <form action=" <?php echo e(route('login')); ?>" method="post" class="w-full">
                         <?php echo csrf_field(); ?>   
                         <div class="mb-4">

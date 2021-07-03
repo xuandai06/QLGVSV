@@ -24,9 +24,9 @@ class UserSeeder extends Seeder
 
         $data1 = [
             'id' => '195d150013',
-            'email' => 'hiepwhite@gmail.com',
+            'email' => 'hoanghiep@gmail.com',
             'role' => 'student',
-            'password'=> Hash::make('hiepwhite'),
+            'password'=> Hash::make('hoanghiep'),
         ];
 
         $data2 = [
@@ -36,6 +36,13 @@ class UserSeeder extends Seeder
             'password'=> Hash::make('manhhung'),
         ];
 
-        DB::table('users')->insert($data2);
+        $data3 = [
+            'id' => '205d150014',
+            'email' => '3conchongong@gmail.com',
+            'role' => 'student',
+            'password'=> Hash::make('3conchongong'),
+        ];
+
+        DB::table('users')->insert($data1);
     }
 }

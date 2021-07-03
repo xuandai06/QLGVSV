@@ -8,9 +8,11 @@
                     <h1 class="">Login</h1>
                 </div>
                 <div class="flex justify-between">
-                    @if(session('status'))
-                        {{session('status')}}
-                    @endif
+                    
+                            @if(session('status'))
+                                {{session('status')}}
+                            @endif
+                    
                     <form action=" {{route('login')}}" method="post" class="w-full">
                         @csrf   
                         <div class="mb-4">
