@@ -14,7 +14,7 @@ class CreateLecturesTable extends Migration
     public function up()
     {
         Schema::create('lectures', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('user_id',15);
             $table->string('name',100);
             $table->string('sex',10);
             $table->date('birthday');
@@ -25,6 +25,10 @@ class CreateLecturesTable extends Migration
             $table->string('position_id',15);
             $table->string('level_id',15);
             $table->string('major_id',15);
+
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
 
             $table->foreign('position_id')->references('id')->on('positions')
             ->onUpdate('cascade')

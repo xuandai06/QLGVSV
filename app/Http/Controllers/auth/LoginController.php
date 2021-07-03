@@ -4,6 +4,7 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -11,7 +12,25 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    function store(){
-        dd('ok');
+    public function store(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password,
+        ], )){
+            if(auth()->user()->role == 'admin'){
+                return redirect()->route('admin');
+            }
+            if(auth()->user()->role == 'lecturer'){
+                return redirect()->route('lecturer');
+            }
+            if(auth()->user()->role == 'student'){
+                return redirect()->route('student');
+            }
+        }else{
+            return back()->with('status', 'Địa chỉ chưa đúng');
+        }
     }
 }

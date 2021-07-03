@@ -8,11 +8,14 @@
                     <h1 class="">Login</h1>
                 </div>
                 <div class="flex justify-between">
-                    <form action="" class="w-full">
+                    @if(session('status'))
+                        {{session('status')}}
+                    @endif
+                    <form action=" {{route('login')}}" method="post" class="w-full">
                         @csrf   
                         <div class="mb-4">
-                                <input type="text" name="ma" id="ma" placeholder="Enter the your code ..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
-                                @error('ma') border-red-500 @enderror" value="{{ old('ma') }}">
+                                <input type="text" name="email" id="email" placeholder="Nhập vào gmail..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
+                                @error('ma') border-red-500 @enderror" value="{{ old('gmail') }}">
 
                                 @error('ma')
                                     <div class="text-red-500 mt-2 text-sm">
@@ -22,7 +25,7 @@
                         </div>
 
                         <div class="mb-4">
-                                <input type="password" name="password" id="password" placeholder="Choose a password ..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
+                                <input type="password" name="password" id="password" placeholder="Nhập vào mật khẩu ..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
                                 @error('password') border-red-500 @enderror" value="">
 
                                 @error('password')
