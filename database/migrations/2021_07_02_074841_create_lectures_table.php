@@ -26,7 +26,7 @@ class CreateLecturesTable extends Migration
             $table->string('level_id',15);
             $table->string('major_id',15);
 
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('user_id')->references('user_id')->on('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
