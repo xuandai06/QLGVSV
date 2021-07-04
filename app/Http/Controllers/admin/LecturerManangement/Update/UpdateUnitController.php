@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class UpdateUnitController extends Controller
 {
-    
+    public function store(Request $request){
+        return $request;
+    }
 }
