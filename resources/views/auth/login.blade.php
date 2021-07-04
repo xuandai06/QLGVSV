@@ -20,18 +20,18 @@
 
                         <div class="mb-4">
                                 <input type="text" name="email" id="email" placeholder="Nhập vào gmail..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
-                                @error('ma') border-red-500 @enderror" value="{{ old('gmail') }}">
+                                focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('email') border-red-500 @enderror" value="{{ old('gmail') }}">
 
-                                @error('ma')
+                                @error('email')
                                     <div class="text-red-500 mt-2 text-sm">
-                                        {{ $message }}
+                                        Tài khoản không được để trống!
                                     </div>
                                 @enderror
                         </div>
 
                         <div class="mb-4">
                                 <input type="password" name="password" id="password" placeholder="Nhập vào mật khẩu ..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
-                                @error('password') border-red-500 @enderror" value="">
+                                focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('password') border-red-500 @enderror" value="">
 
                                 @error('password')
                                     <div class="text-red-500 mt-2 text-sm">

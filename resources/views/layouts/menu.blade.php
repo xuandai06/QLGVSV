@@ -11,7 +11,7 @@
 <body class="w-full bg-gray-200">
 
     <div>
-        <nav class="p-6 bg-white flex justify-between mb-6">
+        <nav class="p-6 bg-white flex justify-between">
             
             <ul class="flex items-center">
                 <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white">

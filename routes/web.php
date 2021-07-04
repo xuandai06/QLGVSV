@@ -29,4 +29,16 @@ Route::get('/lecturer', [LecturerController::class, 'index'])->name('lecturer')-
 
 Route::get('/student', [StudentController::class, 'index'])->name('student');
 
+<<<<<<< HEAD
 //trang cap nhat don vi cua phan admin
+=======
+//trang chu cua admin
+Route::get('/home_admin', function () {
+    return view('layouts.admin.home');
+})->name('home_admin');
+
+//trang cap nhat don vi cua phan amin
+Route::get('/update_gv', function () {
+    return view('layouts.admin.lecturer_management.update.update');
+})->name('update_gv');
+>>>>>>> 5c0aff7b8631c362df936b1444f5bc6b029412dd
