@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Admin\LecturerManangement\Statistical\UpdateUnitController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
@@ -24,9 +25,10 @@ Route::get('/update_gv', function () {
     return view('layouts.admin.lecturer_management.update.update');
 })->name('update_gv')->middleware('AdminMiddleware');
 
+Route::post('/add/unit', [UpdateUnitController::class, 'store'])->name('add/unit');
+
 Route::get('/lecturer', [LecturerController::class, 'index'])->name('lecturer')->middleware('LecturerMiddleware');
 
 Route::get('/student', [StudentController::class, 'index'])->name('student');
 
-//trang cap nhat don vi cua phan admin
 
