@@ -20,11 +20,8 @@
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Mã đơn vị: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-full p-4 rounded-lg
-<<<<<<< Updated upstream
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
-=======
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id_unit') border-red-500 @enderror" value="">
->>>>>>> Stashed changes
+
 
                                 @error('id')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -34,15 +31,9 @@
                             </div>
 
                             <div class="mb-4 flex">
-<<<<<<< Updated upstream
-                                <p class="text-gray-500 text-xl w-2/12 pt-3">Tên đơn vị: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
-=======
                             <p class="text-gray-500 text-xl w-2/12 pt-3">Tên đơn vị: </p>
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('password') border-red-500 @enderror" value="">
->>>>>>> Stashed changes
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
 
                                 @error('name')
                                 <div class="text-red-500 mt-2 text-sm">
