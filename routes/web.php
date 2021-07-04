@@ -22,5 +22,12 @@ Route::get('/lecturer', [LecturerController::class, 'index'])->name('lecturer')-
 
 Route::get('/student', [StudentController::class, 'index'])->name('student');
 
+//trang chu cua admin
+Route::get('/home_admin', function () {
+    return view('layouts.admin.home');
+})->name('home_admin');
 
-
+//trang cap nhat don vi cua phan amin
+Route::get('/update_gv', function () {
+    return view('layouts.admin.ql_giangvien.update.update');
+})->name('update_gv');
