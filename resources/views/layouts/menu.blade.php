@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,12 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
+
 <body class="w-full bg-gray-200">
 
     <div>
         <nav class="p-6 bg-white flex justify-between">
-            
+
             <ul class="flex items-center">
                 <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,9 +23,9 @@
                     <button class="p-3 font-bold clear-left" id="menu">Menu</button>
                 </li>
             </ul>
-                @if(auth()->user())
+
             <ul class="flex items-center">
-               
+                @if(auth()->user())
                 <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white">
                     <a href="" class="p-3 font-bold clear-left">{{auth()->user()->id}}</a>
                 </li>
@@ -41,7 +43,7 @@
                     </svg>
                     <a href="{{ route('login') }}" class="p-3 font-bold clear-left">Đăng nhập</a>
                 </li>
-               
+
             </ul>
         </nav>
 
@@ -53,4 +55,5 @@
 
     @yield('content')
 </body>
+
 </html>
