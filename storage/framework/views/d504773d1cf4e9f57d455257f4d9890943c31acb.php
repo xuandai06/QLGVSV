@@ -21,7 +21,7 @@
 
                         <div class="mb-4">
                                 <input type="text" name="email" id="email" placeholder="Nhập vào gmail..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
-                                <?php $__errorArgs = ['ma'];
+                                focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -30,14 +30,13 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('gmail')); ?>">
 
-                                <?php $__errorArgs = ['ma'];
+                                <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
                                     <div class="text-red-500 mt-2 text-sm">
-                                        <?php echo e($message); ?>
-
+                                        Tài khoản không được để trống!
                                     </div>
                                 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -47,7 +46,7 @@ unset($__errorArgs, $__bag); ?>
 
                         <div class="mb-4">
                                 <input type="password" name="password" id="password" placeholder="Nhập vào mật khẩu ..." class="bg-gray-100 border-2 w-full p-4 rounded-lg
-                                <?php $__errorArgs = ['password'];
+                                focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

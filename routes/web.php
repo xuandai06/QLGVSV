@@ -29,5 +29,5 @@ Route::get('/home_admin', function () {
 
 //trang cap nhat don vi cua phan amin
 Route::get('/update_gv', function () {
-    return view('layouts.admin.ql_giangvien.update.update');
+    return view('layouts.admin.lecturer_management.update.update');
 })->name('update_gv');
