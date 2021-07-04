@@ -192,6 +192,8 @@
             const dropunit = document.querySelector('#dropunit')
             const subjects = document.querySelector('#subjects')
             const dropsubjects = document.querySelector('#dropsubjects')
+            const majors = document.querySelector('#majors')
+            const dropmajors = document.querySelector('#dropmajors')
 
             unit.addEventListener('click', () => {
                 dropunit.classList.toggle('hidden')
@@ -199,6 +201,9 @@
 
                 if (dropsubjects.classList.contains('hidden') == false) {
                     dropsubjects.classList.toggle('hidden')
+                };
+                if (dropmajors.classList.contains('hidden') == false) {
+                    dropmajors.classList.add('hidden');
                 };
             })
 
@@ -208,6 +213,21 @@
 
                 if (dropunit.classList.contains('hidden') == false) {
                     dropunit.classList.add('hidden');
+                };
+                if (dropmajors.classList.contains('hidden') == false) {
+                    dropmajors.classList.add('hidden');
+                };
+            })
+
+            majors.addEventListener('click', () => {
+                dropmajors.classList.toggle('hidden')
+                dropmajors.classList.toggle('flex')
+
+                if (dropunit.classList.contains('hidden') == false) {
+                    dropunit.classList.add('hidden');
+                };
+                if (dropsubjects.classList.contains('hidden') == false) {
+                    dropsubjects.classList.toggle('hidden')
                 };
             })
 
