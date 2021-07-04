@@ -16,21 +16,21 @@ class UserSeeder extends Seeder
     public function run()
     {
         $data = [
-            'user_id' => '195d150011',
+            'id' => '195d150011',
             'email' => 'xuandai06@gmail.com',
             'role' => 'admin',
             'password'=> Hash::make('123456'),
         ];
 
         $data1 = [
-            'user_id' => '195d150013',
+            'id' => '195d150013',
             'email' => 'hoanghiep@gmail.com',
             'role' => 'admin',
             'password'=> Hash::make('hoanghiep'),
         ];
 
         $data2 = [
-            'user_id' => '205d150013',
+            'id' => '205d150013',
             'email' => 'manhhung@gmail.com',
             'role' => 'teacher',
             'password'=> Hash::make('manhhung'),

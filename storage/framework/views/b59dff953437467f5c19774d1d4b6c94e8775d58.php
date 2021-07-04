@@ -6,7 +6,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
-            <a href="<?php echo e(route('home')); ?>" class="clear-left p-2">Trang chủ</a>
+            <a href="<?php echo e(route('home_admin')); ?>" class="clear-left p-2">Trang chủ</a>
         </div>
 
         <div class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
@@ -21,7 +21,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
                 </svg>
-                <a href="" class="clear-left p-2">Cập nhập</a>
+                <a href="<?php echo e(route('update_gv')); ?>" class="clear-left p-2">Cập nhập</a>
             </div>
 
             <div class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
@@ -373,6 +373,7 @@
             })
         </script>
     </div>
-
+    
+    <?php echo $__env->yieldContent('admin'); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\QLGV\QLGVSV\resources\views/layouts/admin/menu.blade.php ENDPATH**/ ?>

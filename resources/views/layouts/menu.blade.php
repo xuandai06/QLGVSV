@@ -26,7 +26,7 @@
                
                 <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white">
                     <a href="" class="p-3 font-bold clear-left">{{auth()->user()->email}}</a>
-                    <a href="" class="p-3 font-bold clear-left">{{auth()->user()->user_id}}</a>
+                    <a href="" class="p-3 font-bold clear-left">{{auth()->user()->id}}</a>
                 </li>
 
                 <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white">
