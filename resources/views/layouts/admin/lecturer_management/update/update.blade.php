@@ -18,7 +18,7 @@
                             @csrf
 
                             <div class="mb-4 flex">
-                                <p class="text-gray-500 text-2xl w-2/12 pt-3">Mã đơn vị: </p>
+                                <p class="text-gray-500 text-xl w-2/12 pt-3">Mã đơn vị: </p>
                                 <input type="text" name="id_unit" id="id_unit" placeholder="Nhập vào mã đơn vị..." class="bg-white w-full p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id_unit') border-red-500 @enderror" value="">
 
@@ -30,7 +30,7 @@
                             </div>
 
                             <div class="mb-4 flex">
-                            <p class="text-gray-500 text-2xl w-2/12 pt-3">Tên đơn vị: </p>
+                            <p class="text-gray-500 text-xl w-2/12 pt-3">Tên đơn vị: </p>
                                 <input type="text" name="name_unit" id="name_unit" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-full p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('password') border-red-500 @enderror" value="">
 
