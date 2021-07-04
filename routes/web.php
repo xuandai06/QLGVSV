@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\Admin\LecturerManangement\Statistical\UpdateUnitController;
+use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateSubjectController;
+use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateUnitController as UpdateUpdateUnitController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
@@ -25,7 +27,8 @@ Route::get('/update_gv', function () {
     return view('layouts.admin.lecturer_management.update.update_unit');
 })->name('update_gv')->middleware('AdminMiddleware');
 
-Route::post('/add/unit', [UpdateUnitController::class, 'store'])->name('add/unit');
+Route::post('/add/unit', [UpdateUpdateUnitController::class, 'store'])->name('add/unit');
+Route::post('/add/subject', [UpdateSubjectController::class, 'store'])->name('add/subject');
 
 Route::get('/lecturer', [LecturerController::class, 'index'])->name('lecturer')->middleware('LecturerMiddleware');
 

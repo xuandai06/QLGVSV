@@ -1,6 +1,6 @@
+@extends('layouts.admin.menu')
 
-
-<?php $__env->startSection('admin'); ?>
+@section('admin')
 <div class="flex justify-center pt-6">
     <div class="w-11/12 bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -14,62 +14,41 @@
             <div class="w-full bg-gray-200 hidden flex-col justify-between px-6 text-gray-500 rounded-lg mt-1" id="dropunit">
                 <div class="w-full p-2 rounded-lg flex justify-center">
                     <div class="p-2 w-10/12 p-6">
-                        <form action="<?php echo e(route('add/unit')); ?>" method="post" class="w-10/12 flex-col justify-center">
-                            <?php echo csrf_field(); ?>
+                        <form action="{{route('add/unit')}}" method="post" class="w-10/12 flex-col justify-center">
+                            @csrf
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Mã đơn vị: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-full p-4 rounded-lg
+<<<<<<< HEAD
 
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
+=======
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+>>>>>>> ff73506679c686cd8665483df72bffe6f388f029
+
+                                @error('id')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="mb-4 flex">
+<<<<<<< HEAD
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Tên đơn vị: </p>
+=======
+                            <p class="text-gray-500 text-xl w-2/12 pt-3">Tên đơn vị: </p>
+>>>>>>> ff73506679c686cd8665483df72bffe6f388f029
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+                                @error('name')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="flex justify-center">
@@ -91,96 +70,50 @@ unset($__errorArgs, $__bag); ?>
                 <div class="w-full p-2 rounded-lg flex justify-center">
                     <div class="p-2 w-10/12 p-6">
 
-                        <?php if(session('status')): ?>
+                        @if(session('status'))
                         <div class="text-red-500">
-                            <?php echo e(session('status')); ?>
-
+                            {{session('status')}}
                             
                         </div>
 
-                        <?php endif; ?>
-                        <form action="<?php echo e(route('add/subject')); ?>" method="post" class="w-10/12 flex-col justify-center">
-                            <?php echo csrf_field(); ?>
+                        @endif
+                        <form action="{{route('add/subject')}}" method="post" class="w-10/12 flex-col justify-center">
+                            @csrf
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Mã bộ môn: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã bộ môn..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+                                @error('id')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Tên bộ môn: </p>
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên bộ môn ..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+                                @error('name')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Mã đơn vị: </p>
                                 <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['unit_id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+                                @error('unit_id')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="flex justify-center">
@@ -202,87 +135,42 @@ unset($__errorArgs, $__bag); ?>
                 <div class="w-full p-2 rounded-lg flex justify-center">
                     <div class="p-2 w-10/12 p-6">
                         <form action="" method="" class="w-10/12 flex-col justify-center">
-                            <?php echo csrf_field(); ?>
+                            @csrf
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Mã ngành: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã ngành..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+                                @error('id')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Tên ngành: </p>
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên ngành ..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+                                @error('name')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Mã bộ môn: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã bộ môn..." class="bg-white w-full p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
 
-                                <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
+                                @error('id')
                                 <div class="text-red-500 mt-2 text-sm">
-                                    <?php echo e($message); ?>
-
+                                    {{ $message }}
                                 </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                @enderror
                             </div>
 
                             <div class="flex justify-center">
@@ -322,6 +210,8 @@ unset($__errorArgs, $__bag); ?>
             const dropunit = document.querySelector('#dropunit')
             const subjects = document.querySelector('#subjects')
             const dropsubjects = document.querySelector('#dropsubjects')
+            const majors = document.querySelector('#majors')
+            const dropmajors = document.querySelector('#dropmajors')
 
             unit.addEventListener('click', () => {
                 dropunit.classList.toggle('hidden')
@@ -329,6 +219,9 @@ unset($__errorArgs, $__bag); ?>
 
                 if (dropsubjects.classList.contains('hidden') == false) {
                     dropsubjects.classList.toggle('hidden')
+                };
+                if (dropmajors.classList.contains('hidden') == false) {
+                    dropmajors.classList.add('hidden');
                 };
             })
 
@@ -339,10 +232,24 @@ unset($__errorArgs, $__bag); ?>
                 if (dropunit.classList.contains('hidden') == false) {
                     dropunit.classList.add('hidden');
                 };
+                if (dropmajors.classList.contains('hidden') == false) {
+                    dropmajors.classList.add('hidden');
+                };
+            })
+
+            majors.addEventListener('click', () => {
+                dropmajors.classList.toggle('hidden')
+                dropmajors.classList.toggle('flex')
+
+                if (dropunit.classList.contains('hidden') == false) {
+                    dropunit.classList.add('hidden');
+                };
+                if (dropsubjects.classList.contains('hidden') == false) {
+                    dropsubjects.classList.toggle('hidden')
+                };
             })
 
         })
     </script>
 </div>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\QLGV\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update.blade.php ENDPATH**/ ?>
+@endsection

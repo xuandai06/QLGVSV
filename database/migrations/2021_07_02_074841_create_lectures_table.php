@@ -17,11 +17,11 @@ class CreateLecturesTable extends Migration
             $table->string('id',15);
             $table->string('name',100);
             $table->string('sex',10);
-            $table->date('birthday');
-            $table->string('hometown');
-            $table->string('address');
-            $table->string('phone_number',13);
-            $table->string('note');
+            $table->date('birthday')->nullable();
+            $table->string('hometown')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone_number',13)->nullable();
+            $table->string('note')->nullable();
             $table->string('position_id',15);
             $table->string('level_id',15);
             $table->string('major_id',15);
