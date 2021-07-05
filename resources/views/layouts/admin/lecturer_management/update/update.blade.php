@@ -75,7 +75,6 @@
                             {{session('status')}}
                             
                         </div>
-
                         @endif
                         <form action="{{route('add/subject')}}" method="post" class="w-10/12 flex-col justify-center">
                             @csrf

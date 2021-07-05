@@ -17,6 +17,11 @@
                         <div class="text-blue-300 text-4xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin đơn vị</h1>
                         </div>
+                        @if(session('status'))
+                        <div class="text-red-500">
+                            {{session('status')}}
+                        </div>
+                        @endif
                         <form action="{{route('add/unit')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
