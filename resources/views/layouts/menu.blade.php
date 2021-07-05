@@ -14,7 +14,7 @@
 
     <div>
         <nav class="p-3 bg-white flex justify-between">
-            @if(auth()->user())
+
             <ul class="flex items-center pl-4">
                 <li class="flex items-center rounded-lg">
                     <ul class="flex items-center">
@@ -24,18 +24,21 @@
                             </svg>
                             <a href="{{ route('admin') }}" class="clear-left p-2 font-bold">Trang chủ</a>
                         </li>
-
+                        @if(auth()->user())
                         <li class="group">
                             <a href="" class="rounded-lg duration-300 ease-in-out px-2 group-hover:bg-blue-200 group-hover:text-white p-3 font-bold" id="teacher">Quản lý giảng viên</a>
 
                             <div class="absolute bg-white w-2/12 p-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
-                            group-hover:opacity-100 group-hover:visible">
+                                group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
-                                    <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
+                                    <li class="group flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
                                         </svg>
                                         <a href="" class="clear-left p-2">Cập nhập</a>
+
+                                        
+
                                     </li>
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -107,12 +110,12 @@
                                     </li>
                                 </ul>
                             </div>
-                        
+
                         </li>
 
                         <li class="group">
                             <a href="" class="rounded-lg duration-300 ease-in-out px-2 group-hover:bg-blue-200 group-hover:text-white p-3 font-bold" id="nckh_sv">Quản lý NCKH-SV</a>
-                            
+
                             <div class="absolute bg-white w-2/12 p-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
@@ -136,7 +139,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        
+
                         </li>
 
                         <li class="group">
@@ -198,12 +201,13 @@
                                 </ul>
                             </div>
                         </li>
+                        @endif
                     </ul>
                 </li>
             </ul>
 
             <ul class="flex items-center">
-                
+                @if(auth()->user())
                 <li class="flex items-center rounded-lg">
                     <a href="" class="p-3 font-bold clear-left">{{auth()->user()->id}}</a>
                 </li>
