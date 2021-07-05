@@ -1,6 +1,6 @@
-@extends('layouts.menu')
 
-@section('content')
+
+<?php $__env->startSection('update_unit'); ?>
 <div class="flex justify-center pt-6">
     <div class="w-11/12 bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -17,32 +17,62 @@
                         <div class="text-blue-300 text-4xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin đơn vị</h1>
                         </div>
-                        <form action="{{route('add/unit')}}" method="post" class=" flex-col justify-center">
-                            @csrf
+                        <form action="<?php echo e(route('add/unit')); ?>" method="post" class=" flex-col justify-center">
+                            <?php echo csrf_field(); ?>
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="">
 
 
-                                @error('id')
+                                <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                 <div class="text-red-500 mt-2 text-sm">
-                                    {{ $message }}
+                                    <?php echo e($message); ?>
+
                                 </div>
-                                @enderror
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Tên đơn vị: </p>
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="">
 
-                                @error('name')
+                                <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                 <div class="text-red-500 mt-2 text-sm">
-                                    {{ $message }}
+                                    <?php echo e($message); ?>
+
                                 </div>
-                                @enderror
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="flex justify-center">
@@ -102,4 +132,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update_unit.blade.php ENDPATH**/ ?>
