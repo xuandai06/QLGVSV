@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('update_unit'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="flex justify-center pt-6">
     <div class="w-11/12 bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -17,6 +17,12 @@
                         <div class="text-blue-300 text-4xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin đơn vị</h1>
                         </div>
+                        <?php if(session('status')): ?>
+                        <div class="text-red-500">
+                            <?php echo e(session('status')); ?>
+
+                        </div>
+                        <?php endif; ?>
                         <form action="<?php echo e(route('add/unit')); ?>" method="post" class=" flex-col justify-center">
                             <?php echo csrf_field(); ?>
 
@@ -133,4 +139,4 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update_unit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update_unit.blade.php ENDPATH**/ ?>
