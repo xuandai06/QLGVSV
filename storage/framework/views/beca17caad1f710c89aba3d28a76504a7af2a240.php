@@ -14,6 +14,7 @@
 
     <div>
         <nav class="p-3 bg-white flex justify-between">
+            <?php if(auth()->user()): ?>
             <ul class="flex items-center pl-4">
                 <li class="flex items-center rounded-lg">
                     <ul class="flex items-center">
@@ -202,7 +203,7 @@
             </ul>
 
             <ul class="flex items-center">
-                <?php if(auth()->user()): ?>
+                
                 <li class="flex items-center rounded-lg">
                     <a href="" class="p-3 font-bold clear-left"><?php echo e(auth()->user()->id); ?></a>
                 </li>
