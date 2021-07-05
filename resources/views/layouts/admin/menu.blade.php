@@ -374,5 +374,6 @@
         </script>
     </div>
     
-    @yield('admin')
+    @yield('update_unit')
+    @yield('update_subject')
 @endsection

@@ -24,7 +24,7 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin')
 ->middleware('AdminMiddleware');
 
 Route::get('/update_gv', function () {
-    return view('layouts.admin.lecturer_management.update.update');
+    return view('layouts.admin.lecturer_management.update.update_unit');
 })->name('update_gv')->middleware('AdminMiddleware');
 
 Route::post('/add/unit', [UpdateUpdateUnitController::class, 'store'])->name('add/unit');
@@ -34,4 +34,7 @@ Route::get('/lecturer', [LecturerController::class, 'index'])->name('lecturer')-
 
 Route::get('/student', [StudentController::class, 'index'])->name('student');
 
-
+//trang bộ môn
+Route::get('/update_subject', function () {
+    return view('layouts.admin.lecturer_management.update.update_subject');
+})->name('update_subject');
