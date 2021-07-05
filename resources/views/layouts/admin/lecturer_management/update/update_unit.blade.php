@@ -1,6 +1,6 @@
-@extends('layouts.admin.menu')
+@extends('layouts.menu')
 
-@section('update_unit')
+@section('content')
 <div class="flex justify-center pt-6">
     <div class="w-11/12 bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
