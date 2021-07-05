@@ -20,6 +20,7 @@
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Mã đơn vị: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-full p-4 rounded-lg
+<<<<<<< HEAD
 
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -29,6 +30,17 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" value="">
+=======
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="">
+
+>>>>>>> ff73506679c686cd8665483df72bffe6f388f029
 
                                 <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -46,7 +58,11 @@ unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="mb-4 flex">
+<<<<<<< HEAD
                                 <p class="text-gray-500 text-xl w-2/12 pt-3">Tên đơn vị: </p>
+=======
+                            <p class="text-gray-500 text-xl w-2/12 pt-3">Tên đơn vị: </p>
+>>>>>>> ff73506679c686cd8665483df72bffe6f388f029
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-full p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -322,6 +338,8 @@ unset($__errorArgs, $__bag); ?>
             const dropunit = document.querySelector('#dropunit')
             const subjects = document.querySelector('#subjects')
             const dropsubjects = document.querySelector('#dropsubjects')
+            const majors = document.querySelector('#majors')
+            const dropmajors = document.querySelector('#dropmajors')
 
             unit.addEventListener('click', () => {
                 dropunit.classList.toggle('hidden')
@@ -329,6 +347,9 @@ unset($__errorArgs, $__bag); ?>
 
                 if (dropsubjects.classList.contains('hidden') == false) {
                     dropsubjects.classList.toggle('hidden')
+                };
+                if (dropmajors.classList.contains('hidden') == false) {
+                    dropmajors.classList.add('hidden');
                 };
             })
 
@@ -338,6 +359,21 @@ unset($__errorArgs, $__bag); ?>
 
                 if (dropunit.classList.contains('hidden') == false) {
                     dropunit.classList.add('hidden');
+                };
+                if (dropmajors.classList.contains('hidden') == false) {
+                    dropmajors.classList.add('hidden');
+                };
+            })
+
+            majors.addEventListener('click', () => {
+                dropmajors.classList.toggle('hidden')
+                dropmajors.classList.toggle('flex')
+
+                if (dropunit.classList.contains('hidden') == false) {
+                    dropunit.classList.add('hidden');
+                };
+                if (dropsubjects.classList.contains('hidden') == false) {
+                    dropsubjects.classList.toggle('hidden')
                 };
             })
 
