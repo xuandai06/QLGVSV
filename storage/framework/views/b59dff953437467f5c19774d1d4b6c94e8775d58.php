@@ -374,6 +374,7 @@
         </script>
     </div>
     
-    <?php echo $__env->yieldContent('admin'); ?>
+    <?php echo $__env->yieldContent('update_unit'); ?>
+    <?php echo $__env->yieldContent('update_subject'); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\QLGV\QLGVSV\resources\views/layouts/admin/menu.blade.php ENDPATH**/ ?>

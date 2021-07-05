@@ -17,6 +17,7 @@
                         <div class="text-blue-300 text-4xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin bộ môn</h1>
                         </div>
+                        
                         <form action="{{route('add/unit')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
