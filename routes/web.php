@@ -23,10 +23,7 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')
 ->middleware('AdminMiddleware');
 
-Route::get('/update_gv', function () {
-    return view('layouts.admin.lecturer_management.update.update_unit');
-})->name('update_gv')->middleware('AdminMiddleware');
-
+Route::get('/add/unit', [UpdateUpdateUnitController::class, 'index'])->name('add/unit');
 Route::post('/add/unit', [UpdateUpdateUnitController::class, 'store'])->name('add/unit');
 Route::post('/add/subject', [UpdateSubjectController::class, 'store'])->name('add/subject');
 
