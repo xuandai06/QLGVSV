@@ -27,8 +27,8 @@
                         <li class="group">
                             <a href="" class="rounded-lg duration-300 ease-in-out px-2 group-hover:bg-blue-200 group-hover:text-white p-3 font-bold" id="teacher">Quản lý giảng viên</a>
 
-                            <div class="absolute bg-white w-2/12 p-5 mt-10 rounded-lg border-2 border-blue-100 opacity-0 hidden flex
-                            group-hover:opacity-100 group-hover:flex">
+                            <div class="absolute bg-white w-2/12 p-5 mt-10 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,8 +55,8 @@
                         <li class="group">
                             <a href="" class="rounded-lg duration-300 ease-in-out px-2 group-hover:bg-blue-200 group-hover:text-white p-3 font-bold" id="student">Quản lý sinh viên</a>
 
-                            <div class="absolute bg-white w-2/12 p-5 mt-10 rounded-lg border-2 border-blue-100 opacity-0 hidden flex
-                            group-hover:opacity-100 group-hover:flex">
+                            <div class="absolute bg-white w-2/12 p-5 mt-10 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
