@@ -1,6 +1,6 @@
-@extends('layouts.menu')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="flex justify-center mt-2">
         <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg flex justify-between">
             <div class="w-3/12 bg-gray-200 rounded-lg p-2">
@@ -36,7 +36,8 @@
                 </div>
             </div>
 
-            @yield('update_units')
+            <?php echo $__env->yieldContent('update_units'); ?>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/admin/lecturer_management/menu_update.blade.php ENDPATH**/ ?>

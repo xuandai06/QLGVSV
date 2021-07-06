@@ -50,3 +50,8 @@ Route::get('/student', [StudentController::class, 'index'])->name('student');
 Route::get('/update_subject', function () {
     return view('layouts.admin.lecturer_management.update.update_subject');
 })->name('update_subject');
+
+//trang menu update
+Route::get('/hiep', function () {
+    return view('layouts.admin.lecturer_management.menu_update');
+})->name('update');
