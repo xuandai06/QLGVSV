@@ -116,6 +116,7 @@ unset($__errorArgs, $__bag); ?>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->name); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
+    
                                 <form action="<?php echo e(route('edit/units/index',$unit)); ?>" method="post">
                                      <?php echo csrf_field(); ?>
                                     <button>Edit</button>

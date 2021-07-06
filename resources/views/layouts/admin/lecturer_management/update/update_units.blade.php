@@ -85,6 +85,7 @@
                                 <td class="border-collapse border border-gray-500 p-2">{{$unit->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$unit->name}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
+    
                                 <form action="{{route('edit/units/index',$unit)}}" method="post">
                                      @csrf
                                     <button>Edit</button>
