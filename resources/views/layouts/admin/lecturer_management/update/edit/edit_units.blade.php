@@ -1,7 +1,20 @@
-<form action="{{route('edit/units', $unit)}}" method="post">
-    @csrf
-    <input style="display: none;" type="text" id="id" name="id" value="{{$unit->id}}">
-    <input type="text" id="temp_id" name="temp_id" value="{{$unit->id}}" disabled>
-    <input type="text" id="name" name="name" value="{{$unit->name}}">
-    <button type="submit">save</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{route('test')}}" method="post">
+        @csrf
+        <input type="text" id="id" name="id" >
+        <input type="text" id="name" name="name">
+            @error('name')
+                {{$message}}
+            @enderror
+        <button type="submit">save</button>
+    </form>
+</body>
+</html>

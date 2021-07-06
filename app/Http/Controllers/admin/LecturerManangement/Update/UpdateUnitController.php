@@ -37,15 +37,21 @@ class UpdateUnitController extends Controller
     ['unit' => $unit]);
     }
 
-    public function edit(Request $request, Unit $unit){
-        $unit->id = $request->id;
-        $unit->name = $request->name;
-        $unit->save();
-        return redirect()->route('update/units');
+    public function edit(Request $request){
+        $request->validate([
+            'name'=> 'required',
+        ]);
+
+        return $request;
+        // $unit->id = $request->id;
+        // $unit->name = $request->name;
+        // $unit->save();
+        // return redirect()->route('update/units');
     }
 
     public function search(Request $request){
        $units =  Unit::where('id','LIKE', '%'.$request->id.'%')->paginate(10);
        return view('layouts.admin.lecturer_management.update.update_units',['units' => $units]);
     }
+    
 }

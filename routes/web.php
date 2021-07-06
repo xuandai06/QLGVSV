@@ -31,13 +31,21 @@ Route::post('/delete/units/{unit}', [UpdateUpdateUnitController::class, 'delete'
 ->name('delete/units');
 Route::post('/edit/units/index/{unit}', [UpdateUpdateUnitController::class, 'edit_index'])
 ->name('edit/units/index');
-Route::post('/edit/units/{unit}', [UpdateUpdateUnitController::class, 'edit'])
-->name('edit/units');
+Route::post('/edit', [UpdateUpdateUnitController::class, 'edit'])
+->name('edit');
 Route::post('/search/units',[UpdateUpdateUnitController::class, 'search'])
 ->name('search/units');
 
-Route::post('/add/subjects', [UpdateSubjectController::class, 'store'])
-->name('add/subjects');
+Route::get('/test',function(){
+    return view('layouts.admin.lecturer_management.update.edit.edit_units');
+})->name('test');
+
+Route::post('test', [UpdateUpdateUnitController::class, 'edit'])
+->name('test');
+
+
+Route::post('/update/subjects', [UpdateSubjectController::class, 'index'])
+->name('update/subjects');
 
 
 Route::get('/lecturer', [LecturerController::class, 'index'])
