@@ -92,16 +92,14 @@ unset($__errorArgs, $__bag); ?>
                         <h1 class="">Danh sách đơn vị</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <ul class="flex items-center">
-                            <li class="flex items-center px-2">
-                                Tìm kiếm đơn vị: 
-                            </li>
-                            <li class="flex items-center px-2">
-                                <input type="text" id="search" name="search" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
-                                focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            </li>
-                        </ul>
-
+                        <form action="<?php echo e(route('search/units')); ?>" method="post">
+                                    <?php echo csrf_field(); ?>
+                                    <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
+                                    <input class="m-2 p-1 rounded-lg" type="text" id="id" name="id" 
+                                    placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                    <button type="submit" class="text-pink-500">Search</button>
+                        </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
                         <thead>
@@ -118,7 +116,11 @@ unset($__errorArgs, $__bag); ?>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->name); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <a href="">Edit</a></td>
+                                <form action="<?php echo e(route('edit/units/index',$unit)); ?>" method="post">
+                                     <?php echo csrf_field(); ?>
+                                    <button>Edit</button>
+                                </form>
+                                </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                 <form action="<?php echo e(route('delete/units',$unit)); ?>" method="post">
                                      <?php echo csrf_field(); ?>
@@ -137,4 +139,4 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update_unit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update_units.blade.php ENDPATH**/ ?>

@@ -22,7 +22,7 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="{{route('add/unit')}}" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/units')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex">
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="flex justify-center">
-                                <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Thêm</button>
+                                <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Lưu</button>
                             </div>
                         </form>
                     </div>
@@ -61,16 +61,14 @@
                         <h1 class="">Danh sách đơn vị</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <ul class="flex items-center">
-                            <li class="flex items-center px-2">
-                                Tìm kiếm đơn vị: 
-                            </li>
-                            <li class="flex items-center px-2">
-                                <input type="text" id="search" name="search" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
-                                focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            </li>
-                        </ul>
-
+                        <form action="{{route('search/units')}}" method="post">
+                                    @csrf
+                                    <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
+                                    <input class="m-2 p-1 rounded-lg" type="text" id="id" name="id" 
+                                    placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                    <button type="submit" class="text-pink-500">Search</button>
+                        </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
                         <thead>
@@ -86,8 +84,18 @@
                             <tr>
                                 <td class="border-collapse border border-gray-500 p-2">{{$unit->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$unit->name}}</td>
-                                <td class="border-collapse border border-gray-500 p-2"><a href="">repair</a></td>
-                                <td class="border-collapse border border-gray-500 p-2"><a href="">delete</a></td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                <form action="{{route('edit/units/index',$unit)}}" method="post">
+                                     @csrf
+                                    <button>Edit</button>
+                                </form>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                <form action="{{route('delete/units',$unit)}}" method="post">
+                                     @csrf
+                                    <button>Delete</button>
+                                </form>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
