@@ -55,3 +55,8 @@ Route::get('/update_subject', function () {
 Route::get('/hiep', function () {
     return view('layouts.admin.lecturer_management.menu_update');
 })->name('update');
+
+//trang menu nganh
+Route::get('/nganh', function () {
+    return view('layouts.admin.lecturer_management.update.update_majors');
+})->name('update_nganh');

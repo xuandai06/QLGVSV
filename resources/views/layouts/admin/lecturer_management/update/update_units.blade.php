@@ -1,6 +1,6 @@
 @extends('layouts.admin.lecturer_management.menu_update')
 
-@section('update_units')
+@section('update_lecturer')
 <div class="w-9/12 ml-2 flex justify-center">
     <div class="w-full bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -12,7 +12,7 @@
             </div>
 
             <div class="w-full bg-gray-200 flex-row justify-between px-6 text-gray-500 rounded-lg mt-1">
-                <div class="w-6/12 p-2 rounded-lg flex items-center">
+                <div class="w-8/12 p-2 rounded-lg flex items-center">
                     <div class="p-6 w-10/12">
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin đơn vị</h1>
@@ -64,10 +64,10 @@
                         <form action="{{route('search/units')}}" method="post">
                                     @csrf
                                     <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
-                                    <input class="m-2 p-1 rounded-lg" type="text" id="id" name="id" 
+                                    <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
                                     placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                    <button type="submit" class="text-pink-500">Search</button>
+                                    <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">

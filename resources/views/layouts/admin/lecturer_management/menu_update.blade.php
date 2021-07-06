@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            @yield('update_units')
+            @yield('update_lecturer')
         </div>
     </div>
 @endsection

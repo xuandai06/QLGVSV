@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <?php echo $__env->yieldContent('update_units'); ?>
+            <?php echo $__env->yieldContent('update_lecturer'); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
