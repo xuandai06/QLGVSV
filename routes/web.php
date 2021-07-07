@@ -81,7 +81,7 @@ Route::get('/student', [StudentController::class, 'index'])->name('student');
 
 //trang bộ môn
 Route::get('/update_subject', function () {
-    return view('layouts.admin.lecturer_management.update.update_subject');
+    return view('layouts.admin.lecturer_management.update.update_subjects');
 })->name('update_subject');
 
 //trang menu update
@@ -93,3 +93,18 @@ Route::get('/hiep', function () {
 Route::get('/nganh', function () {
     return view('layouts.admin.lecturer_management.update.update_majors');
 })->name('update_nganh');
+
+//trang update chuc vu
+Route::get('/chucvu', function () {
+    return view('layouts.admin.lecturer_management.update.update_ positions');
+})->name('update_ positions');
+
+//trang update trinh do
+Route::get('/trinhdo', function () {
+    return view('layouts.admin.lecturer_management.update.update_ levels');
+})->name('update_ levels');
+
+//trang cap nhat update_lectures
+Route::get('/update_lectures', function () {
+    return view('layouts.admin.lecturer_management.update.update_lectures');
+})->name('update_lectures');
