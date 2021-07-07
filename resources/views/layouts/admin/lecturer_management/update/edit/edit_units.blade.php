@@ -8,19 +8,6 @@
     <title>Document</title>
 </head>
 
-<body>
-    <form action="{{route('edit/units', $unit)}}" method="post">
-        @csrf
-        <input type="text" id="temp_id" name="temp_id" value="{{$unit->id }}" disabled>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $unit->name}}">
-        @error('name')
-        {{$message}}
-        @enderror
-        <button type="submit">save</button>
-    </form>
-
-</body>
-
 </html>
 
 @extends('layouts.admin.lecturer_management.menu_update')
@@ -67,49 +54,6 @@
                         </form>
                         @endif
                     </div>
-                </div>
-                <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
-                    <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
-                        <h1 class="">Danh sách đơn vị</h1>
-                    </div>
-                    <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/units')}}" method="post">
-                            @csrf
-                            <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
-                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
-                                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
-                        </form>
-                    </nav>
-                    <table class="bg-white table-fixed flex-col justify-center">
-                        <thead>
-                            <tr>
-                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã đơn vị</th>
-                                <th class="w-full border-collapse border border-gray-500 p-2">Tên đơn vị</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2">
-
-                                    <form action="" method="post">
-                                        @csrf
-                                        <button>Edit</button>
-                                    </form>
-                                </td>
-                                <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="" method="post">
-                                        @csrf
-                                        <button>Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

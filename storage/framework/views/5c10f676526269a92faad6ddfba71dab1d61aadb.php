@@ -10,7 +10,6 @@
 
 <body>
 
-
     <form action="<?php echo e(route('edit/subjects', $subject)); ?>" method="post">
         <?php echo csrf_field(); ?>
         <input type="text" id="temp_id" name="temp_id" value="<?php echo e($subject->id); ?>" disabled>

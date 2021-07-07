@@ -10,7 +10,6 @@
 
 <body>
 
-
     <form action="{{route('edit/subjects', $subject)}}" method="post">
         @csrf
         <input type="text" id="temp_id" name="temp_id" value="{{$subject->id }}" disabled>

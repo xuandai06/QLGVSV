@@ -17,65 +17,74 @@ Route::get('/', function () {
 
 // auth
 Route::get('/login', [LoginController::class, 'index'])
-->name('login');
+    ->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')
-->middleware('AdminMiddleware');
+    ->middleware('AdminMiddleware');
 //end auth
 
-//update lecturer
-Route::get('/update/lecturer', function(){
- return view('layouts.admin.lecturer_management.menu_update');
+//UPDATE LECTURER
+Route::get('/update/lecturer', function () {
+    return view('layouts.admin.lecturer_management.menu_update');
 })
-->name('update/lecturer')
-->middleware('AdminMiddleware');
+    ->name('update/lecturer')
+    ->middleware('AdminMiddleware');
 
-    // units
+// units
 
-Route::group(['middleware' => ['protectedAdminPage']], 
-function(){
-    Route::get('/update/units', [UpdateUnitController::class, 'index'])
-    ->name('update/units');
-    Route::post('/add/units', [UpdateUnitController::class, 'store'])
-    ->name('add/units');
-    Route::post('/delete/units/{unit}', [UpdateUnitController::class, 'delete'])
-    ->name('delete/units');
-    Route::get('/edit/units/index/{id}', [UpdateUnitController::class, 'edit_index'])
-    ->name('edit/units/index');
-    Route::post('/edit/units/{unit}', [UpdateUnitController::class, 'edit'])
-    ->name('edit/units');
-    Route::post('/search/units',[UpdateUnitController::class, 'search'])
-    ->name('search/units');
-});
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/units', [UpdateUnitController::class, 'index'])
+            ->name('update/units');
+        Route::post('/add/units', [UpdateUnitController::class, 'store'])
+            ->name('add/units');
+        Route::post('/delete/units/{unit}', [UpdateUnitController::class, 'delete'])
+            ->name('delete/units');
+        Route::get('/edit/units/index/{id}', [UpdateUnitController::class, 'edit_index'])
+            ->name('edit/units/index');
+        Route::post('/edit/units/{unit}', [UpdateUnitController::class, 'edit'])
+            ->name('edit/units');
+        Route::post('/search/units', [UpdateUnitController::class, 'search'])
+            ->name('search/units');
+    }
+);
 
-    //end units
+//end units
 
-    //subjects
-Route::get('/update/subjects', [UpdateSubjectController::class, 'index'])
-->name('update/subjects');
-Route::post('/add/subjects', [UpdateSubjectController::class, 'store'])
-->name('add/subjects');
-Route::post('/delete/subjects/{subject}', [UpdateSubjectController::class, 'delete'])
-->name('delete/subjects');
-Route::get('/edit/subjects/index/{id}', [UpdateSubjectController::class, 'edit_index'])
-->name('edit/subjects/index');
+//subjects
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/subjects', [UpdateSubjectController::class, 'index'])
+            ->name('update/subjects');
+        Route::post('/add/subjects', [UpdateSubjectController::class, 'store'])
+            ->name('add/subjects');
+        Route::post('/delete/subjects/{subject}', [UpdateSubjectController::class, 'delete'])
+            ->name('delete/subjects');
+        Route::get('/edit/subjects/index/{id}', [UpdateSubjectController::class, 'edit_index'])
+            ->name('edit/subjects/index');
+        Route::post('/edit/subjects/{subject}', [UpdateSubjectController::class, 'edit'])
+            ->name('edit/subjects');
+        Route::post('/search/subjects', [UpdateSubjectController::class, 'search'])
+            ->name('search/subjects');
+    }
+);
 
-Route::post('/edit/subjects/{subject}', [UpdateSubjectController::class, 'edit'])
-->name('edit/subjects');
-    //end subjects
+//end subjects
 
-    //subjects
+//majors
 Route::get('/update/majors', [UpdateMajorController::class, 'index'])
-->name('update/majors');
-    //end subjects
+    ->name('update/majors');
+//end majors
 
-//end update lecturer
+//END UPDATE LECTURER
 Route::get('/lecturer', [LecturerController::class, 'index'])
-->name('lecturer')
-->middleware('LecturerMiddleware');
+    ->name('lecturer')
+    ->middleware('LecturerMiddleware');
 
 Route::get('/student', [StudentController::class, 'index'])->name('student');
 

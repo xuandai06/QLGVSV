@@ -23,11 +23,8 @@ class UpdateSubjectController extends Controller
     $request->validate([
       'id' => 'required|unique:subjects,id',
       'name' => 'required',
+      'unit_id' => 'required|exists:App\Models\Unit,id'
     ]);
-    $unit = Unit::where('id', $request->unit_id)->get();
-    if ($unit->count() == 0) {
-      return back()->with('status', 'Mã đơn vị không tồn tại');
-    }
 
     $subject = new Subject();
     $subject->name = $request->name;
@@ -59,15 +56,17 @@ class UpdateSubjectController extends Controller
 
     $request->validate([
       'name' => 'required',
-      'unit_id' => 'required'
+      'unit_id' => 'required|exists:App\Models\Unit,id'
     ]);
-    if(!Unit::find($request->unit_id)){
-      return back()->with('status', 'not found unit id');
-    }
 
     $subject->name = $request->name;
     $subject->unit_id = $request->unit_id;
     $subject->save();
     return redirect()->route('update/subjects');
+  }
+  public function search(Request $request)
+  {
+      $subjects =  Subject::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
+      return view('layouts.admin.lecturer_management.update.update_subjects', ['subjects' => $subjects]);
   }
 }

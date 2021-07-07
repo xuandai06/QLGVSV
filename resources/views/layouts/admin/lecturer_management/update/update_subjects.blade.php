@@ -17,20 +17,12 @@
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin bộ môn</h1>
                         </div>
-                        @if(session('status'))
-                        <div class="text-red-500">
-                            {{session('status')}}
-                        </div>
-                        @endif
                         <form action="{{route('add/subjects')}}" method="post" class=" flex-col justify-center">
                             @csrf
-
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
-
-
                                 @error('id')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
@@ -55,7 +47,6 @@
                                 <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('unit_id') border-red-500 @enderror" value="">
 
-
                                 @error('unit_id')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
@@ -74,13 +65,12 @@
                         <h1 class="">Danh sách bộ môn</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
-                                    @csrf
-                                    <label for="id" class="ml-2">Tìm kiếm bộ môn</label>
-                                    <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
-                                    placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                        <form action="{{route('search/subjects')}}" method="post">
+                            @csrf
+                            <label for="id" class="ml-2">Tìm kiếm bộ môn</label>
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" value="{{old('id')}}" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                    <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
+                            <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
@@ -94,22 +84,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($subjects as $subject)
+                            @foreach($subjects as $subject)
                             <tr>
                                 <td class="border-collapse border border-gray-500 p-2">{{$subject->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$subject->name}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$subject->unit_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <a href="{{route('edit/subjects/index', $subject->id)}}">Edit</a>
+                                    <a href="{{route('edit/subjects/index', $subject->id)}}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="{{route('delete/subjects',$subject)}}" method="post">
-                                     @csrf
-                                    <button>Delete</button>
-                                </form>
+                                    <form action="{{route('delete/subjects',$subject)}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
