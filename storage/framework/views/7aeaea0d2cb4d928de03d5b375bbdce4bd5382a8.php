@@ -7,34 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    
-        
-         <?php if($unit->name != ""): ?>
             <form action="<?php echo e(route('edit/units', $unit)); ?>" method="post">
-            <?php echo csrf_field(); ?>
-                <input style="display: none;" type="text" id="id" name="id"
-                value="<?php echo e($unit->id); ?>">
+                 <?php echo csrf_field(); ?>
                 <input type="text" id="temp_id" name="temp_id" 
                 value="<?php echo e($unit->id); ?>" disabled>
-                <input type="text" id="name" name="name" value="<?php echo e($unit->name); ?>">
+                <input type="text" id="name" name="name" value="<?php echo e(old('name') ?? $unit->name); ?>">
+                <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <?php echo e($message); ?>
+
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 <button type="submit">save</button>
             </form>
-         
-         <?php else: ?>
-         <form action="<?php echo e(route('edit/units', $unit)); ?>" method="post">
-         <?php echo csrf_field(); ?>
-            <input style="display: none;" type="text" id="id" name="id"
-             value="<?php echo e($unit->id); ?>">
-            <input type="text" id="temp_id" name="temp_id" 
-            value="<?php echo e($unit->id); ?>" disabled>
-            <input type="text" id="name" name="name" value="<?php echo e(old('name')); ?>">
-            <p>Tên không hợp lệ</p>
-            <button type="submit">save</button>
-        </form>
-         <?php endif; ?>
            
-        
-    
 </body>
 </html>
 <?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/lecturer_management/update/edit/edit_units.blade.php ENDPATH**/ ?>

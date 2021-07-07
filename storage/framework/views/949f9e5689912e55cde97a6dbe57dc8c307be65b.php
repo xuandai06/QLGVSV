@@ -13,7 +13,7 @@
 <body class="w-full bg-gray-200">
 
     <div>
-        <nav class="p-3 bg-white flex justify-between">
+        <nav class="p-3 bg-white flex justify-between border-b-2 border-gray-500">
 
             <ul class="flex items-center pl-4">
                 <li class="flex items-center rounded-lg">
@@ -30,14 +30,14 @@
                                 <a href="" id="teacher">Quản lý giảng viên</a>
                             </div>
 
-                            <div class="absolute bg-white py-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            <div class="absolute bg-white py-5 rounded-lg border-2 border-blue-100 opacity-0 invisible
                                 group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
-                                    <li class="group relative flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
+                                    <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
                                         </svg>
-                                        <a href="" class="clear-left p-2">Cập nhập giảng viên</a>
+                                        <a href="<?php echo e(route('update/lecturer')); ?>" class="clear-left p-2">Cập nhập giảng viên</a>
                                     </li>
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,7 +59,7 @@
                             <div class="rounded-lg duration-300 ease-in-out px-2 group-hover:bg-blue-200 group-hover:text-white p-3 font-bold">
                                 <a href="" id="teacher">Quản lý sinh viên</a>
                             </div>
-                            <div class="absolute bg-white py-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            <div class="absolute bg-white py-5 rounded-lg border-2 border-blue-100 opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
@@ -88,7 +88,7 @@
                         <div class="rounded-lg duration-300 ease-in-out px-2 group-hover:bg-blue-200 group-hover:text-white p-3 font-bold">
                                 <a href="" id="teacher">Quản lý NCKH-GV</a>
                             </div>
-                            <div class="absolute bg-white py-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            <div class="absolute bg-white py-5 rounded-lg border-2 border-blue-100 opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
@@ -118,7 +118,7 @@
                         <div class="rounded-lg duration-300 ease-in-out px-2 group-hover:bg-blue-200 group-hover:text-white p-3 font-bold">
                                 <a href="" id="teacher">Quản lý NCKH-SV</a>
                             </div>
-                            <div class="absolute bg-white py-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            <div class="absolute bg-white py-5 rounded-lg border-2 border-blue-100 opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
@@ -149,7 +149,7 @@
                                 <a href="" id="teacher">Lịch công tác GV</a>
                             </div>
                             
-                            <div class="absolute bg-white py-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            <div class="absolute bg-white py-5 rounded-lg border-2 border-blue-100 opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">
@@ -185,7 +185,7 @@
                                 <a href="" id="teacher">TKB-SV</a>
                             </div>
                             
-                            <div class="absolute bg-white py-5 mt-2 rounded-lg border-2 border-blue-100 opacity-0 invisible
+                            <div class="absolute bg-white py-5 rounded-lg border-2 border-blue-100 opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible">
                                 <ul class="mx-6">
                                     <li class="flex items-center rounded-lg duration-300 ease-in-out hover:bg-blue-200 px-2 hover:text-white p-1">

@@ -1,6 +1,6 @@
-@extends('layouts.menu')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="flex justify-center mt-2">
         <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg flex justify-between">
             <div class="w-3/12 bg-gray-200 rounded-lg p-2">
@@ -10,11 +10,11 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="{{route('update/units')}}">=> Cập nhật thông tin về đơn vị</a>
+                            <a href="<?php echo e(route('update/units')); ?>">=> Cập nhật thông tin về đơn vị</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="{{route('update/subjects')}}">=> Cập nhật thông tin về bộ môn</a>
+                            <a href="<?php echo e(route('update/subjects')); ?>">=> Cập nhật thông tin về bộ môn</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
@@ -36,7 +36,8 @@
                 </div>
             </div>
 
-            @yield('update_lecturer')
+            <?php echo $__env->yieldContent('update_lecturer'); ?>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/lecturer_management/menu_update.blade.php ENDPATH**/ ?>

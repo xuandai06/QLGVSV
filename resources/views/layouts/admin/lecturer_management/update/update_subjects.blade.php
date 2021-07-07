@@ -22,7 +22,7 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/subjects')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex">
@@ -52,11 +52,11 @@
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                <input type="text" name="id_unit" id="id_unit" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id_unit') border-red-500 @enderror" value="">
+                                <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('unit_id') border-red-500 @enderror" value="">
 
 
-                                @error('id_unit')
+                                @error('unit_id')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
                                 </div>
@@ -94,23 +94,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($subjects as $subject)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">fghf</td>
-                                <td class="border-collapse border border-gray-500 p-2">ff</td>
-                                <td class="border-collapse border border-gray-500 p-2">ff</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$subject->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$subject->name}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$subject->unit_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="" method="post">
-                                     @csrf
-                                    <button>Edit</button>
-                                </form>
+                                <a href="{{route('edit/subjects/index', $subject->id)}}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="" method="post">
+                                <form action="{{route('delete/subjects',$subject)}}" method="post">
                                      @csrf
                                     <button>Delete</button>
                                 </form>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

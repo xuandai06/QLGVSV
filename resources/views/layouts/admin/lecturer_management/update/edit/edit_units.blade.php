@@ -7,32 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    
-         @if($unit->name != "")
             <form action="{{route('edit/units', $unit)}}" method="post">
-            @csrf
-                <input style="display: none;" type="text" id="id" name="id"
-                value="{{$unit->id }}">
+                 @csrf
                 <input type="text" id="temp_id" name="temp_id" 
                 value="{{$unit->id }}" disabled>
-                <input type="text" id="name" name="name" value="{{$unit->name}}">
+                <input type="text" id="name" name="name" value="{{old('name') ?? $unit->name}}">
+                @error('name')
+                    {{$message}}
+                @enderror
                 <button type="submit">save</button>
             </form>
-         
-         @else
-         <form action="{{route('edit/units', $unit)}}" method="post">
-         @csrf
-            <input style="display: none;" type="text" id="id" name="id"
-             value="{{$unit->id}}">
-            <input type="text" id="temp_id" name="temp_id" 
-            value="{{$unit->id}}" disabled>
-            <input type="text" id="name" name="name" value="{{old('name')}}">
-            <p>Tên không hợp lệ</p>
-            <button type="submit">save</button>
-        </form>
-         @endif
            
-        
-    
 </body>
 </html>
