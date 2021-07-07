@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
-<body class="w-full bg-gray-200">
+<body class="w-full bg-gray-200 font-sans">
 
     <div>
         <nav class="p-3 bg-white flex justify-between border-b-2 border-gray-500">

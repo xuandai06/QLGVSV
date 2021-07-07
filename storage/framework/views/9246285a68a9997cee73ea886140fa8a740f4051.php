@@ -8,14 +8,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <p class="clear-left p-2">Cập nhập thông tin về đơn vị</p>
+                <p class="clear-left p-2">Cập nhập thông tin về chức vụ</p>
             </div>
 
             <div class="w-full bg-gray-200 flex-row justify-between px-6 text-gray-500 rounded-lg mt-1">
                 <div class="w-8/12 p-2 rounded-lg flex items-center">
                     <div class="p-6 w-10/12">
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
-                            <h1 class="">Thêm thông tin đơn vị</h1>
+                            <h1 class="">Thêm thông tin chức vụ</h1>
                         </div>
                         <?php if(session('status')): ?>
                         <div class="text-red-500">
@@ -27,8 +27,8 @@
                             <?php echo csrf_field(); ?>
 
                             <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-8/12 p-4 rounded-lg
+                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã chức vụ: </p>
+                                <input type="text" name="id" id="id" placeholder="Nhập vào mã chức vụ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -55,8 +55,8 @@ unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên đơn vị: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên chức vụ: </p>
+                                <input type="text" name="name" id="name" placeholder="Nhập vào tên chức vụ ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -89,12 +89,12 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
                     <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
-                        <h1 class="">Danh sách đơn vị</h1>
+                        <h1 class="">Danh sách chức vụ</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="<?php echo e(route('search/units')); ?>" method="post">
                                     <?php echo csrf_field(); ?>
-                                    <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
+                                    <label for="id" class="ml-2">Tìm kiếm chức vụ</label>
                                     <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
                                     placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
@@ -104,40 +104,36 @@ unset($__errorArgs, $__bag); ?>
                     <table class="bg-white table-fixed flex-col justify-center">
                         <thead>
                             <tr>
-                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã đơn vị</th>
-                                <th class="w-full border-collapse border border-gray-500 p-2">Tên đơn vị</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã chức vụ</th>
+                                <th class="w-full border-collapse border border-gray-500 p-2">Tên chức vụ</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $__currentLoopData = $units; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->id); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->name); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"></td>
+                                <td class="border-collapse border border-gray-500 p-2"></td>
                                 <td class="border-collapse border border-gray-500 p-2">
     
-                                <form action="<?php echo e(route('edit/units/index',$unit)); ?>" method="post">
+                                <form action="" method="post">
                                      <?php echo csrf_field(); ?>
                                     <button>Edit</button>
                                 </form>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="<?php echo e(route('delete/units',$unit)); ?>" method="post">
+                                <form action="" method="post">
                                      <?php echo csrf_field(); ?>
                                     <button>Delete</button>
                                 </form>
                                 </td>
                             </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
-                    <?php echo e($units->links()); ?>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin.lecturer_management.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update_units.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin.lecturer_management.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/admin/lecturer_management/update/update_ positions.blade.php ENDPATH**/ ?>
