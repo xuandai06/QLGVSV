@@ -10,27 +10,27 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về đơn vị</a>
+                            <a href="<?php echo e(route('update/units')); ?>">=> Cập nhật thông tin về đơn vị</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về bộ môn</a>
+                            <a href="<?php echo e(route('update/subjects')); ?>">=> Cập nhật thông tin về bộ môn</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về ngành</a>
+                            <a href="<?php echo e(route('update/majors')); ?>">=> Cập nhật thông tin về ngành</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về chức vụ</a>
+                            <a href="<?php echo e(route('update/positions')); ?>">=> Cập nhật thông tin về chức vụ</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về trình độ</a>
+                            <a href="<?php echo e(route('update/levels')); ?>">=> Cập nhật thông tin về trình độ</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về thông tin cá nhân</a>
+                            <a href="<?php echo e(route('update/lecturer')); ?>">=> Cập nhật thông tin về thông tin cá nhân</a>
                         </li>
                     </ul>
                 </div>
