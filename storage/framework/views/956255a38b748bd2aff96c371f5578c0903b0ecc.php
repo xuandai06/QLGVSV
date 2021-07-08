@@ -85,6 +85,7 @@ unset($__errorArgs, $__bag); ?>
                                 <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Lưu</button>
                             </div>
                         </form>
+                    
                     </div>
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
@@ -116,11 +117,7 @@ unset($__errorArgs, $__bag); ?>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->name); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-    
-                                <form action="<?php echo e(route('edit/units/index',$unit)); ?>" method="post">
-                                     <?php echo csrf_field(); ?>
-                                    <button>Edit</button>
-                                </form>
+                                <a href="<?php echo e(route('edit/units/index', $unit->id)); ?>">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                 <form action="<?php echo e(route('delete/units',$unit)); ?>" method="post">

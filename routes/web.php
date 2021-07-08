@@ -121,21 +121,6 @@ Route::get('/lecturer', [LecturerController::class, 'index'])
 
 Route::get('/student', [StudentController::class, 'index'])->name('student');
 
-//trang bộ môn
-Route::get('/update_subject', function () {
-    return view('layouts.admin.lecturer_management.update.update_subjects');
-})->name('update_subject');
-
-//trang menu update
-Route::get('/hiep', function () {
-    return view('layouts.admin.lecturer_management.menu_update');
-})->name('update');
-
-//trang menu nganh
-Route::get('/nganh', function () {
-    return view('layouts.admin.lecturer_management.update.update_majors');
-})->name('update_nganh');
-
 //trang update chuc vu
 Route::get('/chucvu', function () {
     return view('layouts.admin.lecturer_management.update.update_ positions');
@@ -150,3 +135,9 @@ Route::get('/trinhdo', function () {
 Route::get('/update_lectures', function () {
     return view('layouts.admin.lecturer_management.update.update_lectures');
 })->name('update_lectures');
+
+//trang search lucturer
+
+Route::get('/search_lecturers', function () {
+    return view('layouts.admin.lecturer_management.search.search_lecturers');
+});
