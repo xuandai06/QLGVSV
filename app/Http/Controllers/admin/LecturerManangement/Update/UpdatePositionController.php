@@ -20,15 +20,13 @@ class UpdatePositionController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-        'id' => 'required|unique:majors,id',
+        'id' => 'required|unique:positions,id',
         'name' => 'required',
-        'subject_id' => 'required|exists:App\Models\Subject,id'
       ]);
   
       $position = new Position();
       $position->name = $request->name;
       $position->id = $request->id;
-      $position->subject_id = $request->subject_id;
       $position->save();
   
       return redirect()->route('update/positions');
@@ -51,17 +49,15 @@ class UpdatePositionController extends Controller
   
       $request->validate([
         'name' => 'required',
-        'subject_id' => 'required|exists:App\Models\Subject,id'
       ]);
   
       $position->name = $request->name;
-      $position->subject_id = $request->subject_id;
       $position->save();
-      return back()->with('status', 'Cập nhật bộ môn thành công');
+      return back()->with('status', 'Cập nhật chức vụ thành công');
     }
     public function search(Request $request)
     {
-        $position =  Position::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
-        return view('layouts.admin.lecturer_management.update.update_subjects', ['positions' => $position]);
+        $positions =  Position::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
+        return view('layouts.admin.lecturer_management.update.update_positions', ['positions' => $positions]);
     }
 }

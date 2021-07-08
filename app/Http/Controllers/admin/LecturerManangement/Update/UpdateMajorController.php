@@ -34,19 +34,19 @@ class UpdateMajorController extends Controller
     return redirect()->route('update/majors');
   }
 
-  public function delete(Position $position)
+  public function delete(Major $major)
   {
-    $position->delete();
-    return redirect()->route('update/positions');
+    $major->delete();
+    return redirect()->route('update/majors');
   }
 
   public function edit_index($id)
   {
-    $position = Position::find($id);
-    return view('layouts.admin.lecturer_management.update.edit.edit_positions', ['position' => $position]);
+    $major = Major::find($id);
+    return view('layouts.admin.lecturer_management.update.edit.edit_majors', ['major' => $major]);
   }
 
-  public function edit(Request $request, Position $position)
+  public function edit(Request $request, Major $major)
   {
 
     $request->validate([
@@ -54,14 +54,14 @@ class UpdateMajorController extends Controller
       'subject_id' => 'required|exists:App\Models\Subject,id'
     ]);
 
-    $position->name = $request->name;
-    $position->subject_id = $request->subject_id;
-    $position->save();
-    return back()->with('status', 'Cập nhật bộ môn thành công');
+    $major->name = $request->name;
+    $major->subject_id = $request->subject_id;
+    $major->save();
+    return back()->with('status', 'Cập nhật ngành thành công');
   }
   public function search(Request $request)
   {
-      $position =  Position::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
-      return view('layouts.admin.lecturer_management.update.update_subjects', ['positions' => $position]);
+      $majors =  Major::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
+      return view('layouts.admin.lecturer_management.update.update_majors', ['majors' => $majors]);
   }
 }

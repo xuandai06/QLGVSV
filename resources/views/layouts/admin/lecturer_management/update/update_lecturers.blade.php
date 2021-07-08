@@ -22,13 +22,13 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="{{route('add/units')}}" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/lecturers')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã giảng viên ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
 
 
                                 @error('id')
@@ -41,7 +41,7 @@
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Họ tên giảng viên: </p>
                                 <input type="text" name="name" id="name" placeholder="Nhập vào họ tên trình độ ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
 
                                 @error('name')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -51,21 +51,18 @@
                             </div>
 
                             <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Giới tính: </p>
-                                <input type="text" name="sex" id="sex" placeholder="Nhập vào giới tính ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('sex') border-red-500 @enderror" value="">
-
-                                @error('sex')
-                                <div class="text-red-500 mt-2 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                            <p class="text-gray-500 text-xl w-5/12 pt-3">Giới tính: </p>
+                                <select name="sex" id="sex">
+                                    <option value="admin">Nam</option>
+                                    <option value="teacher">Nữ</option>
+                                    <option value="student">Bê đê</option>
+                                </select>
                             </div>
 
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Ngày sinh: </p>
                                 <input type="text" name="birthday" id="birthday" placeholder="Nhập vào ngày sinh ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('birthday') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('birthday') border-red-500 @enderror" value="{{old('birthday')}}">
 
                                 @error('birthday')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -77,7 +74,7 @@
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Quê quán: </p>
                                 <input type="text" name="hometown" id="hometown" placeholder="Nhập vào quê quán ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('hometown') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('hometown') border-red-500 @enderror" value="{{old('hometown')}}">
 
                                 @error('hometown')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -89,7 +86,7 @@
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Địa chỉ: </p>
                                 <input type="text" name="address" id="address" placeholder="Nhập vào địa chỉ ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('address') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('address') border-red-500 @enderror" value="{{old('address')}}">
 
                                 @error('address')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -100,8 +97,8 @@
 
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Số điện thoại: </p>
-                                <input type="text" name="phonenumber" id="phonenumber" placeholder="Nhập vào số điện thoại ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('phonenumber') border-red-500 @enderror" value="">
+                                <input type="text" name="phone_number" id="phone_number" placeholder="Nhập vào số điện thoại ..." class="bg-white w-8/12 p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('phone_number') border-red-500 @enderror" value="{{old('phone_number')}}">
 
                                 @error('phonenumber')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -113,7 +110,7 @@
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Ghi chú: </p>
                                 <input type="text" name="note" id="note" placeholder="Nhập vào ghi chú ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note')}}">
 
                                 @error('note')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -125,7 +122,7 @@
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Mã chức vụ: </p>
                                 <input type="text" name="position_id" id="position_id" placeholder="Nhập vào mã chức vụ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('position_id') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('position_id') border-red-500 @enderror" value="{{old('position_id')}}">
 
                                 @error('position_id')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -137,7 +134,7 @@
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Mã trình độ: </p>
                                 <input type="text" name="level_id" id="level_id" placeholder="Nhập vào mã trình độ ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('level_id') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('level_id') border-red-500 @enderror" value="{{old('level_id')}}">
 
                                 @error('level_id')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -149,7 +146,7 @@
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Mã ngành: </p>
                                 <input type="text" name="major_id" id="major_id" placeholder="Nhập vào mã ngành ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('major_id') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('major_id') border-red-500 @enderror" value="{{old('major_id')}}">
 
                                 @error('major_id')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -170,12 +167,11 @@
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="{{route('search/units')}}" method="post">
-                                    @csrf
-                                    <label for="id" class="ml-2">Tìm kiếm trình độ</label>
-                                    <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
-                                    placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            @csrf
+                            <label for="id" class="ml-2">Tìm kiếm trình độ</label>
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" value="{{old('id')}}" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                    <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
+                            <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
@@ -197,32 +193,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($lecturers as $lecturer)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->name}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->sex}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->birthday}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->hometown}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->address}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->phone_number}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->level_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->position_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->major_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$lecturer->note}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-    
-                                <form action="" method="post">
-                                     @csrf
-                                    <button>Edit</button>
-                                </form>
+                                    <a href="{{route('edit/lecturers/index', $lecturer->id)}}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="" method="post">
-                                     @csrf
-                                    <button>Delete</button>
-                                </form>
+                                    <form action="{{route('delete/lecturers', $lecturer)}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -230,4 +224,4 @@
         </div>
     </div>
 </div>
-@endsection 
+@endsection

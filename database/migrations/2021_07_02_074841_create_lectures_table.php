@@ -13,8 +13,8 @@ class CreateLecturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lectures', function (Blueprint $table) {
-            $table->string('id',15);
+        Schema::create('lecturers', function (Blueprint $table) {
+            $table->string('id',15)->primary();
             $table->string('name',100);
             $table->string('sex',10);
             $table->date('birthday')->nullable();

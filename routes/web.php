@@ -100,18 +100,63 @@ Route::group(
 //end majors
 
 //positions
-Route::get('/update/positions', [UpdatePositionController::class, 'index'])
-    ->name('update/positions');
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/positions', [UpdatePositionController::class, 'index'])
+            ->name('update/positions');
+        Route::post('/add/positions', [UpdatePositionController::class, 'store'])
+            ->name('add/positions');
+        Route::post('/delete/positions/{position}', [UpdatePositionController::class, 'delete'])
+            ->name('delete/positions');
+        Route::get('/edit/positions/index/{id}', [UpdatePositionController::class, 'edit_index'])
+            ->name('edit/positions/index');
+        Route::post('/edit/positions/{position}', [UpdatePositionController::class, 'edit'])
+            ->name('edit/positions');
+        Route::post('/search/positions', [UpdatePositionController::class, 'search'])
+            ->name('search/positions');
+    }
+);
 //end positions
 
 //levels
-Route::get('/update/levels', [UpdateLevelController::class, 'index'])
-    ->name('update/levels');
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/levels', [UpdateLevelController::class, 'index'])
+            ->name('update/levels');
+        Route::post('/add/levels', [UpdateLevelController::class, 'store'])
+            ->name('add/levels');
+        Route::post('/delete/levels/{level}', [UpdateLevelController::class, 'delete'])
+            ->name('delete/levels');
+        Route::get('/edit/levels/index/{id}', [UpdateLevelController::class, 'edit_index'])
+            ->name('edit/levels/index');
+        Route::post('/edit/levels/{level}', [UpdateLevelController::class, 'edit'])
+            ->name('edit/levels');
+        Route::post('/search/levels', [UpdateLevelController::class, 'search'])
+            ->name('search/levels');
+    }
+);
 //end levels
 
 //lecturer
-Route::get('/update/lecturers', [UpdateLecturerController::class, 'index'])
-    ->name('update/lecturers');
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/lecturers', [UpdateLecturerController::class, 'index'])
+        ->name('update/lecturers');
+        Route::post('/add/lecturers', [UpdateLecturerController::class, 'store'])
+            ->name('add/lecturers');
+        Route::post('/delete/lecturers/{lecturer}', [UpdateLecturerController::class, 'delete'])
+            ->name('delete/lecturers');
+        Route::get('/edit/lecturers/index/{id}', [UpdateLecturerController::class, 'edit_index'])
+            ->name('edit/lecturers/index');
+        Route::post('/edit/lecturers/{lecturer}', [UpdateLecturerController::class, 'edit'])
+            ->name('edit/lecturers');
+        Route::post('/search/lecturers', [UpdateLecturerController::class, 'search'])
+            ->name('search/lecturers');
+    }
+);
 //end lecturer
 
 //END UPDATE LECTURER

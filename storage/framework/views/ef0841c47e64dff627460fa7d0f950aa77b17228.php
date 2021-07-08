@@ -119,7 +119,7 @@ unset($__errorArgs, $__bag); ?>
                         <h1 class="">Danh sách ngành</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="route('search/majors')" method="post">
+                        <form action="<?php echo e(route('search/majors')); ?>" method="post">
                                     <?php echo csrf_field(); ?>
                                     <label for="id" class="ml-2">Tìm kiếm ngành</label>
                                     <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 

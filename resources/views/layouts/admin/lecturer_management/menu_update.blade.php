@@ -30,7 +30,7 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="{{route('update/lecturer')}}">=> Cập nhật thông tin về thông tin cá nhân</a>
+                            <a href="{{route('update/lecturers')}}">=> Cập nhật thông tin về thông tin cá nhân</a>
                         </li>
                     </ul>
                 </div>
