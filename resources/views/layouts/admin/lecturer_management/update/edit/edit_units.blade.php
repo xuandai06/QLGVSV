@@ -29,11 +29,7 @@
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
                             <h1 class="">Sửa thông tin đơn vị</h1>
                         </div>
-                        @if(session('status'))
-                        <div class="text-red-500">
-                            {{session('status')}}
-                        </div>
-                        @endif
+
                         @if($unit->name != "")
                         <form action="{{route('edit/units', $unit)}}" method="post" class="flex justify-between">
                             @csrf
@@ -52,6 +48,11 @@
                             <p>Tên không hợp lệ</p>
                             <button type="submit">save</button>
                         </form>
+                        @endif
+                        @if(session('status'))
+                        <div class="text-red-500">
+                            {{session('status')}}
+                        </div>
                         @endif
                     </div>
                 </div>

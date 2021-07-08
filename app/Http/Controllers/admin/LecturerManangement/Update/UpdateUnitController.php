@@ -27,7 +27,7 @@ class UpdateUnitController extends Controller
         $unit->id = $request->id;
         $unit->name = $request->name;
         $unit->save();
-        return redirect()->route('update/units');
+        return redirect()->route('update/units')->with('status', 'Thêm đơn vị thành công');
     }
 
     public function delete(Unit $unit)
@@ -54,7 +54,7 @@ class UpdateUnitController extends Controller
 
         $unit->name = $request->name;
         $unit->save();
-        return redirect()->route('update/units');
+        return back()->with('status', 'Cập nhật đơn vị thành công');
     }
 
     public function search(Request $request)

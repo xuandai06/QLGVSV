@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateLecturerController;
+use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateLevelController;
 use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateMajorController;
+use App\Http\Controllers\Admin\LecturerManangement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateUnitController;
 use App\Http\Controllers\auth\LoginController;
@@ -77,9 +80,39 @@ Route::group(
 //end subjects
 
 //majors
-Route::get('/update/majors', [UpdateMajorController::class, 'index'])
-    ->name('update/majors');
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/majors', [UpdateMajorController::class, 'index'])
+            ->name('update/majors');
+        Route::post('/add/majors', [UpdateMajorController::class, 'store'])
+            ->name('add/majors');
+        Route::post('/delete/majors/{major}', [UpdateMajorController::class, 'delete'])
+            ->name('delete/majors');
+        Route::get('/edit/majors/index/{id}', [UpdateMajorController::class, 'edit_index'])
+            ->name('edit/majors/index');
+        Route::post('/edit/majors/{major}', [UpdateMajorController::class, 'edit'])
+            ->name('edit/majors');
+        Route::post('/search/majors', [UpdateMajorController::class, 'search'])
+            ->name('search/majors');
+    }
+);
 //end majors
+
+//positions
+Route::get('/update/positions', [UpdatePositionController::class, 'index'])
+    ->name('update/positions');
+//end positions
+
+//levels
+Route::get('/update/levels', [UpdateLevelController::class, 'index'])
+    ->name('update/levels');
+//end levels
+
+//lecturer
+Route::get('/update/lecturers', [UpdateLecturerController::class, 'index'])
+    ->name('update/lecturers');
+//end lecturer
 
 //END UPDATE LECTURER
 Route::get('/lecturer', [LecturerController::class, 'index'])

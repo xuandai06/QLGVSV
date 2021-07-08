@@ -18,19 +18,19 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về ngành</a>
+                            <a href="{{route('update/majors')}}">=> Cập nhật thông tin về ngành</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về chức vụ</a>
+                            <a href="{{route('update/positions')}}">=> Cập nhật thông tin về chức vụ</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về trình độ</a>
+                            <a href="{{route('update/levels')}}">=> Cập nhật thông tin về trình độ</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về thông tin cá nhân</a>
+                            <a href="{{route('update/lecturer')}}">=> Cập nhật thông tin về thông tin cá nhân</a>
                         </li>
                     </ul>
                 </div>

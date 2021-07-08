@@ -46,10 +46,6 @@ class UpdateSubjectController extends Controller
     $subject = Subject::find($id);
     return view('layouts.admin.lecturer_management.update.edit.edit_subjects', ['subject' => $subject]);
   }
-  public function edit_index2(Subject $subject)
-  {
-    return view('layouts.admin.lecturer_management.update.edit.edit_subjects', ['subject' => $subject]);
-  }
 
   public function edit(Request $request, Subject $subject)
   {
@@ -62,7 +58,7 @@ class UpdateSubjectController extends Controller
     $subject->name = $request->name;
     $subject->unit_id = $request->unit_id;
     $subject->save();
-    return redirect()->route('update/subjects');
+    return back()->with('status', 'Cập nhật bộ môn thành công');
   }
   public function search(Request $request)
   {

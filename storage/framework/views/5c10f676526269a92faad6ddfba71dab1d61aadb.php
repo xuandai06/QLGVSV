@@ -28,12 +28,6 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-        <?php if(session('status')): ?>
-        <div class="text-red-500">
-            <?php echo e(session('status')); ?>
-
-        </div>
-        <?php endif; ?>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" value="<?php echo e(old('name') ?? $subject->name); ?>">
         <?php $__errorArgs = ['name'];
@@ -51,6 +45,12 @@ endif;
 unset($__errorArgs, $__bag); ?>
         <button type="submit">save</button>
     </form>
+    <?php if(session('status')): ?>
+    <div class="text-red-500">
+        <?php echo e(session('status')); ?>
+
+    </div>
+    <?php endif; ?>
 
 
 </body>

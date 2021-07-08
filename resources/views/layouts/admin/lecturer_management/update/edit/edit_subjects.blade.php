@@ -20,11 +20,6 @@
             {{$message}}
         </div>
         @enderror
-        @if(session('status'))
-        <div class="text-red-500">
-            {{session('status')}}
-        </div>
-        @endif
         <label for="name">Name</label>
         <input type="text" id="name" name="name" value="{{old('name') ?? $subject->name}}">
         @error('name')
@@ -34,6 +29,11 @@
         @enderror
         <button type="submit">save</button>
     </form>
+    @if(session('status'))
+    <div class="text-red-500">
+        {{session('status')}}
+    </div>
+    @endif
 
 
 </body>

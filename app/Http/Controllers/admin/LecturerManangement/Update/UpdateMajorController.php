@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\LecturerManangement\Update;
 
 use App\Http\Controllers\Controller;
 use App\Models\Major;
+use App\Models\Position;
 use Illuminate\Http\Request;
 
 class UpdateMajorController extends Controller
@@ -19,55 +20,48 @@ class UpdateMajorController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      'id' => 'required|unique:subjects,id',
+      'id' => 'required|unique:majors,id',
       'name' => 'required',
+      'subject_id' => 'required|exists:App\Models\Subject,id'
     ]);
-    $unit = Unit::where('id', $request->unit_id)->get();
-    if ($unit->count() == 0) {
-      return back()->with('status', 'Mã đơn vị không tồn tại');
-    }
 
-    $subject = new Subject();
-    $subject->name = $request->name;
-    $subject->id = $request->id;
-    $subject->unit_id = $request->unit_id;
-    $subject->save();
+    $majors = new Major();
+    $majors->name = $request->name;
+    $majors->id = $request->id;
+    $majors->subject_id = $request->subject_id;
+    $majors->save();
 
-    return redirect()->route('update/subjects');
+    return redirect()->route('update/majors');
   }
 
-  public function delete(Subject $subject)
+  public function delete(Position $position)
   {
-    $subject->delete();
-    return redirect()->route('update/subjects');
+    $position->delete();
+    return redirect()->route('update/positions');
   }
 
   public function edit_index($id)
   {
-    $subject = Subject::find($id);
-    return view('layouts.admin.lecturer_management.update.edit.edit_subjects', ['subject' => $subject]);
-  }
-  public function edit_index2(Subject $subject)
-  {
-    return view('layouts.admin.lecturer_management.update.edit.edit_subjects', ['subject' => $subject]);
+    $position = Position::find($id);
+    return view('layouts.admin.lecturer_management.update.edit.edit_positions', ['position' => $position]);
   }
 
-  public function edit(Request $request, Subject $subject)
+  public function edit(Request $request, Position $position)
   {
 
     $request->validate([
       'name' => 'required',
-      'unit_id' => 'required|exists:App\Models\Unit,id'
+      'subject_id' => 'required|exists:App\Models\Subject,id'
     ]);
 
-    $subject->name = $request->name;
-    $subject->unit_id = $request->unit_id;
-    $subject->save();
-    return redirect()->route('update/subjects');
+    $position->name = $request->name;
+    $position->subject_id = $request->subject_id;
+    $position->save();
+    return back()->with('status', 'Cập nhật bộ môn thành công');
   }
   public function search(Request $request)
   {
-      $subjects =  Subject::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
-      return view('layouts.admin.lecturer_management.update.update_subjects', ['subjects' => $subjects]);
+      $position =  Position::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
+      return view('layouts.admin.lecturer_management.update.update_subjects', ['positions' => $position]);
   }
 }

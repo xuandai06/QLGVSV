@@ -22,7 +22,7 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/majors')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex">
@@ -52,11 +52,10 @@
 
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
-                                <input type="text" name="id_subject" id="id_subject" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id_subject') border-red-500 @enderror" value="">
-
-
-                                @error('id_subject')
+                                <input type="text" name="subject_id" id="subject_id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('subject_id') border-red-500 @enderror" value="">
+                               
+                                @error('subject_id')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
                                 </div>
@@ -74,7 +73,7 @@
                         <h1 class="">Danh sách ngành</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
+                        <form action="route('search/majors')" method="post">
                                     @csrf
                                     <label for="id" class="ml-2">Tìm kiếm ngành</label>
                                     <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
@@ -94,23 +93,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($majors as $major)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">fghf</td>
-                                <td class="border-collapse border border-gray-500 p-2">ff</td>
-                                <td class="border-collapse border border-gray-500 p-2">ff</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$major->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$major->name}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$major->subject_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="" method="post">
-                                     @csrf
-                                    <button>Edit</button>
-                                </form>
+                                    <a href="{{route('edit/majors/index', $major->id)}}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="" method="post">
+                                <form action="{{route('delete/majors', $major)}}" method="post">
                                      @csrf
                                     <button>Delete</button>
                                 </form>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
