@@ -30,8 +30,18 @@
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã giảng viên ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
 
-
                                 @error('id')
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="mb-2 flex">
+                                <p class="text-gray-500 text-xl w-5/12 pt-3">Email: </p>
+                                <input type="text" name="email" id="email" placeholder="Nhập vào gmail ..." class="bg-white w-8/12 p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('email') border-red-500 @enderror" value="{{old('email')}}">
+
+                                @error('email')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
                                 </div>
@@ -40,7 +50,7 @@
 
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Họ tên giảng viên: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào họ tên trình độ ..." class="bg-white w-8/12 p-2 rounded-lg
+                                <input type="text" name="name" id="name" placeholder="Nhập vào họ tên..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
 
                                 @error('name')
@@ -51,17 +61,17 @@
                             </div>
 
                             <div class="mb-2 flex">
-                            <p class="text-gray-500 text-xl w-5/12 pt-3">Giới tính: </p>
+                                <p class="text-gray-500 text-xl w-5/12 pt-3">Giới tính: </p>
                                 <select name="sex" id="sex">
-                                    <option value="admin">Nam</option>
-                                    <option value="teacher">Nữ</option>
-                                    <option value="student">Bê đê</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                    <option value="Bê đê">Bê đê</option>
                                 </select>
                             </div>
 
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Ngày sinh: </p>
-                                <input type="text" name="birthday" id="birthday" placeholder="Nhập vào ngày sinh ..." class="bg-white w-8/12 p-2 rounded-lg
+                                <input type="date" name="birthday" id="birthday" placeholder="Nhập vào ngày sinh ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('birthday') border-red-500 @enderror" value="{{old('birthday')}}">
 
                                 @error('birthday')
@@ -119,6 +129,19 @@
                                 @enderror
                             </div>
 
+
+                            <div class="mb-2 flex">
+                                <p class="text-gray-500 text-xl w-5/12 pt-3">Mã trình độ: </p>
+                                <input type="text" name="level_id" id="level_id" placeholder="Nhập vào mã trình độ ..." class="bg-white w-8/12 p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('level_id') border-red-500 @enderror" value="{{old('level_id')}}">
+
+                                @error('level_id')
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Mã chức vụ: </p>
                                 <input type="text" name="position_id" id="position_id" placeholder="Nhập vào mã chức vụ..." class="bg-white w-8/12 p-2 rounded-lg
@@ -132,11 +155,12 @@
                             </div>
 
                             <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Mã trình độ: </p>
-                                <input type="text" name="level_id" id="level_id" placeholder="Nhập vào mã trình độ ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('level_id') border-red-500 @enderror" value="{{old('level_id')}}">
+                               
+                                <label for="major_id" class="text-gray-500 text-xl w-5/12 pt-3">Mã ngành: </label>
+                                <input type="text" name="major_id" id="major_id" placeholder="Nhập vào mã ngành ..." class="bg-white w-8/12 p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('major_id') border-red-500 @enderror" value="{{old('major_id')}}">
 
-                                @error('level_id')
+                                @error('major_id')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
                                 </div>
@@ -144,11 +168,24 @@
                             </div>
 
                             <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Mã ngành: </p>
-                                <input type="text" name="major_id" id="major_id" placeholder="Nhập vào mã ngành ..." class="bg-white w-8/12 p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('major_id') border-red-500 @enderror" value="{{old('major_id')}}">
+                              
+                                <label for="password" class="text-gray-500 text-xl w-5/12 pt-3">Mật khẩu: </label>
+                                <input type="password" name="password" id="password" placeholder="Nhập vào mật khẩu ..." class="bg-white w-8/12 p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('password') border-red-500 @enderror">
 
-                                @error('major_id')
+                                @error('password')
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-2 flex">
+                                <p class="text-gray-500 text-xl w-5/12 pt-3">Nhập lại mật khẩu: </p>
+                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Nhập vào lại mật khẩu ..." class="bg-white w-8/12 p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('password_confirmation') border-red-500 @enderror">
+
+                                @error('password_confirmation')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
                                 </div>
@@ -166,9 +203,9 @@
                         <h1 class="">Danh sách trình độ</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/units')}}" method="post">
+                        <form action="{{route('search/lecturers')}}" method="post">
                             @csrf
-                            <label for="id" class="ml-2">Tìm kiếm trình độ</label>
+                            <label for="id" class="ml-2">Tìm kiếm theo mã giảng viên</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" value="{{old('id')}}" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>

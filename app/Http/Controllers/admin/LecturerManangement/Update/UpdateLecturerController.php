@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin\LecturerManangement\Update;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lecturer;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UpdateLecturerController extends Controller
 {
@@ -20,18 +22,29 @@ class UpdateLecturerController extends Controller
   {
     $request->validate([
       'id' => 'required|unique:lecturers,id',
+      'email' => 'required|email|unique:users,email',
       'name' => 'required',
       'birthday' => 'date',
+      'hometown' => 'required',
       'phone_number' => 'numeric|min:9',
       'position_id' => 'required|exists:App\Models\Position,id',
       'level_id' => 'required|exists:App\Models\Level,id',
-      'major_id' => 'required|exists:App\Models\Major,id'
+      'major_id' => 'required|exists:App\Models\Major,id',
+      'password' => 'required|confirmed|min:6'
     ]);
+
+    $user = new User();
+    $user->id = $request->id;
+    $user->email = $request->email;
+    $user->role = 'lecturer';
+    $user->password = Hash::make($request->password);
+    $user->save();
 
     $lecturer = new Lecturer();
     $lecturer->id = $request->id;
     $lecturer->name = $request->name;
     $lecturer->sex = $request->sex;
+    $lecturer->birthday = $request->birthday;
     $lecturer->hometown = $request->hometown;
     $lecturer->address = $request->address;
     $lecturer->phone_number = $request->phone_number;
@@ -40,37 +53,50 @@ class UpdateLecturerController extends Controller
     $lecturer->level_id = $request->level_id;
     $lecturer->major_id = $request->major_id;
     $lecturer->save();
-    return redirect()->route('update/majors');
+    return redirect()->route('update/lecturers');
   }
 
-  public function delete(Major $major)
+  public function delete( Lecturer $lecturer)
   {
-    $major->delete();
-    return redirect()->route('update/majors');
+    $lecturer->delete();
+    return redirect()->route('update/lecturers');
   }
 
   public function edit_index($id)
   {
-    $major = Major::find($id);
-    return view('layouts.admin.lecturer_management.update.edit.edit_majors', ['major' => $major]);
+     $lecturer = Lecturer::find($id);
+    return view('layouts.admin.lecturer_management.update.edit.edit_lecturers', ['lecturer' => $lecturer]);
   }
 
-  public function edit(Request $request, Major $major)
+  public function edit(Request $request, Lecturer $lecturer)
   {
-
     $request->validate([
+      'email' => 'required|email',
       'name' => 'required',
-      'subject_id' => 'required|exists:App\Models\Subject,id'
+      'birthday' => 'date',
+      'phone_number' => 'numeric|min:9',
+      'hometown' => 'required',
+      'position_id' => 'required|exists:App\Models\Position,id',
+      'level_id' => 'required|exists:App\Models\Level,id',
+      'major_id' => 'required|exists:App\Models\Major,id',
     ]);
+    $user = $lecturer->user;
+    $user->email = $request->email;
+    $user->save();
 
-    $major->name = $request->name;
-    $major->subject_id = $request->subject_id;
-    $major->save();
-    return back()->with('status', 'Cập nhật ngành thành công');
+    $lecturer->name = $request->name;
+    $lecturer->birthday = $request->birthday;
+    $lecturer->phone_number = $request->phone_number;
+    $lecturer->position_id = $request->position_id;
+    $lecturer->level_id = $request->level_id;
+    $lecturer->major_id = $request->major_id;
+  
+    $lecturer->save();
+    return back()->with('status', 'Cập nhật thành thành công');
   }
   public function search(Request $request)
   {
-      $majors =  Major::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
-      return view('layouts.admin.lecturer_management.update.update_majors', ['majors' => $majors]);
+      $lecturers =  Lecturer::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
+      return view('layouts.admin.lecturer_management.update.update_lecturers', ['lecturers' => $lecturers]);
   }
 }

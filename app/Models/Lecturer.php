@@ -24,4 +24,9 @@ class Lecturer extends Model
         'level_id',
         'major_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id');
+    }
 }
