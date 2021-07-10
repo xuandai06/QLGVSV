@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateLecturerController;
-use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateLevelController;
-use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateMajorController;
-use App\Http\Controllers\Admin\LecturerManangement\Update\UpdatePositionController;
-use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateSubjectController;
-use App\Http\Controllers\Admin\LecturerManangement\Update\UpdateUnitController;
+use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateLecturerController;
+use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateLevelController;
+use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
+use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
+use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
+use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
@@ -144,7 +144,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/update/lecturers', [UpdateLecturerController::class, 'index'])
-        ->name('update/lecturers');
+            ->name('update/lecturers');
         Route::post('/add/lecturers', [UpdateLecturerController::class, 'store'])
             ->name('add/lecturers');
         Route::post('/delete/lecturers/{lecturer}', [UpdateLecturerController::class, 'delete'])
@@ -160,6 +160,39 @@ Route::group(
 //end lecturer
 
 //END UPDATE LECTURER
+
+//SEARCHING LECTURER
+Route::get('/search/detail/lecturers', function () {
+    return view('layouts.admin.lecturer_management.search.search_lecturers');
+})
+    ->name('search/detail/lecturers')
+    ->middleware('AdminMiddleware');
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/lecturers', [UpdateLecturerController::class, 'index'])
+            ->name('update/lecturers');
+        Route::post('/add/lecturers', [UpdateLecturerController::class, 'store'])
+            ->name('add/lecturers');
+        Route::post('/delete/lecturers/{lecturer}', [UpdateLecturerController::class, 'delete'])
+            ->name('delete/lecturers');
+        Route::get('/edit/lecturers/index/{id}', [UpdateLecturerController::class, 'edit_index'])
+            ->name('edit/lecturers/index');
+        Route::post('/edit/lecturers/{lecturer}', [UpdateLecturerController::class, 'edit'])
+            ->name('edit/lecturers');
+        Route::post('/search/lecturers', [UpdateLecturerController::class, 'search'])
+            ->name('search/lecturers');
+    }
+);
+//END SEARCHING LECTURER
+
+
+
+
+
+
+
+//Hiep ngu
 Route::get('/lecturer', [LecturerController::class, 'index'])
     ->name('lecturer')
     ->middleware('LecturerMiddleware');
