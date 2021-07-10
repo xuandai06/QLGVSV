@@ -18,7 +18,7 @@
                             <h1 class="">Thêm thông tin chức vụ</h1>
                         </div>
                         <?php if(session('status')): ?>
-                        <div class="text-red-500">
+                        <div class="text-red-500 p-3">
                             <?php echo e(session('status')); ?>
 
                         </div>

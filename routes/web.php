@@ -164,13 +164,18 @@ Route::group(
 //END UPDATE LECTURER
 
 //SEARCHING LECTURER
-Route::get('/search/details/lecturers', [SearchLecturerController::class, 'index'])
-    ->name('search/details/lecturers')
+Route::get('/search/index/details/lecturers', [SearchLecturerController::class, 'index'])
+    ->name('search/index/details/lecturers')
     ->middleware('AdminMiddleware');
 
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
+        Route::get('/search/details/lecturers', [SearchLecturerController::class, 'search'])
+            ->name('search/details/lecturers');
+
+
+
         Route::get('/search/lecturers/by_lecturers_id', [SearchLecturerController::class, 'by_lecturers_id'])
             ->name('search/lecturers/by_lecturers_id');
         Route::get('/search/lecturers/by_positions_id', [SearchLecturerController::class, 'by_positions_id'])

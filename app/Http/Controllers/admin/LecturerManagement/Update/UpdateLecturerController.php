@@ -87,6 +87,7 @@ class UpdateLecturerController extends Controller
     $lecturer->name = $request->name;
     $lecturer->birthday = $request->birthday;
     $lecturer->note = $request->note;
+    $lecturer->sex = $request->sex;
     $lecturer->phone_number = $request->phone_number;
     $lecturer->position_id = $request->position_id;
     $lecturer->level_id = $request->level_id;

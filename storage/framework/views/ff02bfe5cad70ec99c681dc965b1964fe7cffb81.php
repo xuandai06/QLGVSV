@@ -47,9 +47,9 @@ endif;
 unset($__errorArgs, $__bag); ?>
 
         <select name="sex" id="sex">
-            <option value="admin">Nam</option>
-            <option value="teacher">Nữ</option>
-            <option value="student">Bê đê</option>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
         </select>
 
         <label for="birthday">Birthday</label>
