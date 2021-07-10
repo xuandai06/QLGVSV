@@ -171,17 +171,20 @@ Route::get('/search/details/lecturers', [SearchLecturerController::class, 'index
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
-        Route::get('/search/lecturers/by_lecturer_id', [SearchLecturerController::class, 'by_lecturer_id'])
-            ->name('search/lecturers/by_lecturer_id');
-        Route::post('/add/lecturers', [SearchLecturerController::class, 'store'])
-            ->name('add/lecturers');
-        Route::post('/delete/lecturers/{lecturer}', [UpdateLecturerController::class, 'delete'])
-            ->name('delete/lecturers');
-        Route::get('/edit/lecturers/index/{id}', [UpdateLecturerController::class, 'edit_index'])
-            ->name('edit/lecturers/index');
-        Route::post('/edit/lecturers/{lecturer}', [UpdateLecturerController::class, 'edit'])
+        Route::get('/search/lecturers/by_lecturers_id', [SearchLecturerController::class, 'by_lecturers_id'])
+            ->name('search/lecturers/by_lecturers_id');
+        Route::get('/search/lecturers/by_positions_id', [SearchLecturerController::class, 'by_positions_id'])
+            ->name('search/lecturers/by_positions_id');
+        Route::get('/search/lecturers/by_majors_id', [SearchLecturerController::class, 'by_majors_id'])
+            ->name('search/lecturers/by_majors_id');
+        Route::get('/edit/lecturers/by_levels_id', [SearchLecturerController::class, 'by_levels_id'])
+            ->name('edit/lecturers/by_levels_id');
+        Route::get('/edit/lecturers/by_subjects_id', [SearchLecturerController::class, 'by_subjects_id'])
+            ->name('edit/lecturers/by_subjects_id');
+
+        Route::get('/edit/lecturers/{lecturer}', [UpdateLecturerController::class, 'edit'])
             ->name('edit/lecturers');
-        Route::post('/search/lecturers', [UpdateLecturerController::class, 'search'])
+        Route::get('/search/lecturers', [UpdateLecturerController::class, 'search'])
             ->name('search/lecturers');
     }
 );
