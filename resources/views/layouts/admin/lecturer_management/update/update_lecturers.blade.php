@@ -65,7 +65,6 @@
                                 <select name="sex" id="sex">
                                     <option value="Nam">Nam</option>
                                     <option value="Nữ">Nữ</option>
-                                    <option value="Bê đê">Bê đê</option>
                                 </select>
                             </div>
 

@@ -200,8 +200,20 @@ Route::group(
 );
 //END SEARCHING LECTURER
 
+// hung ngu
 
+Route::get('/thongke', function () {
+    return view('layouts.admin.lecturer_management.statistical.statistical_lecturers');
+});
+Route::get('/nckh_update', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.menu_update');
+});
 
+Route::get('/nckh_update/type', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_type');
+})->name('/nckh_update/type');
+
+// end hung stupid
 
 
 
