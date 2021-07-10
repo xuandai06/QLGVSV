@@ -29,4 +29,16 @@ class Lecturer extends Model
     {
         return $this->belongsTo(User::class,'id');
     }
+    // public function position()
+    // {
+    //     return $this->belongsTo(Position::class,'id');
+    // }
+    // public function major()
+    // {
+    //     return $this->belongsTo(Major::class,'id');
+    // }
+    // public function level()
+    // {
+    //     return $this->belongsTo(Level::class,'id');
+    // }
 }
