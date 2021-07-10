@@ -29,7 +29,7 @@ class UpdateLevelController extends Controller
       $levels->id = $request->id;
       $levels->save();
   
-      return redirect()->route('update/levels')->with('status', 'Thêm đơn trình độ thành công');
+      return redirect()->route('update/levels')->with('status', 'Thêm trình độ thành công');
     }
   
     public function delete(Level $level)
