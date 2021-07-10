@@ -33,10 +33,14 @@
 
     <form action="<?php echo e(route('edit/positions', $position)); ?>" method="post">
         <?php echo csrf_field(); ?>
-        <input type="text" id="id" name="id" value="<?php echo e($position->id); ?>" disabled>
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="<?php echo e(old('name') ?? $position->name); ?>">
+        <label for="name">Mã chức vụ</label>
+        <input type="text" id="id" name="id" value="<?php echo e($position->id); ?>" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"><hr>
+
+       <label for="name">Tên chức vụ</label>
+        <input type="text" id="name" name="name" value="<?php echo e(old('name') ?? $position->name); ?>"  class="bg-white p-4 py-2 mx-4 rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
         <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -50,13 +54,20 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-        <button type="submit">save</button>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
     </form>
     <?php if(session('status')): ?>
-    <div class="text-red-500">
+    <div class="text-green-500 p-3">
         <?php echo e(session('status')); ?>
 
     </div>
     <?php endif; ?>
 
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.admin.lecturer_management.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLGVSV\resources\views/layouts/admin/lecturer_management/update/edit/edit_positions.blade.php ENDPATH**/ ?>
