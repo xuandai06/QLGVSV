@@ -71,7 +71,6 @@ unset($__errorArgs, $__bag); ?>
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"><hr>
             <option value="admin">Nam</option>
             <option value="teacher">Nữ</option>
-            <option value="student">Bê đê</option>
         </select><hr>
 
         <label for="birthday">Ngày sinh</label>
