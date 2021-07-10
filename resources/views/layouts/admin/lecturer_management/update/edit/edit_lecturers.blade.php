@@ -50,12 +50,21 @@
             {{$message}}
         </div>
         @enderror
+<<<<<<< HEAD
+
+        <select name="sex" id="sex">
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+        </select>
+=======
         <label for="email">Giới tính</label>
         <select name="sex" id="sex" class="bg-white p-2 mx-5 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"><hr>
             <option value="admin">Nam</option>
             <option value="teacher">Nữ</option>
         </select><hr>
+>>>>>>> cc4cd085ef71ce840ed0bad74c66e4b2c0beecf2
 
         <label for="birthday">Ngày sinh</label>
         <input type="date" id="birthday" name="birthday" value="{{old('birthday') ?? $lecturer->birthday}}" class="bg-white p-2 mx-5 rounded-lg

@@ -17,4 +17,6 @@ class Major extends Model
         'name',
         'subject_id',
     ];
+
+ 
 }

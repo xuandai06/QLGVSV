@@ -7,10 +7,10 @@
             <h1>Tìm kiếm giảng viên</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="" class="w-6/12 flex justify-between">
+            <form action="<?php echo e(route('search/details/lecturers')); ?>" class="w-6/12 flex justify-between">
                 <label class="flex-col">
                     <p class="text-gray-700">Lựa chọn hình thức tìm</p>
-                    <select class="form-select border-2 border-gray-200 p-2 text-gray-500
+                    <select id="search_type" name="search_type" class="form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                         <option>Tìm theo mã giảng viên</option>
                         <option>Tìm theo chức vụ</option>
@@ -27,7 +27,7 @@
 
                 <div class="flex-col">
                     <p class="text-gray-700">Nhập thông tin muốn tìm:</p>
-                    <input type="text" id="search" name="search" class="p-1 border-2 border-gray-200
+                    <input type="text" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập thông tin muốn tìm ...">
                 </div>
 
@@ -40,37 +40,39 @@
                 <h1 class="">Kết quả tìm kiếm</h1>
             </div>
             <table class="bg-white table-fixed flex-col justify-center">
-                        <thead>
-                            <tr>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
-                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Tên giảng viên</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Giới tính</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ngày sinh</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Quê quán</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Địa chỉ</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Số điện thoại</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên trình độ</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên chức vụ</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên ngành</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <thead>
+                    <tr>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
+                        <th class="w-2/12 border-collapse border border-gray-500 p-2">Tên giảng viên</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Giới tính</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Ngày sinh</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Quê quán</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Địa chỉ</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Số điện thoại</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên trình độ</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên chức vụ</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên ngành</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $__currentLoopData = $lecturers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lecturer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <tr>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->id); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->name); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->sex); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->birthday); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->hometown); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->address); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->phone_number); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->level->name); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->position->name); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->major->name); ?></td>
+                        <td class="border-collapse border border-gray-500 p-2"><?php echo e($lecturer->note); ?></td>
+                    </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
