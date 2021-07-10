@@ -21,6 +21,7 @@ class CreateMajorsTable extends Migration
             $table->foreign('subject_id')->references('id')->on('subjects')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

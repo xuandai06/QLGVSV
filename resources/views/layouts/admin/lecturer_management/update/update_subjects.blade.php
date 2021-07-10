@@ -10,13 +10,18 @@
                 </svg>
                 <p class="clear-left p-2">Cập nhập thông tin về bộ môn</p>
             </div>
-
+          
             <div class="w-full bg-gray-200 flex-row justify-between px-6 text-gray-500 rounded-lg mt-1">
                 <div class="w-8/12 p-2 rounded-lg flex items-center">
                     <div class="p-6 w-10/12">
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin bộ môn</h1>
                         </div>
+                        @if(session('status'))
+                        <div class="text-green-500 p-3">
+                            {{session('status')}}
+                        </div>
+                         @endif
                         <form action="{{route('add/subjects')}}" method="post" class=" flex-col justify-center">
                             @csrf
                             <div class="mb-4 flex">

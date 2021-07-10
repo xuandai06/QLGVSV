@@ -40,6 +40,7 @@ class CreateLecturesTable extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
+            $table->timestamps();
         });
     }
 

@@ -32,7 +32,7 @@ class UpdateSubjectController extends Controller
     $subject->unit_id = $request->unit_id;
     $subject->save();
 
-    return redirect()->route('update/subjects');
+    return redirect()->route('update/subjects')->with('status', 'Thêm bộ môn thành công');
   }
 
   public function delete(Subject $subject)

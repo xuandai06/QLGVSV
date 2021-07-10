@@ -21,6 +21,7 @@ class CreateSubjectsTable extends Migration
             $table->foreign('unit_id')->references('id')->on('units')
             ->onUpdate('cascade')
             ->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 
