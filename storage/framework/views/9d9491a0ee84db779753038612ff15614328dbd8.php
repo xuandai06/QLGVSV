@@ -9,9 +9,8 @@
 </head>
 </html>
 
-@extends('layouts.admin.lecturer_management.menu_update')
 
-@section('update_lecturer')
+<?php $__env->startSection('update_lecturer'); ?>
 <div class="w-9/12 ml-2 flex justify-center">
     <div class="w-full bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -29,30 +28,37 @@
                             <h1 class="">Sửa thông tin chức vụ</h1>
                         </div>
 
+    <form action="<?php echo e(route('edit/levels', $level)); ?>" method="post">
+        <?php echo csrf_field(); ?>
 
-
-    <form action="{{route('edit/positions', $position)}}" method="post">
-        @csrf
-
-        <label for="name">Mã chức vụ</label>
-        <input type="text" id="id" name="id" value="{{$position->id }}" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
+        <label for="name">Mã trình độ</label>
+        <input type="text" id="id" name="id" value="<?php echo e($level->id); ?>" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"><hr>
 
-       <label for="name">Tên chức vụ</label>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
+        <label for="name">Tên trình độ</label>
+        <input type="text" id="name" name="name" value="<?php echo e(old('name') ?? $level->name); ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        @error('name')
+        <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
         <div>
-            {{$message}}
+            <?php echo e($message); ?>
+
         </div>
-        @enderror
+        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
     </form>
-    @if(session('status'))
+    <?php if(session('status')): ?>
     <div class="text-green-500 p-3">
-        {{session('status')}}
+        <?php echo e(session('status')); ?>
+
     </div>
-    @endif
+    <?php endif; ?>
 
     </div>
                 </div>
@@ -60,4 +66,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin.lecturer_management.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLGVSV\resources\views/layouts/admin/lecturer_management/update/edit/edit_levels.blade.php ENDPATH**/ ?>

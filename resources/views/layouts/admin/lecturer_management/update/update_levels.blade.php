@@ -18,7 +18,7 @@
                             <h1 class="">Thêm thông tin trình độ</h1>
                         </div>
                         @if(session('status'))
-                        <div class="text-red-500">
+                        <div class="text-green-500 p-3">
                             {{session('status')}}
                         </div>
                         @endif
