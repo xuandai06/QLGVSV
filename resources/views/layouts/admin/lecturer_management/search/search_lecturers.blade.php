@@ -56,19 +56,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($lectures as $lecturer)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
-                                <td class="border-collapse border border-gray-500 p-2"></td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->id</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->name</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->sex</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->birthday</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->hometown</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->address</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->phone_number</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->level->name</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->position->name</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->major->name</td>
+                                <td class="border-collapse border border-gray-500 p-2">$lecturer->note</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
         </div>

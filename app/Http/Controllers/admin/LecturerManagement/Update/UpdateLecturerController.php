@@ -48,7 +48,7 @@ class UpdateLecturerController extends Controller
     $lecturer->hometown = $request->hometown;
     $lecturer->address = $request->address;
     $lecturer->phone_number = $request->phone_number;
-    $lecturer->note = $request->name;
+    $lecturer->note = $request->note;
     $lecturer->position_id = $request->position_id;
     $lecturer->level_id = $request->level_id;
     $lecturer->major_id = $request->major_id;
@@ -86,6 +86,7 @@ class UpdateLecturerController extends Controller
 
     $lecturer->name = $request->name;
     $lecturer->birthday = $request->birthday;
+    $lecturer->note = $request->note;
     $lecturer->phone_number = $request->phone_number;
     $lecturer->position_id = $request->position_id;
     $lecturer->level_id = $request->level_id;
