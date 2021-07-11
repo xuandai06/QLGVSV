@@ -38,7 +38,7 @@ class SearchLecturerController extends Controller
             return view('layouts.admin.lecturer_management.search.search_lecturers', ['lecturers' => $lecturers]);
         }
         else if($request->search_type == 'Tìm theo trình độ'){
-            $lecturers = Lecturer::join('levels', 'lecturers.levels_id','=', 'levels.id')
+            $lecturers = Lecturer::join('levels', 'lecturers.level_id','=', 'levels.id')
             ->where('levels.name', 'LIKE', '%' . $request->keyword . '%')
             ->select('lecturers.*')
             ->paginate(10);
