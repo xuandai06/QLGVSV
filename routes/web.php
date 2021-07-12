@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\LecturerManagement\LecturerStatisticController;
 use App\Http\Controllers\Admin\LecturerManagement\SearchController;
 use App\Http\Controllers\Admin\LecturerManagement\SearchLecturerController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateLecturerController;
@@ -173,33 +174,21 @@ Route::group(
     function () {
         Route::get('/search/details/lecturers', [SearchLecturerController::class, 'search'])
             ->name('search/details/lecturers');
-
-
-
-        Route::get('/search/lecturers/by_lecturers_id', [SearchLecturerController::class, 'by_lecturers_id'])
-            ->name('search/lecturers/by_lecturers_id');
-        Route::get('/search/lecturers/by_positions_id', [SearchLecturerController::class, 'by_positions_id'])
-            ->name('search/lecturers/by_positions_id');
-        Route::get('/search/lecturers/by_majors_id', [SearchLecturerController::class, 'by_majors_id'])
-            ->name('search/lecturers/by_majors_id');
-        Route::get('/edit/lecturers/by_levels_id', [SearchLecturerController::class, 'by_levels_id'])
-            ->name('edit/lecturers/by_levels_id');
-        Route::get('/edit/lecturers/by_subjects_id', [SearchLecturerController::class, 'by_subjects_id'])
-            ->name('edit/lecturers/by_subjects_id');
-        Route::get('/edit/lecturers/by_fullname_id', [SearchLecturerController::class, 'by_fullname'])
-            ->name('edit/lecturers/by_fullname_id');
-        Route::get('/edit/lecturers/by_name', [SearchLecturerController::class, 'by_name'])
-            ->name('edit/lecturers/by_name');
-        Route::get('/edit/lecturers/by_address', [SearchLecturerController::class, 'by_address'])
-            ->name('edit/lecturers/by_address');
-        Route::get('/edit/lecturers/by_hometown', [SearchLecturerController::class, 'by_hometown'])
-            ->name('edit/lecturers/by_hometown');
-        Route::get('/edit/lecturers/by_sex', [SearchLecturerController::class, 'by_sex'])
-            ->name('edit/lecturers/by_sex');
     }
 );
 //END SEARCHING LECTURER
 
+
+//LECTURER STATISTICS
+Route::get('/statistic/lecturers', [LecturerStatisticController::class, 'index'])
+    ->name('statistic/lecturers')
+    ->middleware('AdminMiddleware');
+
+Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse'])
+    ->name('analyse/lecturers')
+    ->middleware('AdminMiddleware');
+
+//END LECTURERS STATISTICS
 // hung ngu
 
 Route::get('/thongke', function () {
