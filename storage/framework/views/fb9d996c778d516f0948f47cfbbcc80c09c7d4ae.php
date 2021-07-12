@@ -18,7 +18,7 @@
                             <h1 class="">Thêm thông tin cá nhân</h1>
                         </div>
                         <?php if(session('status')): ?>
-                        <div class="text-red-500">
+                        <div class="text-green-500 p-3">
                             <?php echo e(session('status')); ?>
 
                         </div>
@@ -111,7 +111,6 @@ unset($__errorArgs, $__bag); ?>
                                 <select name="sex" id="sex">
                                     <option value="Nam">Nam</option>
                                     <option value="Nữ">Nữ</option>
-                                    <option value="Bê đê">Bê đê</option>
                                 </select>
                             </div>
 

@@ -64,7 +64,7 @@
             <option value="Nam">Nam</option>
             <option value="Nữ">Nữ</option>
             <option value="Khác">Khác</option>
-        </select><hr>
+
 
         <label for="birthday">Ngày sinh</label>
         <input type="date" id="birthday" name="birthday" value="{{old('birthday') ?? $lecturer->birthday}}" class="bg-white p-2 mx-5 rounded-lg

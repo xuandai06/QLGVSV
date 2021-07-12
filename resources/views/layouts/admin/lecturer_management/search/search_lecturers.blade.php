@@ -18,7 +18,6 @@
                         <option>Tìm theo trình độ</option>
                         <option>Tìm theo bộ môn</option>
                         <option>Tìm theo họ tên</option>
-                        <option>Tìm theo tên</option>
                         <option>Tìm theo địa chỉ</option>
                         <option>Tìm theo quê quán</option>
                         <option>Tìm theo giới tính</option>
@@ -52,6 +51,7 @@
                         <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên trình độ</th>
                         <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên chức vụ</th>
                         <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên ngành</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Tên bộ môn</th>
                         <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
                     </tr>
                 </thead>
@@ -68,6 +68,7 @@
                         <td class="border-collapse border border-gray-500 p-2">{{$lecturer->level->name}}</td>
                         <td class="border-collapse border border-gray-500 p-2">{{$lecturer->position->name}}</td>
                         <td class="border-collapse border border-gray-500 p-2">{{$lecturer->major->name}}</td>
+                        <td class="border-collapse border border-gray-500 p-2">{{$lecturer->major->subject->name}}</td>
                         <td class="border-collapse border border-gray-500 p-2">{{$lecturer->note}}</td>
                     </tr>
                     @endforeach

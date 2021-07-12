@@ -17,5 +17,10 @@ class Subject extends Model
         'name',
         'subject_id',
     ];
+
+    public function majors()
+    {
+        return $this->hasMany(Major::class);
+    }
     
 }
