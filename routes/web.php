@@ -202,6 +202,30 @@ Route::get('/nckh_update/type', function () {
     return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_type');
 })->name('/nckh_update/type');
 
+Route::get('/nckh_update/magazine', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_magazine');
+})->name('/nckh_update/magazine');
+
+Route::get('/nckh_update/info', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_info');
+})->name('/nckh_update/info');
+
+Route::get('/nckh_update/role', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_role');
+})->name('/nckh_update/role');
+
+Route::get('/nckh_update/category', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_category');
+})->name('/nckh_update/category');
+
+Route::get('/nckh_update/seminor_role', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_seminor_role');
+})->name('/nckh_update/seminor_role');
+
+Route::get('/nckh_update/fostering', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_fostering');
+})->name('/nckh_update/fostering');
+
 // end hung stupid
 
 
