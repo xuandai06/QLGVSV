@@ -30,25 +30,20 @@
                             <h1 class="">Sửa thông tin đơn vị</h1>
                         </div>
 
-                        @if($unit->name != "")
+
                         <form action="{{route('edit/units', $unit)}}" method="post" class="flex justify-between">
                             @csrf
                             <input type="text" id="temp_id" name="temp_id" value="{{$unit->id }}" disabled class="bg-white p-2 font-bold rounded-lg">
-                            <input type="text" id="name" name="name" value="{{$unit->name}}" class="bg-white p-2 mx-4 rounded-lg
+                            <input type="text" id="name" name="name" value="{{old('name') ?? $unit->name}}" class="bg-white p-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                            @error('name')
+                            <div>
+                                {{$message}}
+                            </div>
+                            @enderror
                             <button type="submit" class="px-6 bg-white hover:bg-blue-400 hover:text-white border-2 outline-none">Save</button>
                         </form>
 
-                        @else
-                        <form action="{{route('edit/units', $unit)}}" method="post">
-                            @csrf
-                            <input type="text" id="temp_id" name="temp_id" value="{{$unit->id}}" disabled class="bg-white p-2 font-bold rounded-lg">
-                            <input type="text" id="name" name="name" value="{{old('name')}}" class="bg-white p-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            <p>Tên không hợp lệ</p>
-                            <button type="submit">save</button>
-                        </form>
-                        @endif
                         @if(session('status'))
                         <div class="text-green-500 p-3">
                             {{session('status')}}

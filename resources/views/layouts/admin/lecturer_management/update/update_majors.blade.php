@@ -28,7 +28,7 @@
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Mã ngành: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã ngành ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
 
 
                                 @error('id')
@@ -41,7 +41,7 @@
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Tên ngành: </p>
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên ngành ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
 
                                 @error('name')
                                 <div class="text-red-500 mt-2 text-sm">
@@ -53,7 +53,7 @@
                             <div class="mb-4 flex">
                                 <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
                                 <input type="text" name="subject_id" id="subject_id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('subject_id') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('subject_id') border-red-500 @enderror" value="{{old('subject_id')}}">
                                
                                 @error('subject_id')
                                 <div class="text-red-500 mt-2 text-sm">

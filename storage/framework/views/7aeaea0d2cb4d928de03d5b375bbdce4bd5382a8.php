@@ -30,27 +30,30 @@
                             <h1 class="">Sửa thông tin đơn vị</h1>
                         </div>
 
-                        <?php if($unit->name != ""): ?>
+
                         <form action="<?php echo e(route('edit/units', $unit)); ?>" method="post" class="flex justify-between">
                             <?php echo csrf_field(); ?>
                             <input type="text" id="temp_id" name="temp_id" value="<?php echo e($unit->id); ?>" disabled class="bg-white p-2 font-bold rounded-lg">
-                            <input type="text" id="name" name="name" value="<?php echo e($unit->name); ?>" class="bg-white p-2 mx-4 rounded-lg
+                            <input type="text" id="name" name="name" value="<?php echo e(old('name') ?? $unit->name); ?>" class="bg-white p-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                            <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div>
+                                <?php echo e($message); ?>
+
+                            </div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             <button type="submit" class="px-6 bg-white hover:bg-blue-400 hover:text-white border-2 outline-none">Save</button>
                         </form>
 
-                        <?php else: ?>
-                        <form action="<?php echo e(route('edit/units', $unit)); ?>" method="post">
-                            <?php echo csrf_field(); ?>
-                            <input type="text" id="temp_id" name="temp_id" value="<?php echo e($unit->id); ?>" disabled class="bg-white p-2 font-bold rounded-lg">
-                            <input type="text" id="name" name="name" value="<?php echo e(old('name')); ?>" class="bg-white p-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            <p>Tên không hợp lệ</p>
-                            <button type="submit">save</button>
-                        </form>
-                        <?php endif; ?>
                         <?php if(session('status')): ?>
-                        <div class="text-red-500">
+                        <div class="text-green-500 p-3">
                             <?php echo e(session('status')); ?>
 
                         </div>
