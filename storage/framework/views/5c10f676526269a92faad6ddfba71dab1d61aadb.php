@@ -71,7 +71,7 @@ unset($__errorArgs, $__bag); ?>
                         </form>
 
                         <?php if(session('status')): ?>
-                        <div class="text-green-500">
+                        <div class="text-green-500 p-3">
                             <?php echo e(session('status')); ?>
 
                         </div>

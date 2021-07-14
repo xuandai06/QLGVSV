@@ -23,6 +23,7 @@ class UpdateUnitController extends Controller
             'id' => 'required|unique:units,id',
             'name' => 'required'
         ]);
+
         $unit = new Unit;
         $unit->id = $request->id;
         $unit->name = $request->name;
@@ -47,7 +48,6 @@ class UpdateUnitController extends Controller
 
     public function edit(Request $request, Unit $unit)
     {
-
         $request->validate([
             'name' => 'required',
         ]);
