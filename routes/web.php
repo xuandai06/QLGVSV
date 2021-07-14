@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\nckh_type_controller;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
@@ -189,6 +190,24 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
     ->middleware('AdminMiddleware');
 
 //END LECTURERS STATISTICS
+
+//Hiep lam backend tu day
+
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/nckh_type', [nckh_type_controller::class, 'index'])
+            ->name('update/nckh_type');
+        Route::post('/add/nckh_type', [nckh_type_controller::class, 'store'])
+            ->name('add/nckh_type');
+    }
+);
+
+//endHiep
+
+
+
+
 // hung ngu
 
 Route::get('/thongke', function () {
@@ -227,34 +246,3 @@ Route::get('/nckh_update/fostering', function () {
 })->name('/nckh_update/fostering');
 
 // end hung stupid
-
-
-
-
-//Hiep ngu
-Route::get('/lecturer', [LecturerController::class, 'index'])
-    ->name('lecturer')
-    ->middleware('LecturerMiddleware');
-
-Route::get('/student', [StudentController::class, 'index'])->name('student');
-
-//trang update chuc vu
-Route::get('/chucvu', function () {
-    return view('layouts.admin.lecturer_management.update.update_ positions');
-})->name('update_ positions');
-
-//trang update trinh do
-Route::get('/trinhdo', function () {
-    return view('layouts.admin.lecturer_management.update.update_ levels');
-})->name('update_ levels');
-
-//trang cap nhat update_lectures
-Route::get('/update_lectures', function () {
-    return view('layouts.admin.lecturer_management.update.update_lectures');
-})->name('update_lectures');
-
-//trang search lucturer
-
-Route::get('/search_lecturers', function () {
-    return view('layouts.admin.lecturer_management.search.search_lecturers');
-});

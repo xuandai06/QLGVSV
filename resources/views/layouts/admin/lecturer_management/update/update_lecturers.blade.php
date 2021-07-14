@@ -25,36 +25,42 @@
                         <form action="{{route('add/lecturers')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
-                                <input type="text" name="id" id="id" placeholder="Nhập vào mã giảng viên ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã giảng viên ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
+                                </div>
 
                                 @error('id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 pl-52 mt-2 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Email: </p>
-                                <input type="text" name="email" id="email" placeholder="Nhập vào gmail ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Email: </p>
+                                    <input type="text" name="email" id="email" placeholder="Nhập vào gmail ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('email') border-red-500 @enderror" value="{{old('email')}}">
+                                </div>
 
                                 @error('email')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Họ tên giảng viên: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào họ tên..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Họ tên giảng viên: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào họ tên..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                                </div>
 
                                 @error('name')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
@@ -62,130 +68,150 @@
 
                             <div class="mb-2 flex">
                                 <p class="text-gray-500 text-xl w-5/12 pt-3">Giới tính: </p>
-                                <select name="sex" id="sex">
+                                <select name="sex" id="sex" class="bg-white w-8/12 p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                     <option value="Nam">Nam</option>
                                     <option value="Nữ">Nữ</option>
+                                    <option value="Khác">Khác</option>
                                 </select>
                             </div>
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Ngày sinh: </p>
-                                <input type="date" name="birthday" id="birthday" placeholder="Nhập vào ngày sinh ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Ngày sinh: </p>
+                                    <input type="date" name="birthday" id="birthday" placeholder="Nhập vào ngày sinh ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('birthday') border-red-500 @enderror" value="{{old('birthday')}}">
+                                </div>
 
                                 @error('birthday')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Quê quán: </p>
-                                <input type="text" name="hometown" id="hometown" placeholder="Nhập vào quê quán ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Quê quán: </p>
+                                    <input type="text" name="hometown" id="hometown" placeholder="Nhập vào quê quán ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('hometown') border-red-500 @enderror" value="{{old('hometown')}}">
+                                </div>
 
                                 @error('hometown')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Địa chỉ: </p>
-                                <input type="text" name="address" id="address" placeholder="Nhập vào địa chỉ ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Địa chỉ: </p>
+                                    <input type="text" name="address" id="address" placeholder="Nhập vào địa chỉ ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('address') border-red-500 @enderror" value="{{old('address')}}">
+                                </div>
 
                                 @error('address')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Số điện thoại: </p>
-                                <input type="text" name="phone_number" id="phone_number" placeholder="Nhập vào số điện thoại ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Số điện thoại: </p>
+                                    <input type="text" name="phone_number" id="phone_number" placeholder="Nhập vào số điện thoại ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('phone_number') border-red-500 @enderror" value="{{old('phone_number')}}">
+                                </div>
 
                                 @error('phonenumber')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Ghi chú: </p>
-                                <input type="text" name="note" id="note" placeholder="Nhập vào ghi chú ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Ghi chú: </p>
+                                    <input type="text" name="note" id="note" placeholder="Nhập vào ghi chú ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note')}}">
+                                </div>
 
                                 @error('note')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Mã trình độ: </p>
-                                <input type="text" name="level_id" id="level_id" placeholder="Nhập vào mã trình độ ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Mã trình độ: </p>
+                                    <input type="text" name="level_id" id="level_id" placeholder="Nhập vào mã trình độ ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('level_id') border-red-500 @enderror" value="{{old('level_id')}}">
+                                </div>
 
                                 @error('level_id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
-                            
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Mã chức vụ: </p>
-                                <input type="text" name="position_id" id="position_id" placeholder="Nhập vào mã chức vụ..." class="bg-white w-8/12 p-2 rounded-lg
+
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Mã chức vụ: </p>
+                                    <input type="text" name="position_id" id="position_id" placeholder="Nhập vào mã chức vụ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('position_id') border-red-500 @enderror" value="{{old('position_id')}}">
+                                </div>
 
                                 @error('position_id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                               
-                                <label for="major_id" class="text-gray-500 text-xl w-5/12 pt-3">Mã ngành: </label>
-                                <input type="text" name="major_id" id="major_id" placeholder="Nhập vào mã ngành ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <label for="major_id" class="text-gray-500 text-xl w-5/12 pt-3">Mã ngành: </label>
+                                    <input type="text" name="major_id" id="major_id" placeholder="Nhập vào mã ngành ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('major_id') border-red-500 @enderror" value="{{old('major_id')}}">
+                                </div>
 
                                 @error('major_id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                              
-                                <label for="password" class="text-gray-500 text-xl w-5/12 pt-3">Mật khẩu: </label>
-                                <input type="password" name="password" id="password" placeholder="Nhập vào mật khẩu ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <label for="password" class="text-gray-500 text-xl w-5/12 pt-3">Mật khẩu: </label>
+                                    <input type="password" name="password" id="password" placeholder="Nhập vào mật khẩu ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('password') border-red-500 @enderror">
+                                </div>
 
                                 @error('password')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-2 flex">
-                                <p class="text-gray-500 text-xl w-5/12 pt-3">Nhập lại mật khẩu: </p>
-                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Nhập vào lại mật khẩu ..." class="bg-white w-8/12 p-2 rounded-lg
+                            <div class="mb-2 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Nhập lại mật khẩu: </p>
+                                    <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Nhập vào lại mật khẩu ..." class="bg-white w-8/12 p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('password_confirmation') border-red-500 @enderror">
+                                </div>
 
                                 @error('password_confirmation')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-52 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror

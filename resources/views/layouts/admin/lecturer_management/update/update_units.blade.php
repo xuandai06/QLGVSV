@@ -25,26 +25,31 @@
                         <form action="{{route('add/units')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
 
+                                </div>
 
                                 @error('id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên đơn vị: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tên đơn vị: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
 
+                                </div>
+
                                 @error('name')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
@@ -54,7 +59,7 @@
                                 <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Lưu</button>
                             </div>
                         </form>
-                    
+
                     </div>
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
@@ -63,12 +68,11 @@
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="{{route('search/units')}}" method="post">
-                                    @csrf
-                                    <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
-                                    <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
-                                    placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            @csrf
+                            <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                    <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
+                            <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
@@ -81,21 +85,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($units as $unit)
+                            @foreach($units as $unit)
                             <tr>
                                 <td class="border-collapse border border-gray-500 p-2">{{$unit->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$unit->name}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <a href="{{route('edit/units/index', $unit->id)}}">Edit</a>
+                                    <a href="{{route('edit/units/index', $unit->id)}}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="{{route('delete/units',$unit)}}" method="post">
-                                     @csrf
-                                    <button>Delete</button>
-                                </form>
+                                    <form action="{{route('delete/units',$unit)}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                     {{$units->links()}}

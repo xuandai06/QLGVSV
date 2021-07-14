@@ -10,7 +10,7 @@
                 </svg>
                 <p class="clear-left p-2">Cập nhập thông tin về bộ môn</p>
             </div>
-          
+
             <div class="w-full bg-gray-200 flex-row justify-between px-6 text-gray-500 rounded-lg mt-1">
                 <div class="w-8/12 p-2 rounded-lg flex items-center">
                     <div class="p-6 w-10/12">
@@ -21,39 +21,47 @@
                         <div class="text-green-500 p-3">
                             {{session('status')}}
                         </div>
-                         @endif
+                        @endif
                         <form action="{{route('add/subjects')}}" method="post" class=" flex-col justify-center">
                             @csrf
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
-                                <input type="text" name="id" id="id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
+                                </div>
+
                                 @error('id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên bộ môn: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào tên bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tên bộ môn: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào tên bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                                </div>
 
                                 @error('name')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
+                                    <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('unit_id') border-red-500 @enderror" value="{{old('unit_id')}}">
 
+                                </div>
+
                                 @error('unit_id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
