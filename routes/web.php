@@ -191,6 +191,43 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 
 //END LECTURERS STATISTICS
 
+
+//Route cua Hung
+
+Route::get('/teacherwork', function () {
+    return view('layouts.admin.teacher_work_schedule.menu_update');
+});
+Route::get('update/work_info', function () {
+    return view('layouts.admin.teacher_work_schedule.update.update_work_info');
+});
+Route::get('update/work_assignment', function () {
+    return view('layouts.admin.teacher_work_schedule.update.update_work_assignment');
+});
+Route::get('update/result', function () {
+    return view('layouts.admin.teacher_work_schedule.update.update_result');
+});
+Route::get('update/search_instuctor', function () {
+    return view('layouts.admin.teacher_work_schedule.update.search_for_instuctors_by_time');
+});
+Route::get('update/search_jobs_name', function () {
+    return view('layouts.admin.teacher_work_schedule.update.search_for_jobs_name_by_time');
+});
+Route::get('update/search_units', function () {
+    return view('layouts.admin.teacher_work_schedule.update.search_for_units_by_time');
+});
+Route::get('update/search_time', function () {
+    return view('layouts.admin.teacher_work_schedule.update.search_by_start_time');
+});
+Route::get('update/search_completion', function () {
+    return view('layouts.admin.teacher_work_schedule.update.search_by_completion_level');
+});
+
+//Het Route cua Hung
+
+
+
+
+
 //Hiep lam backend tu day
 
 //nckh_type
