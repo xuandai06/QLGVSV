@@ -25,38 +25,43 @@
                         <form action="{{route('add/majors')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã ngành: </p>
+                            <div class="mb-4 flex-col">
+                            <div class="flex">
+                            <p class="text-gray-500 text-xl w-4/12 pt-3">Mã ngành: </p>
                                 <input type="text" name="id" id="id" placeholder="Nhập vào mã ngành ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
-
-
+                            </div>
+                     
                                 @error('id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên ngành: </p>
+                            <div class="mb-4 flex-col">
+                            <div class="flex">
+                            <p class="text-gray-500 text-xl w-4/12 pt-3">Tên ngành: </p>
                                 <input type="text" name="name" id="name" placeholder="Nhập vào tên ngành ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                            </div>
 
                                 @error('name')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
+                            <div class="mb-4 flex-col">
+                            <div class="flex">
+                            <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
                                 <input type="text" name="subject_id" id="subject_id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('subject_id') border-red-500 @enderror" value="{{old('subject_id')}}">
-                               
+                            </div>
+
                                 @error('subject_id')
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
