@@ -200,6 +200,7 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 
 //Route cua Hung
 
+//Phan Update
 Route::get('/teacherwork', function () {
     return view('layouts.admin.teacher_work_schedule.menu_update');
 });
@@ -215,6 +216,8 @@ Route::get('update/result', function () {
 Route::get('update/detail', function () {
     return view('layouts.admin.teacher_work_schedule.update.update_jobs_detail');
 });
+
+//Phan Search
 Route::get('search/instuctor', function () {
     return view('layouts.admin.teacher_work_schedule.Search.search_for_instuctors_by_time');
 });
@@ -229,6 +232,11 @@ Route::get('search/time', function () {
 });
 Route::get('search/completion', function () {
     return view('layouts.admin.teacher_work_schedule.Search.search_by_completion_level');
+});
+
+//Phan Statistical
+Route::get('statistical/teacher_work', function () {
+    return view('layouts.admin.teacher_work_schedule.Statistical.statistcal_teacher_work_schedule');
 });
 
 //Het Route cua Hung
