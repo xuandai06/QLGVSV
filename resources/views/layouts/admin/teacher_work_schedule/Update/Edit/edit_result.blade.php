@@ -26,11 +26,7 @@
         <label for="name">Mã công việc</label>
         <input type="text" id="id" name="id" value="{{$position->id }}" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"><hr>
-
-       <label for="name">Mã giảng viên</label>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        <label for="name">Vai trò</label>
+        <label for="name">Trạng thái</label>
         <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
         <label for="name">Ghi chú</label>
