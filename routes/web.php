@@ -371,10 +371,6 @@ Route::group(
     }
 );
 //end articles
-<<<<<<< HEAD
-=======
-
->>>>>>> 3d1f967355e9254c644f7d375dbceb6deec8bdf5
 
 //article_details
 Route::group(
@@ -416,13 +412,6 @@ Route::group(
 );
 //end extra_trainings
 //end Hiep
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 3d1f967355e9254c644f7d375dbceb6deec8bdf5
 
 //datatest
 
@@ -641,7 +630,3 @@ Route::get('/create/lecturers', function () {
 
 
 //end datatest
-<<<<<<< HEAD
-=======
-
->>>>>>> 3d1f967355e9254c644f7d375dbceb6deec8bdf5
