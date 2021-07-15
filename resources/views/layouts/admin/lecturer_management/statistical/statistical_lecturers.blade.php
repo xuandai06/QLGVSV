@@ -119,7 +119,7 @@
             </form>
         </div>
 
-        <table class="bg-white table-fixed flex-col justify-center">
+        <table class="bg-white table-fixed flex-col justify-center text-xs">
             <thead>
                 <tr>
                     <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>

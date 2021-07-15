@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Article_details extends Model
 {
     use HasFactory;
+    public $incrementing = false;
+    
+    protected $fillable = [
+        'id',
+        'name',
+        'detail',
+        'role',
+        'journal_id',
+    ];
+
+    public function journal()
+    {
+        return $this->belongsTo(Journals::class,'id');
+    }
 }

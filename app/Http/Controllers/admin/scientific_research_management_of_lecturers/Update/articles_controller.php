@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class articles_controller extends Controller
 {
-    public function index()
+  public function index()
   {
     $articles = Articles::paginate(10);
     return view(

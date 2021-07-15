@@ -10,7 +10,11 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\article_details_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\articles_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\conferences_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\conferences_details_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\extra_trainings_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\implementation_levels_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\journals_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\topic_details_controller;
@@ -267,7 +271,7 @@ Route::group(
             ->name('delete/kind_of_sciences');
         Route::post('/search/kind_of_sciences', [update_kind_of_sciences_controller::class, 'search'])
             ->name('search/kind_of_sciences');
-        Route::get('/edit/nckh_type/index/{id}', [update_kind_of_sciences_controller::class, 'edit_index'])
+        Route::get('/edit/kind_of_sciences/index/{id}', [update_kind_of_sciences_controller::class, 'edit_index'])
             ->name('edit/kind_of_sciences/index');
         Route::post('/edit/kind_of_sciences/{kind_of_science}', [update_kind_of_sciences_controller::class, 'edit'])
             ->name('edit/kind_of_sciences');
@@ -281,6 +285,16 @@ Route::group(
     function () {
         Route::get('/update/update_implementation_levels', [implementation_levels_controller::class, 'index'])
             ->name('update/update_implementation_levels');
+        Route::post('/add/implementation_levels', [implementation_levels_controller::class, 'store'])
+            ->name('add/implementation_levels');
+        Route::post('/search/implementation_levels', [implementation_levels_controller::class, 'search'])
+            ->name('search/implementation_levels');
+        Route::post('/delete/implementation_levels/{implementation_levels}', [implementation_levels_controller::class, 'delete'])
+            ->name('delete/implementation_levels');
+        Route::get('/edit/implementation_levels/index/{id}', [implementation_levels_controller::class, 'edit_index'])
+            ->name('edit/implementation_levels/index');
+        Route::post('/edit/implementation_levels/{implementation_levels}', [implementation_levels_controller::class, 'edit'])
+            ->name('edit/implementation_levels');
     }
 );
 //end update_implementation_levels
@@ -291,6 +305,8 @@ Route::group(
     function () {
         Route::get('/update/topics_syllabuses', [topics_syllabuses_controller::class, 'index'])
             ->name('update/topics_syllabuses');
+        Route::post('/add/topics_syllabuses', [topics_syllabuses_controller::class, 'store'])
+            ->name('add/topics_syllabuses');
     }
 );
 //end update_topics_syllabuses
@@ -323,8 +339,50 @@ Route::group(
             ->name('update/articles');
     }
 );
-//end 
 //end articles
+<<<<<<< HEAD
+
+//article_details
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/article_details', [article_details_controller::class, 'index'])
+            ->name('update/article_details');
+    }
+);
+//end article_details
+
+//conferences
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/conferences', [conferences_controller::class, 'index'])
+            ->name('update/conferences');
+    }
+);
+//end conferences
+
+//conferences_details
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/conferences_details', [conferences_details_controller::class, 'index'])
+            ->name('update/conferences_details');
+    }
+);
+//end conferences_details
+
+//extra_trainings
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/extra_trainings', [extra_trainings_controller::class, 'index'])
+            ->name('update/extra_trainings');
+    }
+);
+//end extra_trainings
+//end Hiep
+=======
 //end Hiep
 
 
@@ -553,3 +611,4 @@ Route::get('/create/lecturers', function () {
   
     
 //end datatest
+>>>>>>> f8ff9f5d3594d935b93629270e0f822d6a98a668

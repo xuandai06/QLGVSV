@@ -22,7 +22,7 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/implementation_levels')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
@@ -32,7 +32,7 @@
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
                                 </div>
                                 @error('id')
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
@@ -46,7 +46,7 @@
                                 </div>
 
                                 @error('name')
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     {{ $message }}
                                 </div>
                                 @enderror
@@ -64,7 +64,7 @@
                         <h1 class="">Danh sách cấp thực hiện</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
+                        <form action="{{route('search/implementation_levels')}}" method="post">
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
@@ -81,7 +81,22 @@
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                        
+                        <tbody>
+                            @foreach($implementation_levels as $implementation_level)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2">{{$implementation_level->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$implementation_level->name}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <a href="{{ route('edit/implementation_levels/index',$implementation_level->id) }}">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <form action="{{route('delete/implementation_levels',$implementation_level)}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
 
