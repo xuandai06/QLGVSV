@@ -307,6 +307,14 @@ Route::group(
             ->name('update/topics_syllabuses');
         Route::post('/add/topics_syllabuses', [topics_syllabuses_controller::class, 'store'])
             ->name('add/topics_syllabuses');
+        Route::post('/search/topics_syllabuses', [topics_syllabuses_controller::class, 'search'])
+            ->name('search/topics_syllabuses');
+        Route::post('/delete/topics_syllabuses/{topics_syllabuses}', [topics_syllabuses_controller::class, 'delete'])
+            ->name('delete/topics_syllabuses');
+        Route::get('/edit/topics_syllabuses/index/{id}', [topics_syllabuses_controller::class, 'edit_index'])
+            ->name('edit/topics_syllabuses/index');
+        Route::post('/edit/topics_syllabuses/{topics_syllabuses}', [topics_syllabuses_controller::class, 'edit'])
+            ->name('edit/topics_syllabuses');
     }
 );
 //end update_topics_syllabuses
@@ -340,7 +348,6 @@ Route::group(
     }
 );
 //end articles
-<<<<<<< HEAD
 
 //article_details
 Route::group(
@@ -382,27 +389,21 @@ Route::group(
 );
 //end extra_trainings
 //end Hiep
-=======
-//end Hiep
-
-
-
 
 //datatest
-
 
 Route::get('/create/units', function () {
     $unit = new Unit();
     $unit->id = '1KTCN';
     $unit->name = 'Kĩ thuật công nghệ';
 
-    $unit ->save();
+    $unit->save();
 
     $unit = new Unit();
     $unit->id = '2NN';
     $unit->name = 'Ngoại ngữ';
 
-    $unit ->save();
+    $unit->save();
 });
 
 Route::get('/create/subjects', function () {
@@ -411,29 +412,28 @@ Route::get('/create/subjects', function () {
     $subject->name = 'Công nghệ phần mềm';
     $subject->unit_id = '1KTCN';
 
-    $subject ->save();
+    $subject->save();
 
     $subject = new Subject();
     $subject->id = '2BM';
     $subject->name = 'Mạng và truyền thông';
     $subject->unit_id = '1KTCN';
-    
-    $subject ->save();
+
+    $subject->save();
 
     $subject = new Subject();
     $subject->id = '3BM';
     $subject->name = 'Sửa điện';
     $subject->unit_id = '1KTCN';
-    
-    $subject ->save();
+
+    $subject->save();
 
     $subject = new Subject();
     $subject->id = '4BM';
     $subject->name = 'Hàn xì';
     $subject->unit_id = '1KTCN';
-    
-    $subject ->save();
 
+    $subject->save();
 });
 
 Route::get('/create/majors', function () {
@@ -442,65 +442,65 @@ Route::get('/create/majors', function () {
     $major->name = 'Công nghệ thông tin';
     $major->subject_id = '1BM';
 
-    $major ->save();
+    $major->save();
 
     $major = new Major();
     $major->id = '2N';
     $major->name = 'Điện điện tử';
     $major->subject_id = '3BM';
 
-    $major ->save();
+    $major->save();
 
     $major = new Major();
     $major->id = '3N';
     $major->name = 'Cơ khí';
     $major->subject_id = '4BM';
 
-    $major ->save();
+    $major->save();
 });
 
 Route::get('/create/positions', function () {
     $position = new Position();
     $position->id = '1CV';
     $position->name = 'Trưởng khoa';
-    $position ->save();
+    $position->save();
 
     $position = new Position();
     $position->id = '2CV';
     $position->name = 'Phó khoa';
-    $position ->save();
+    $position->save();
 
     $position = new Position();
     $position->id = '3CV';
     $position->name = 'Cố vấn học tập';
-    $position ->save();
+    $position->save();
 
     $position = new Position();
     $position->id = '4CV';
     $position->name = 'Giảng viên';
-    $position ->save();
+    $position->save();
 });
 
 Route::get('/create/levels', function () {
     $level = new Level();
     $level->id = '1TD';
     $level->name = 'Giáo sư';
-    $level ->save();
+    $level->save();
 
     $level = new Level();
     $level->id = '2TD';
     $level->name = 'Tiến sĩ';
-    $level ->save();
+    $level->save();
 
     $level = new Level();
     $level->id = '3TD';
     $level->name = 'Thạc sĩ';
-    $level ->save();
+    $level->save();
 
     $level = new Level();
     $level->id = '4TD';
     $level->name = 'Đại học';
-    $level ->save();
+    $level->save();
 });
 
 Route::get('/create/lecturers', function () {
@@ -511,7 +511,7 @@ Route::get('/create/lecturers', function () {
     $user->role = 'lecturer';
     $user->password = Hash::make('123456');
     $user->save();
-    
+
     $lecturer = new Lecturer();
     $lecturer->id = '1GV';
     $lecturer->name = 'Nguyễn Xuân Đại';
@@ -603,12 +603,7 @@ Route::get('/create/lecturers', function () {
     $lecturer->level_id = '2TD';
     $lecturer->major_id = '3N';
     $lecturer->save();
-
 });
 
 
-
-  
-    
 //end datatest
->>>>>>> f8ff9f5d3594d935b93629270e0f822d6a98a668
