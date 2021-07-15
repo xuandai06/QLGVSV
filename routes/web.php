@@ -193,6 +193,7 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 
 //Hiep lam backend tu day
 
+//nckh_type
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
@@ -200,49 +201,16 @@ Route::group(
             ->name('update/nckh_type');
         Route::post('/add/nckh_type', [nckh_type_controller::class, 'store'])
             ->name('add/nckh_type');
+        Route::post('/delete/nckh_type/{kind_of_science}', [nckh_type_controller::class, 'delete'])
+            ->name('delete/nckh_type');
+        Route::post('/search/nckh_type', [nckh_type_controller::class, 'search'])
+            ->name('search/nckh_type');
+        Route::get('/edit/nckh_type/index/{id}', [nckh_type_controller::class, 'edit_index'])
+            ->name('edit/nckh_type/index');
+        Route::post('/edit/nckh_type/{kind_of_science}', [nckh_type_controller::class, 'edit'])
+            ->name('edit/nckh_type');
     }
 );
+//end nckh_type
 
-//endHiep
-
-
-
-
-// hung ngu
-
-Route::get('/thongke', function () {
-    return view('layouts.admin.lecturer_management.statistical.statistical_lecturers');
-});
-Route::get('/nckh_update', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.menu_update');
-});
-
-Route::get('/nckh_update/type', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_type');
-})->name('/nckh_update/type');
-
-Route::get('/nckh_update/magazine', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_magazine');
-})->name('/nckh_update/magazine');
-
-Route::get('/nckh_update/info', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_info');
-})->name('/nckh_update/info');
-
-Route::get('/nckh_update/role', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_role');
-})->name('/nckh_update/role');
-
-Route::get('/nckh_update/category', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_category');
-})->name('/nckh_update/category');
-
-Route::get('/nckh_update/seminor_role', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_seminor_role');
-})->name('/nckh_update/seminor_role');
-
-Route::get('/nckh_update/fostering', function () {
-    return view('layouts.admin.scientific_research_management_of_lecturers.update.nckh_fostering');
-})->name('/nckh_update/fostering');
-
-// end hung stupid
+//end Hiep

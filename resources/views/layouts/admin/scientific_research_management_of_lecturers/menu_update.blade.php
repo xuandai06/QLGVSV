@@ -10,11 +10,11 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="{{route('/nckh_update/type')}}">=> Cập nhật loại khoa học</a>
+                            <a href="{{route('update/nckh_type')}}">=> Cập nhật loại khoa học</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="{{route('/nckh_update/type')}}">=> Cập nhật cấp thực hiện</a>
+                            <a href="">=> Cập nhật cấp thực hiện</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">

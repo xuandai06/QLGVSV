@@ -64,7 +64,7 @@
                         <h1 class="">Danh sách loại khoa học</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/units')}}" method="post">
+                        <form action="{{route('search/nckh_type')}}" method="post">
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
@@ -87,10 +87,10 @@
                                 <td class="border-collapse border border-gray-500 p-2">{{$kind_of_science->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$kind_of_science->name}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="">Edit</a>
+                                    <a href="{{ route('edit/nckh_type/index',$kind_of_science->id) }}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="" method="post">
+                                    <form action="{{route('delete/nckh_type',$kind_of_science)}}" method="post">
                                         @csrf
                                         <button>Delete</button>
                                     </form>
