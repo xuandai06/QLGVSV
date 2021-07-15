@@ -17,6 +17,7 @@ class CreateJournalsTable extends Migration
             $table->string('id',15)->primary();
             $table->string('name',100);
             $table->float('score');
+            $table->timestamps();
         });
     }
 

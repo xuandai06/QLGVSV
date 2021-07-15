@@ -15,9 +15,9 @@ class CreateRewardsDisciplinesTable extends Migration
     {
         Schema::create('rewards_disciplines', function (Blueprint $table) {
             $table->string('id',15)->primary();
-            $table->string('reward',50);
-            $table->string('discipline',50);
-            $table->string('note');
+            $table->string('reward',50)->nullable();
+            $table->string('discipline',50)->nullable();
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }
