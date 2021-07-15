@@ -18,7 +18,7 @@
                             <h1 class="">Thêm thông tin đơn vị</h1>
                         </div>
                         <?php if(session('status')): ?>
-                        <div class="text-red-500">
+                        <div class="text-green-500 p-3">
                             <?php echo e(session('status')); ?>
 
                         </div>
@@ -26,9 +26,10 @@
                         <form action="<?php echo e(route('add/units')); ?>" method="post" class=" flex-col justify-center">
                             <?php echo csrf_field(); ?>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -36,15 +37,16 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('id')); ?>">
 
+                                </div>
 
                                 <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -54,9 +56,10 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên đơn vị: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tên đơn vị: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào tên đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -64,14 +67,16 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>">
+
+                                </div>
 
                                 <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -85,7 +90,7 @@ unset($__errorArgs, $__bag); ?>
                                 <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Lưu</button>
                             </div>
                         </form>
-                    
+
                     </div>
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
@@ -94,12 +99,11 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="<?php echo e(route('search/units')); ?>" method="post">
-                                    <?php echo csrf_field(); ?>
-                                    <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
-                                    <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
-                                    placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            <?php echo csrf_field(); ?>
+                            <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                    <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
+                            <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
@@ -112,21 +116,21 @@ unset($__errorArgs, $__bag); ?>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $__currentLoopData = $units; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $units; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($unit->name); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <a href="<?php echo e(route('edit/units/index', $unit->id)); ?>">Edit</a>
+                                    <a href="<?php echo e(route('edit/units/index', $unit->id)); ?>">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="<?php echo e(route('delete/units',$unit)); ?>" method="post">
-                                     <?php echo csrf_field(); ?>
-                                    <button>Delete</button>
-                                </form>
+                                    <form action="<?php echo e(route('delete/units',$unit)); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <button>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                     <?php echo e($units->links()); ?>

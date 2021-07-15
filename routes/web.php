@@ -193,6 +193,7 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 
 //Hiep lam backend tu day
 
+//nckh_type
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
@@ -200,8 +201,17 @@ Route::group(
             ->name('update/nckh_type');
         Route::post('/add/nckh_type', [nckh_type_controller::class, 'store'])
             ->name('add/nckh_type');
+        Route::post('/delete/nckh_type/{kind_of_science}', [nckh_type_controller::class, 'delete'])
+            ->name('delete/nckh_type');
+        Route::post('/search/nckh_type', [nckh_type_controller::class, 'search'])
+            ->name('search/nckh_type');
+        Route::get('/edit/nckh_type/index/{id}', [nckh_type_controller::class, 'edit_index'])
+            ->name('edit/nckh_type/index');
+        Route::post('/edit/nckh_type/{kind_of_science}', [nckh_type_controller::class, 'edit'])
+            ->name('edit/nckh_type');
     }
 );
+//end nckh_type
 
 //endHiep
 
