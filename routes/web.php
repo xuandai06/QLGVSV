@@ -204,6 +204,7 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 
 //Route cua Hung
 
+//Phan Update
 Route::get('/teacherwork', function () {
     return view('layouts.admin.teacher_work_schedule.menu_update');
 });
@@ -216,20 +217,30 @@ Route::get('update/work_assignment', function () {
 Route::get('update/result', function () {
     return view('layouts.admin.teacher_work_schedule.update.update_result');
 });
-Route::get('update/search_instuctor', function () {
-    return view('layouts.admin.teacher_work_schedule.update.search_for_instuctors_by_time');
+Route::get('update/detail', function () {
+    return view('layouts.admin.teacher_work_schedule.update.update_jobs_detail');
 });
-Route::get('update/search_jobs_name', function () {
-    return view('layouts.admin.teacher_work_schedule.update.search_for_jobs_name_by_time');
+
+//Phan Search
+Route::get('search/instuctor', function () {
+    return view('layouts.admin.teacher_work_schedule.Search.search_for_instuctors_by_time');
 });
-Route::get('update/search_units', function () {
-    return view('layouts.admin.teacher_work_schedule.update.search_for_units_by_time');
+Route::get('search/jobs_name', function () {
+    return view('layouts.admin.teacher_work_schedule.Search.search_for_jobs_name_by_time');
 });
-Route::get('update/search_time', function () {
-    return view('layouts.admin.teacher_work_schedule.update.search_by_start_time');
+Route::get('search/units', function () {
+    return view('layouts.admin.teacher_work_schedule.Search.search_for_units_by_time');
 });
-Route::get('update/search_completion', function () {
-    return view('layouts.admin.teacher_work_schedule.update.search_by_completion_level');
+Route::get('search/time', function () {
+    return view('layouts.admin.teacher_work_schedule.Search.search_by_start_time');
+});
+Route::get('search/completion', function () {
+    return view('layouts.admin.teacher_work_schedule.Search.search_by_completion_level');
+});
+
+//Phan Statistical
+Route::get('statistical/teacher_work', function () {
+    return view('layouts.admin.teacher_work_schedule.Statistical.statistcal_teacher_work_schedule');
 });
 
 //Het Route cua Hung
