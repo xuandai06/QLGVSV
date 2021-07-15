@@ -340,7 +340,7 @@ Route::group(
     }
 );
 //end articles
-<<<<<<< HEAD
+
 
 //article_details
 Route::group(
@@ -382,7 +382,7 @@ Route::group(
 );
 //end extra_trainings
 //end Hiep
-=======
+
 //end Hiep
 
 
@@ -611,4 +611,4 @@ Route::get('/create/lecturers', function () {
   
     
 //end datatest
->>>>>>> f8ff9f5d3594d935b93629270e0f822d6a98a668
+
