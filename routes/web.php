@@ -235,6 +235,8 @@ Route::group(
 // END UPDATE NCKH GV
 //Route cua Hung
 
+
+//Lich cong tac GV
 //Phan Update
 Route::get('/teacherwork', function () {
     return view('layouts.admin.teacher_work_schedule.menu_update');
@@ -273,6 +275,27 @@ Route::get('search/completion', function () {
 Route::get('statistical/teacher_work', function () {
     return view('layouts.admin.teacher_work_schedule.Statistical.statistcal_teacher_work_schedule');
 });
+//Het lich cong tac GV
+
+
+//Thời khóa biểu
+Route::get('/timetable', function () {
+    return view('layouts.admin.timetable.menu_update');
+});
+
+//Phan Update
+Route::get('update/class', function () {
+    return view('layouts.admin.timetable.Update.update_class_section');
+});
+Route::get('update/courses', function () {
+   return view('layouts.admin.timetable.Update.update_register_courses');
+}); 
+Route::get('update/rooms', function () {
+    return view('layouts.admin.timetable.Update.update_rooms');
+ }); 
+ Route::get('update/timetable', function () {
+    return view('layouts.admin.timetable.Update.update_timetables');
+ }); 
 
 //Het Route cua Hung
 
@@ -330,6 +353,14 @@ Route::group(
             ->name('update/topics_syllabuses');
         Route::post('/add/topics_syllabuses', [topics_syllabuses_controller::class, 'store'])
             ->name('add/topics_syllabuses');
+        Route::post('/search/topics_syllabuses', [topics_syllabuses_controller::class, 'search'])
+            ->name('search/topics_syllabuses');
+        Route::post('/delete/topics_syllabuses/{topics_syllabuses}', [topics_syllabuses_controller::class, 'delete'])
+            ->name('delete/topics_syllabuses');
+        Route::get('/edit/topics_syllabuses/index/{id}', [topics_syllabuses_controller::class, 'edit_index'])
+            ->name('edit/topics_syllabuses/index');
+        Route::post('/edit/topics_syllabuses/{topics_syllabuses}', [topics_syllabuses_controller::class, 'edit'])
+            ->name('edit/topics_syllabuses');
     }
 );
 //end update_topics_syllabuses
@@ -363,7 +394,6 @@ Route::group(
     }
 );
 //end articles
-
 
 //article_details
 Route::group(
@@ -406,13 +436,7 @@ Route::group(
 //end extra_trainings
 //end Hiep
 
-//end Hiep
-
-
-
-
 //datatest
-
 
 Route::get('/create/units', function () {
     $unit = new Unit();
@@ -628,7 +652,4 @@ Route::get('/create/lecturers', function () {
 });
 
 
-
-  
-    
 //end datatest
