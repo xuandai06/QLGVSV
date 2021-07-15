@@ -155,12 +155,12 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
                     <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
-                        <h1 class="">Danh sách đơn vị</h1>
+                        <h1 class="">Danh sách</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="<?php echo e(route('search/units')); ?>" method="post">
                             <?php echo csrf_field(); ?>
-                            <label for="id" class="ml-2">Tìm kiếm đơn vị</label>
+                            <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
