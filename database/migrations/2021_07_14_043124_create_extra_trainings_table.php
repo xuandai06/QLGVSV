@@ -29,6 +29,7 @@ class CreateExtraTrainingsTable extends Migration
             ->onDelete('cascade');
 
             $table->primary(['lecturer_id','id']);
+            $table->timestamps();
         });
     }
 

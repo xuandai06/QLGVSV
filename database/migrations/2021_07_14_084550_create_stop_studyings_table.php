@@ -16,8 +16,8 @@ class CreateStopStudyingsTable extends Migration
         Schema::create('stop_studyings', function (Blueprint $table) {
             $table->string('student_id',15);
             $table->date('time');
-            $table->string('cause');
-            $table->string('note');
+            $table->string('cause')->nullable();
+            $table->string('note')->nullable();
             $table->foreign('student_id')->references('id')->on('students')
             ->onDelete('cascade')
             ->onUpdate('cascade');

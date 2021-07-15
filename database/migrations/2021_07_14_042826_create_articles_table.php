@@ -18,11 +18,13 @@ class CreateArticlesTable extends Migration
             $table->string('name',100);
             $table->string('detail',100)->nullable();
             $table->string('note',100)->nullable();
+            $table->date('time');
 
             $table->string('journal_id',15);
             $table->foreign('journal_id')->references('id')->on('journals')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

@@ -26,6 +26,7 @@ class CreateConferencesDetailsTable extends Migration
             ->onDelete('cascade');
 
             $table->primary(['conference_id', 'lecturer_id']);
+            $table->timestamps();
         });
     }
 
