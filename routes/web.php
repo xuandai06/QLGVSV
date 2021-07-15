@@ -10,13 +10,19 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
-use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\nckh_type_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\articles_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\implementation_levels_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\journals_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\topic_details_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\topics_syllabuses_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\update_kind_of_sciences_controller;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
 use App\Http\Controllers\student\StudentController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 Route::get('/', function () {
     return view('layouts.home');
@@ -197,20 +203,70 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
-        Route::get('/update/nckh_type', [nckh_type_controller::class, 'index'])
-            ->name('update/nckh_type');
-        Route::post('/add/nckh_type', [nckh_type_controller::class, 'store'])
-            ->name('add/nckh_type');
-        Route::post('/delete/nckh_type/{kind_of_science}', [nckh_type_controller::class, 'delete'])
-            ->name('delete/nckh_type');
-        Route::post('/search/nckh_type', [nckh_type_controller::class, 'search'])
-            ->name('search/nckh_type');
-        Route::get('/edit/nckh_type/index/{id}', [nckh_type_controller::class, 'edit_index'])
-            ->name('edit/nckh_type/index');
-        Route::post('/edit/nckh_type/{kind_of_science}', [nckh_type_controller::class, 'edit'])
-            ->name('edit/nckh_type');
+        Route::get('/update/kind_of_sciences', [update_kind_of_sciences_controller::class, 'index'])
+            ->name('update/kind_of_sciences');
+        Route::post('/add/kind_of_sciences', [update_kind_of_sciences_controller::class, 'store'])
+            ->name('add/kind_of_sciences');
+        Route::post('/delete/kind_of_sciences/{kind_of_science}', [update_kind_of_sciences_controller::class, 'delete'])
+            ->name('delete/kind_of_sciences');
+        Route::post('/search/kind_of_sciences', [update_kind_of_sciences_controller::class, 'search'])
+            ->name('search/kind_of_sciences');
+        Route::get('/edit/nckh_type/index/{id}', [update_kind_of_sciences_controller::class, 'edit_index'])
+            ->name('edit/kind_of_sciences/index');
+        Route::post('/edit/kind_of_sciences/{kind_of_science}', [update_kind_of_sciences_controller::class, 'edit'])
+            ->name('edit/kind_of_sciences');
     }
 );
 //end nckh_type
 
+//update_implementation_levels
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/update_implementation_levels', [implementation_levels_controller::class, 'index'])
+            ->name('update/update_implementation_levels');
+    }
+);
+//end update_implementation_levels
+
+//update_topics_syllabuses
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/topics_syllabuses', [topics_syllabuses_controller::class, 'index'])
+            ->name('update/topics_syllabuses');
+    }
+);
+//end update_topics_syllabuses
+
+//topics_details
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/topic_details', [topic_details_controller::class, 'index'])
+            ->name('update/topic_details');
+    }
+);
+//end topics_details
+
+//journals
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/journals', [journals_controller::class, 'index'])
+            ->name('update/journals');
+    }
+);
+//end journals
+
+//articles
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/articles', [articles_controller::class, 'index'])
+            ->name('update/articles');
+    }
+);
+//end 
+//end articles
 //end Hiep

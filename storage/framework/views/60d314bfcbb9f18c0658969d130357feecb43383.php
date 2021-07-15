@@ -10,27 +10,27 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="<?php echo e(route('update/nckh_type')); ?>">=> Cập nhật loại khoa học</a>
+                            <a href="<?php echo e(route('update/kind_of_sciences')); ?>">=> Cập nhật loại khoa học</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật cấp thực hiện</a>
+                            <a href="<?php echo e(route('update/update_implementation_levels')); ?>">=> Cập nhật cấp thực hiện</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật đề tài giáo trình</a>
+                            <a href="<?php echo e(route('update/topics_syllabuses')); ?>">=> Cập nhật đề tài giáo trình</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật chi tiết đề tài giáo trình</a>
+                            <a href="<?php echo e(route('update/topic_details')); ?>">=> Cập nhật chi tiết đề tài giáo trình</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật danh mục tạp trí</a>
+                            <a href="<?php echo e(route('update/journals')); ?>">=> Cập nhật danh mục tạp trí</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật bài báo</a>
+                            <a href="<?php echo e(route('update/articles')); ?>">=> Cập nhật bài báo</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
