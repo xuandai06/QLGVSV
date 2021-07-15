@@ -20,7 +20,15 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
 use App\Http\Controllers\student\StudentController;
+use App\Models\Lecturer;
+use App\Models\Level;
+use App\Models\Major;
+use App\Models\Position;
+use App\Models\Subject;
+use App\Models\Unit;
+use App\Models\User;
 use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
@@ -270,3 +278,230 @@ Route::group(
 //end 
 //end articles
 //end Hiep
+
+
+
+
+//datatest
+
+
+Route::get('/create/units', function () {
+    $unit = new Unit();
+    $unit->id = '1KTCN';
+    $unit->name = 'Kĩ thuật công nghệ';
+
+    $unit ->save();
+
+    $unit = new Unit();
+    $unit->id = '2NN';
+    $unit->name = 'Ngoại ngữ';
+
+    $unit ->save();
+});
+
+Route::get('/create/subjects', function () {
+    $subject = new Subject();
+    $subject->id = '1BM';
+    $subject->name = 'Công nghệ phần mềm';
+    $subject->unit_id = '1KTCN';
+
+    $subject ->save();
+
+    $subject = new Subject();
+    $subject->id = '2BM';
+    $subject->name = 'Mạng và truyền thông';
+    $subject->unit_id = '1KTCN';
+    
+    $subject ->save();
+
+    $subject = new Subject();
+    $subject->id = '3BM';
+    $subject->name = 'Sửa điện';
+    $subject->unit_id = '1KTCN';
+    
+    $subject ->save();
+
+    $subject = new Subject();
+    $subject->id = '4BM';
+    $subject->name = 'Hàn xì';
+    $subject->unit_id = '1KTCN';
+    
+    $subject ->save();
+
+});
+
+Route::get('/create/majors', function () {
+    $major = new Major();
+    $major->id = '1N';
+    $major->name = 'Công nghệ thông tin';
+    $major->subject_id = '1BM';
+
+    $major ->save();
+
+    $major = new Major();
+    $major->id = '2N';
+    $major->name = 'Điện điện tử';
+    $major->subject_id = '3BM';
+
+    $major ->save();
+
+    $major = new Major();
+    $major->id = '3N';
+    $major->name = 'Cơ khí';
+    $major->subject_id = '4BM';
+
+    $major ->save();
+});
+
+Route::get('/create/positions', function () {
+    $position = new Position();
+    $position->id = '1CV';
+    $position->name = 'Trưởng khoa';
+    $position ->save();
+
+    $position = new Position();
+    $position->id = '2CV';
+    $position->name = 'Phó khoa';
+    $position ->save();
+
+    $position = new Position();
+    $position->id = '3CV';
+    $position->name = 'Cố vấn học tập';
+    $position ->save();
+
+    $position = new Position();
+    $position->id = '4CV';
+    $position->name = 'Giảng viên';
+    $position ->save();
+});
+
+Route::get('/create/levels', function () {
+    $level = new Level();
+    $level->id = '1TD';
+    $level->name = 'Giáo sư';
+    $level ->save();
+
+    $level = new Level();
+    $level->id = '2TD';
+    $level->name = 'Tiến sĩ';
+    $level ->save();
+
+    $level = new Level();
+    $level->id = '3TD';
+    $level->name = 'Thạc sĩ';
+    $level ->save();
+
+    $level = new Level();
+    $level->id = '4TD';
+    $level->name = 'Đại học';
+    $level ->save();
+});
+
+Route::get('/create/lecturers', function () {
+
+    $user = new User();
+    $user->id = '1GV';
+    $user->email = 'daideptrai41@gmail.com';
+    $user->role = 'lecturer';
+    $user->password = Hash::make('123456');
+    $user->save();
+    
+    $lecturer = new Lecturer();
+    $lecturer->id = '1GV';
+    $lecturer->name = 'Nguyễn Xuân Đại';
+    $lecturer->sex = 'Nam';
+    $lecturer->hometown = 'Cự Thắng - Thanh Sơn - Phú Thọ';
+    $lecturer->address = 'Khu 41- Cự thắng - Thanh Sơn - Phú Thọ';
+    $lecturer->phone_number = '0328199325';
+    $lecturer->note = 'Đẹp trai nhất khoa';
+    $lecturer->position_id = '1CV';
+    $lecturer->level_id = '1TD';
+    $lecturer->major_id = '1N';
+    $lecturer->save();
+
+    $user = new User();
+    $user->id = '2GV';
+    $user->email = 'hoanghiep@gmail.com';
+    $user->role = 'lecturer';
+    $user->password = Hash::make('123456');
+    $user->save();
+
+    $lecturer = new Lecturer();
+    $lecturer->id = '2GV';
+    $lecturer->name = 'Nguyễn Hoàng Hiệp';
+    $lecturer->sex = 'Nữ';
+    $lecturer->hometown = 'Phú Thọ';
+    $lecturer->address = 'Thanh Vinh - Thị Xã Phú Thọ - Phú Thọ';
+    $lecturer->phone_number = '12345678910';
+    $lecturer->note = 'Đen nhất khoa';
+    $lecturer->position_id = '4CV';
+    $lecturer->level_id = '4TD';
+    $lecturer->major_id = '1N';
+    $lecturer->save();
+
+
+    $user = new User();
+    $user->id = '3GV';
+    $user->email = 'manhhung@gmail.com';
+    $user->role = 'lecturer';
+    $user->password = Hash::make('123456');
+    $user->save();
+    $lecturer = new Lecturer();
+    $lecturer->id = '3GV';
+    $lecturer->name = 'Tạ Mạnh Hùng';
+    $lecturer->sex = 'Khác';
+    $lecturer->hometown = 'Phú Thọ';
+    $lecturer->address = 'Tổ 9 - Khu Dữu Lâu - Phường Dữu Lâu - Việt Trì - Phú Thọ';
+    $lecturer->phone_number = '12345678910';
+    $lecturer->note = 'Không biết bơi';
+    $lecturer->position_id = '3CV';
+    $lecturer->level_id = '3TD';
+    $lecturer->major_id = '1N';
+    $lecturer->save();
+
+
+    $user = new User();
+    $user->id = '4GV';
+    $user->email = 'tienchi@gmail.com';
+    $user->role = 'lecturer';
+    $user->password = Hash::make('123456');
+    $user->save();
+    $lecturer = new Lecturer();
+    $lecturer->id = '4GV';
+    $lecturer->name = 'Nguyễn Tiến Chí';
+    $lecturer->sex = 'Nam';
+    $lecturer->hometown = 'Phú Thọ';
+    $lecturer->address = 'Thanh ba - Phú Thọ';
+    $lecturer->phone_number = '12345678910';
+    $lecturer->note = 'cao 1m6';
+    $lecturer->position_id = '2CV';
+    $lecturer->level_id = '2TD';
+    $lecturer->major_id = '2N';
+    $lecturer->save();
+
+    $user = new User();
+    $user->id = '5GV';
+    $user->email = 'ducnhat@gmail.com';
+    $user->role = 'lecturer';
+    $user->password = Hash::make('123456');
+    $user->save();
+    $lecturer = new Lecturer();
+    $lecturer->id = '5GV';
+    $lecturer->name = 'Gì Đức Nhật';
+    $lecturer->sex = 'Nữ';
+    $lecturer->hometown = 'Phú Thọ';
+    $lecturer->address = 'Thanh ba - Phú Thọ';
+    $lecturer->phone_number = '12345678910';
+    $lecturer->note = 'Hay nói phét';
+    $lecturer->position_id = '2CV';
+    $lecturer->level_id = '2TD';
+    $lecturer->major_id = '3N';
+    $lecturer->save();
+
+});
+
+
+
+  
+    
+//end datatest
