@@ -8,14 +8,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <p class="clear-left p-2">Cập nhập bài báo</p>
+                <p class="clear-left p-2">Cập nhập chi tiết bài báo</p>
             </div>
 
             <div class="w-full bg-gray-200 flex-row justify-between px-6 text-gray-500 rounded-lg mt-1">
                 <div class="w-8/12 p-2 rounded-lg flex items-center">
                     <div class="p-6 w-10/12">
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
-                            <h1 class="">Thêm bài báo</h1>
+                            <h1 class="">Thêm chi tiết bài báo</h1>
                         </div>
                         @if(session('status'))
                         <div class="text-green-500 p-3">
@@ -89,7 +89,7 @@
                         <thead>
                             <tr>
                                 <th class="w-3/12 border-collapse border border-gray-500 p-2">Mã bài báo</th>
-                                <th class="w-3/12 border-collapse border border-gray-500 p-2">Tên bài báo</th>
+                                <th class="w-5/12 border-collapse border border-gray-500 p-2">Tên bài báo</th>
                                 <th class="w-4/12 border-collapse border border-gray-500 p-2">Vai trò</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>

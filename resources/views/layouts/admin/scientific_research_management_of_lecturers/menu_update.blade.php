@@ -34,19 +34,19 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật chi tiết bài báo</a>
+                            <a href="{{route('update/article_details')}}">=> Cập nhật chi tiết bài báo</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật danh mục hội nghị hội thảo</a>
+                            <a href="{{route('update/conferences')}}">=> Cập nhật danh mục hội nghị hội thảo</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật chi tiết hội nghị hội thảo</a>
+                            <a href="{{route('update/conferences_details')}}">=> Cập nhật chi tiết hội nghị hội thảo</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật danh mục bồi dưỡng</a>
+                            <a href="{{route('update/extra_trainings')}}">=> Cập nhật danh mục bồi dưỡng</a>
                         </li>
                     </ul>
                 </div>

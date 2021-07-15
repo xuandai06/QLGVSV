@@ -22,7 +22,7 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="{{route('add/units')}}" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/topics_syllabuses')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
