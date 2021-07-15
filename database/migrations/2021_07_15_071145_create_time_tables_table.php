@@ -36,9 +36,9 @@ class CreateTimeTablesTable extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->primary(['course_id', 'course_class_id', 'lecturer_id', 'room_id', 'date', 'start_lesson']);
+            $table->primary(['course_id', 'course_class_id', 'lecturer_id', 'room_id', 'date', 'start_lesson'],
+            'time_table_long_table_primary');
             
-
             $table->integer('number_of_lesson')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();

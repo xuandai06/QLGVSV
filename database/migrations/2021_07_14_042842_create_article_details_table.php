@@ -16,7 +16,7 @@ class CreateArticleDetailsTable extends Migration
         Schema::create('article_details', function (Blueprint $table) {
             $table->string('article_id',15);
             $table->string('lecturer_id',15);
-            $table->string('note',50)->nullable();
+            $table->string('role',50)->nullable();
 
             $table->foreign('article_id')->references('id')->on('articles')
             ->onUpdate('cascade')
