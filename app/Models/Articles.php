@@ -14,6 +14,7 @@ class Articles extends Model
         'id',
         'name',
         'detail',
+        'time',
         'note',
         'journal_id',
     ];
