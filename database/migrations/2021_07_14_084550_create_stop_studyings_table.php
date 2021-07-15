@@ -17,7 +17,7 @@ class CreateStopStudyingsTable extends Migration
             $table->string('student_id',15);
             $table->date('time');
             $table->string('cause');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->foreign('student_id')->references('id')->on('students')
             ->onDelete('cascade')
             ->onUpdate('cascade');

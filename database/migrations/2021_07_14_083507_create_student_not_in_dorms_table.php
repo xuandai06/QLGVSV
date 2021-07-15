@@ -20,7 +20,7 @@ class CreateStudentNotInDormsTable extends Migration
             $table->string('place');
             $table->string('host',100)->nullable();
             $table->string('host_phone_number',13)->nullable();
-            $table->string('note');
+            $table->string('note')->nullable();
 
             $table->foreign('student_id')->references('id')->on('students')
             ->onUpdate('cascade')

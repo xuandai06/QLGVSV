@@ -32,7 +32,7 @@ class CreateStudentsTable extends Migration
             $table->string('name_of_mother',100)->nullable();
             $table->string('job_of_mother',100);
             $table->string('major_id',15);
-            $table->string('note');
+            $table->string('note')->nullable();
 
             $table->string('student_position_id',15);
             $table->string('class_id',15);

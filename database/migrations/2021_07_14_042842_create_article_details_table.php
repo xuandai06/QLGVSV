@@ -26,6 +26,7 @@ class CreateArticleDetailsTable extends Migration
             ->onDelete('cascade');
 
             $table->primary(['article_id', 'lecturer_id']);
+            $table->timestamps();
         });
     }
 
