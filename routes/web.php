@@ -212,6 +212,8 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 
 //Route cua Hung
 
+
+//Lich cong tac GV
 //Phan Update
 Route::get('/teacherwork', function () {
     return view('layouts.admin.teacher_work_schedule.menu_update');
@@ -250,6 +252,27 @@ Route::get('search/completion', function () {
 Route::get('statistical/teacher_work', function () {
     return view('layouts.admin.teacher_work_schedule.Statistical.statistcal_teacher_work_schedule');
 });
+//Het lich cong tac GV
+
+
+//Thời khóa biểu
+Route::get('/timetable', function () {
+    return view('layouts.admin.timetable.menu_update');
+});
+
+//Phan Update
+Route::get('update/class', function () {
+    return view('layouts.admin.timetable.Update.update_class_section');
+});
+Route::get('update/courses', function () {
+   return view('layouts.admin.timetable.Update.update_register_courses');
+}); 
+Route::get('update/rooms', function () {
+    return view('layouts.admin.timetable.Update.update_rooms');
+ }); 
+ Route::get('update/timetable', function () {
+    return view('layouts.admin.timetable.Update.update_timetables');
+ }); 
 
 //Het Route cua Hung
 
@@ -383,7 +406,6 @@ Route::group(
 //end extra_trainings
 //end Hiep
 
-//end Hiep
 
 
 

@@ -42,7 +42,7 @@
                             @enderror
 
                             <label for="email">Email</label>
-                            <input type="text" id="email" name="email" value="{{old('email') ?? $lecturer->user->email}}" class="bg-white p-2 mx-10 rounded-lg
+                            <input type="text" id="email" name="email" value="{{old('email') ?? $lecturer->user->email}}" class="bg-white p-3 ml-16 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <hr>
                             @error('email')
@@ -52,7 +52,7 @@
                             @enderror
 
                             <label>Giới tính</label>
-                            <select name="sex" id="sex" class="bg-white p-2 mx-5 rounded-lg
+                            <select name="sex" id="sex" class="bg-white p-2 mx-10 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
 
@@ -70,10 +70,10 @@
                                 <option value="Nam">Nam</option>
                                 <option value="Nữ">Nữ</option>
                                 @endif
-                            </select>
+                            </select><hr>
 
                                 <label for="birthday">Ngày sinh</label>
-                                <input type="date" id="birthday" name="birthday" value="{{old('birthday') ?? $lecturer->birthday}}" class="bg-white p-2 mx-5 rounded-lg
+                                <input type="date" id="birthday" name="birthday" value="{{old('birthday') ?? $lecturer->birthday}}" class="bg-white p-2 mx-8 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
                                 @error('birthday')
@@ -83,7 +83,7 @@
                                 @enderror
 
                                 <label for="hometown">Quê quán</label>
-                                <input type="text" id="hometown" name="hometown" value="{{old('hometown') ?? $lecturer->hometown}}" class="bg-white p-2 mx-5 rounded-lg
+                                <input type="text" id="hometown" name="hometown" value="{{old('hometown') ?? $lecturer->hometown}}" class="bg-white p-2 mx-8 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
                                 @error('hometown')
@@ -93,7 +93,7 @@
                                 @enderror
 
                                 <label for="address">Địa chỉ</label>
-                                <input type="text" id="address" name="address" value="{{old('address') ?? $lecturer->address}}" class="bg-white p-2 mx-5 rounded-lg
+                                <input type="text" id="address" name="address" value="{{old('address') ?? $lecturer->address}}" class="bg-white p-2 mx-14 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
                                 @error('address')
@@ -103,7 +103,7 @@
                                 @enderror
 
                                 <label for="Phone_number">Điện thoại</label>
-                                <input type="text" id="phone_number" name="phone_number" value="{{old('phone_number') ?? $lecturer->phone_number}}" class="bg-white p-2 mx-5 rounded-lg
+                                <input type="text" id="phone_number" name="phone_number" value="{{old('phone_number') ?? $lecturer->phone_number}}" class="bg-white p-2 mx-8 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
                                 @error('phone_number')
@@ -113,7 +113,7 @@
                                 @enderror
 
                                 <label for="note">Ghi chú</label>
-                                <input type="text" id="note" name="note" value="{{old('note') ?? $lecturer->note}}" class="bg-white p-2 mx-5 rounded-lg
+                                <input type="text" id="note" name="note" value="{{old('note') ?? $lecturer->note}}" class="bg-white p-2 mx-12 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
                                 @error('note')
@@ -133,7 +133,7 @@
                                 @enderror
 
                                 <label for="level_id">Trình độ</label>
-                                <input type="text" id="level_id" name="level_id" value="{{old('level_id') ?? $lecturer->level_id}}" class="bg-white p-2 mx-5 rounded-lg
+                                <input type="text" id="level_id" name="level_id" value="{{old('level_id') ?? $lecturer->level_id}}" class="bg-white p-2 mx-10 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
                                 @error('level_id')
@@ -143,7 +143,7 @@
                                 @enderror
 
                                 <label for="major_id">Mã ngành</label>
-                                <input type="text" id="major_id" name="major_id" value="{{old('major_id') ?? $lecturer->major_id}}" class="bg-white p-2 mx-5 rounded-lg
+                                <input type="text" id="major_id" name="major_id" value="{{old('major_id') ?? $lecturer->major_id}}" class="bg-white p-2 mx-8 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                                 <hr>
                                 @error('major_id')
