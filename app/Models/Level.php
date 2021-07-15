@@ -9,7 +9,7 @@ class Level extends Model
 {
     use HasFactory;
     public $incrementing = false;
-    public $timestamps = false;
+    
 
     protected $fillable = [
         'id',
