@@ -26,9 +26,10 @@
                         <form action="<?php echo e(route('add/positions')); ?>" method="post" class=" flex-col justify-center">
                             <?php echo csrf_field(); ?>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã chức vụ: </p>
-                                <input type="text" name="id" id="id" placeholder="Nhập vào mã chức vụ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã chức vụ: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã chức vụ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -37,13 +38,14 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('id')); ?>">
+                                </div>
 
                                 <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -53,9 +55,10 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên chức vụ: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào tên chức vụ ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tên chức vụ: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào tên chức vụ ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -64,13 +67,14 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>">
+                                </div>
 
                                 <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -92,13 +96,11 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="<?php echo e(route('search/positions')); ?>" method="post">
-                                    <?php echo csrf_field(); ?>
-                                    <label for="id" class="ml-2">Tìm kiếm chức vụ</label>
-                                    <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" 
-                                    placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            <?php echo csrf_field(); ?>
+                            <label for="id" class="ml-2">Tìm kiếm chức vụ</label>
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                    <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white"
-                                    value="<?php echo e(old('id')); ?>">Search</button>
+                            <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white" value="<?php echo e(old('id')); ?>">Search</button>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
@@ -111,7 +113,7 @@ unset($__errorArgs, $__bag); ?>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $__currentLoopData = $positions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $position): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $positions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $position): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($position->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($position->name); ?></td>
@@ -119,13 +121,13 @@ unset($__errorArgs, $__bag); ?>
                                     <a href="<?php echo e(route('edit/positions/index', $position->id)); ?>">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                <form action="<?php echo e(route('delete/positions', $position)); ?>" method="post">
-                                     <?php echo csrf_field(); ?>
-                                    <button>Delete</button>
-                                </form>
+                                    <form action="<?php echo e(route('delete/positions', $position)); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <button>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
