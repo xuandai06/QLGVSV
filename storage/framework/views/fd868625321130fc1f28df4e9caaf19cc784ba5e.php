@@ -271,7 +271,7 @@ unset($__errorArgs, $__bag); ?>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->kind_of_science_id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->implementation_id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="">Edit</a>
+                                    <a href="<?php echo e(route('edit/topics_syllabuses/index',$topics_syllabuse->id)); ?>">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="<?php echo e(route('delete/topics_syllabuses',$topics_syllabuse)); ?>" method="post">

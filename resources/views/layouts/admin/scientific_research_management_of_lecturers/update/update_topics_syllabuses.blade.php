@@ -165,7 +165,7 @@
                                 <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->kind_of_science_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->implementation_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="">Edit</a>
+                                    <a href="{{route('edit/topics_syllabuses/index',$topics_syllabuse->id)}}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="{{route('delete/topics_syllabuses',$topics_syllabuse)}}" method="post">
