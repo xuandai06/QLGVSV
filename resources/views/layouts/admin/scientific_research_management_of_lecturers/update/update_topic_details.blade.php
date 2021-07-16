@@ -106,7 +106,7 @@
                                     <a href="{{route('edit/topic_details/index',$topic_detail->topic_syllabus_id)}}">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="{{ route('delete/topic_details', $topic_detail )}}" method="post">
+                                    <form action="" method="post">
                                         @csrf
                                         <button>Delete</button>
                                     </form>
