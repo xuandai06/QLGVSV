@@ -152,7 +152,7 @@ unset($__errorArgs, $__bag); ?>
                                     <a href="<?php echo e(route('edit/topic_details/index',$topic_detail->topic_syllabus_id)); ?>">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="<?php echo e(route('delete/topic_details', $topic_detail )); ?>" method="post">
+                                    <form action="" method="post">
                                         <?php echo csrf_field(); ?>
                                         <button>Delete</button>
                                     </form>
