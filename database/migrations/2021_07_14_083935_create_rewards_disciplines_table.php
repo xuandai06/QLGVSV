@@ -15,9 +15,14 @@ class CreateRewardsDisciplinesTable extends Migration
     {
         Schema::create('rewards_disciplines', function (Blueprint $table) {
             $table->string('id',15)->primary();
+            $table->string('student_id',15);
             $table->string('reward',50)->nullable();
             $table->string('discipline',50)->nullable();
             $table->string('note')->nullable();
+
+            $table->foreign('student_id')->references('id')->on('students')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

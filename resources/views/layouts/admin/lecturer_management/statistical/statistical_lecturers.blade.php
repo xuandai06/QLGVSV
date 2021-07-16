@@ -112,7 +112,7 @@
                         </select>
                     </li>
 
-                    <li class="float-left">
+                    <li>
                         <button class="bg-blue-500 rounded-lg ml-4 p-3 text-white">Thống kê</button>
                     </li>
                 </ul>

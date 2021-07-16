@@ -112,14 +112,14 @@
                         </select>
                     </li>
 
-                    <li class="float-left">
+                    <li>
                         <button class="bg-blue-500 rounded-lg ml-4 p-3 text-white">Thống kê</button>
                     </li>
                 </ul>
             </form>
         </div>
 
-        <table class="bg-white table-fixed flex-col justify-center">
+        <table class="bg-white table-fixed flex-col justify-center text-xs">
             <thead>
                 <tr>
                     <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
