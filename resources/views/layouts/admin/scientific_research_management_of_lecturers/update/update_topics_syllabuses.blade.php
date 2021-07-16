@@ -27,8 +27,8 @@
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
-                                    <p class="text-gray-500 text-xl w-6/12 pt-3">Mã loại đề tài/giáo trình: </p>
-                                    <input type="text" name="id" id="id" placeholder="Mã loại đề tài/giáo trình..." class="bg-white w-8/12 p-4 rounded-lg
+                                    <p class="text-gray-500 text-xl w-6/12 pt-3">Mã khoa học: </p>
+                                    <input type="text" name="id" id="id" placeholder="Mã khoa học..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
                                 </div>
                                 @error('id')
@@ -40,8 +40,8 @@
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
-                                    <p class="text-gray-500 text-xl w-6/12 pt-3">Tên đề tài/giáo trình: </p>
-                                    <input type="text" name="name" id="name" placeholder="Tên đề tài/giáo trình ..." class="bg-white w-8/12 p-4 rounded-lg
+                                    <p class="text-gray-500 text-xl w-6/12 pt-3">Tên khoa học: </p>
+                                    <input type="text" name="name" id="name" placeholder="Tên khoa học ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="">
                                 </div>
 
