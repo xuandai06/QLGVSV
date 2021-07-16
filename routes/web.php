@@ -365,6 +365,9 @@ Route::get('/update/student_graduate', function () {
 Route::get('/update/student_quit', function () {
     return view('layouts.admin.student_management.update.update_student_quit_school');
 });
+Route::get('/update/student_study_point', function () {
+    return view('layouts.admin.student_management.update.update_student_study_point ');
+});
 
 //Het Route cua Hung
 
