@@ -328,6 +328,13 @@ Route::get('/statistical/lecturer', function () {
 Route::get('/statistical/student', function () {
     return view('layouts.admin.timetable.statistical.SV.statistical_student');
 });
+
+//Phan quan ly sinh vien
+
+Route::get('/student', function () {
+    return view('layouts.admin.student_management.menu_update');
+});
+
 //Het Route cua Hung
 
 
