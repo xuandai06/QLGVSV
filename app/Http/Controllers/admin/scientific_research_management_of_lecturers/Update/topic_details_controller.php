@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin\scientific_research_management_of_lecturers
 
 use App\Http\Controllers\Controller;
 use App\Models\Topic_detail;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 
 class topic_details_controller extends Controller
@@ -22,16 +23,40 @@ class topic_details_controller extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      'topic_syllabus_id' => 'required|unique:topic_details,topic_syllabus_id|exists:App\Models\Topic_syllabu,id',
-      'lecturer_id' => 'required|unique:topic_details,lecturer_id|exists:App\Models\Lecturer,id',
-      'role' => 'required',
-    ]);
+      'topic_syllabus_id' => [
+        'required',
+        function($attribute, $value, $fail){
+        
+        }
 
-    $topic_details = new Topic_detail();
-    $topic_details->topic_syllabus_id = $request->topic_syllabus_id;
-    $topic_details->lecturer_id = $request->lecturer_id;
-    $topic_details->role = $request->role;
-    $topic_details->save();
+      ],
+      
+    ]);
+  //   $request = [
+  //     'topic_syllabus_id' => 'required|unique:topic_details,topic_syllabus_id',
+  //     'lecturer_id' => 'required|unique:topic_details,lecturer_id',
+  //     // 'user_id' => 'required|unique:service_details,user_id',
+  //     // 'service_id'=>'required|unique:service_details,service_id'
+  //  ];
+
+<<<<<<< Updated upstream
+  //  Validator::make($request)->passes();
+
+//   $rules = [
+//     'topic_syllabus_id' => 'required|unique:topic_details,topic_syllabus_id',
+//     'lecturer_id' => 'required|unique:topic_details,lecturer_id',
+//  ];
+    
+    $topic_detail = new Topic_detail();
+    $topic_detail->topic_syllabus_id = $request->topic_syllabus_id;
+    $topic_detail->lecturer_id = $request->lecturer_id;
+=======
+    $topic_detail = new Topic_detail();
+    $topic_detail->id = $request->id;
+    $topic_detail->name = $request->name;
+>>>>>>> Stashed changes
+    $topic_detail->role = $request->role;
+    $topic_detail->save();
     return redirect()->route('update/topic_details')->with('status', 'Thêm cấp thực hiện thành công');
   }
 

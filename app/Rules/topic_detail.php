@@ -2,6 +2,7 @@
 
 namespace App\Rules;
 
+use App\Models\Topic_detail as ModelsTopic_detail;
 use Illuminate\Contracts\Validation\Rule;
 
 class topic_detail implements Rule
@@ -25,7 +26,8 @@ class topic_detail implements Rule
      */
     public function passes($attribute, $value)
     {
-        //
+        $toppic_detail = ModelsTopic_detail::where($value);
+        
     }
 
     /**

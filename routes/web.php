@@ -287,7 +287,7 @@ Route::get('/timetable', function () {
 
 //Phan Update
 Route::get('update/class', function () {
-    return view('layouts.admin.timetable.Update.update_class_section');
+    return view('layouts.admin.timetable.Update.update_classes_section');
 });
 Route::get('update/courses', function () {
     return view('layouts.admin.timetable.Update.update_register_courses');

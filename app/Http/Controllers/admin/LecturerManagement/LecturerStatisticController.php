@@ -21,7 +21,8 @@ class LecturerStatisticController extends Controller
         $lecturers->join('levels', 'levels.id', '=', 'lecturers.level_id')
                 ->join('positions', 'positions.id', '=', 'lecturers.position_id')
                 ->join('majors', 'majors.id', '=', 'lecturers.major_id')
-                ->join('subjects', 'subjects.id', '=', 'majors.subject_id');
+                ->join('subjects', 'subjects.id', '=', 'majors.subject_id')
+                ->select('lecturers.*');
 
         if($request->subject_types != 'Không'){
             $lecturers->where('subjects.name', '=',$request->subject_types);
