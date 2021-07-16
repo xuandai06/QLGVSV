@@ -23,6 +23,13 @@
 
                         </div>
                         <?php endif; ?>
+                        
+                        <?php if(session('error1')): ?>
+                        <div class="text-red-500 p-3">
+                            <?php echo e(session('error1')); ?>
+
+                        </div>
+                        <?php endif; ?>
                         <form action="<?php echo e(route('add/topic_details')); ?>" method="post" class=" flex-col justify-center">
                             <?php echo csrf_field(); ?>
 
@@ -37,7 +44,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('topic_syllabus_id')); ?>">
                                 </div>
                                 <?php $__errorArgs = ['topic_syllabus_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -65,7 +72,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('lecturer_id')); ?>">
                                 </div>
 
                                 <?php $__errorArgs = ['lecturer_id'];
