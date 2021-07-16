@@ -321,7 +321,12 @@ Route::get('search/by_teaching_day_and_lesson', function () {
 Route::get('/statistical', function () {
     return view('layouts.admin.timetable.statistical.menu_update');
 });
-
+Route::get('/statistical/lecturer', function () {
+    return view('layouts.admin.timetable.statistical.GV.statistical_lecturer');
+});
+Route::get('/statistical/student', function () {
+    return view('layouts.admin.timetable.statistical.SV.statistical_student');
+});
 //Het Route cua Hung
 
 

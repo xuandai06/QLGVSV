@@ -17,10 +17,6 @@
                             <a href="">=>  Thống kê thời khóa biểu SV</a>
                         </li>
 
-                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=>  Thống kê thời khóa biểu GV, SV theo khoảng thời gian</a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
