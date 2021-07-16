@@ -28,8 +28,8 @@ class topic_details_controller extends Controller
     ]);
 
     $topic_details = new Topic_detail();
-    $topic_details->id = $request->id;
-    $topic_details->name = $request->name;
+    $topic_details->topic_syllabus_id = $request->topic_syllabus_id;
+    $topic_details->lecturer_id = $request->lecturer_id;
     $topic_details->role = $request->role;
     $topic_details->save();
     return redirect()->route('update/topic_details')->with('status', 'Thêm cấp thực hiện thành công');
@@ -64,8 +64,8 @@ class topic_details_controller extends Controller
       'role' => 'required',
     ]);
 
-    $topic_detail->topic_syllabus_id = $request->name;
-    $topic_detail->lecturer_id = $request->name;
+    $topic_detail->topic_syllabus_id = $request->topic_syllabus_id;
+    $topic_detail->lecturer_id = $request->lecturer_id;
     $topic_detail->role = $request->role;
     $topic_detail->save();
     return back()->with('status', 'Cập nhật chi tiết đề tài/giáo trình thành công');
