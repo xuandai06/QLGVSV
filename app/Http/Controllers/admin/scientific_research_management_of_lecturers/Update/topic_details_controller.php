@@ -39,6 +39,7 @@ class topic_details_controller extends Controller
   //     // 'service_id'=>'required|unique:service_details,service_id'
   //  ];
 
+<<<<<<< Updated upstream
   //  Validator::make($request)->passes();
 
 //   $rules = [
@@ -49,6 +50,11 @@ class topic_details_controller extends Controller
     $topic_detail = new Topic_detail();
     $topic_detail->topic_syllabus_id = $request->topic_syllabus_id;
     $topic_detail->lecturer_id = $request->lecturer_id;
+=======
+    $topic_detail = new Topic_detail();
+    $topic_detail->id = $request->id;
+    $topic_detail->name = $request->name;
+>>>>>>> Stashed changes
     $topic_detail->role = $request->role;
     $topic_detail->save();
     return redirect()->route('update/topic_details')->with('status', 'Thêm cấp thực hiện thành công');
