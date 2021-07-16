@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\search_scientific_research_management_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\article_details_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\articles_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\conferences_controller;
@@ -476,6 +477,11 @@ Route::group(
     }
 );
 //end extra_trainings
+
+//SEARCHING LECTURER NCKH
+Route::get('/search/scientific_research_management', [search_scientific_research_management_controller::class, 'index'])
+    ->name('search/scientific_research_management');
+//END SEARCHING LECTURER
 //end Hiep
 
 //datatest
