@@ -17,11 +17,18 @@
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin bộ môn</h1>
                         </div>
+                        <?php if(session('status')): ?>
+                        <div class="text-green-500 p-3">
+                            <?php echo e(session('status')); ?>
+
+                        </div>
+                        <?php endif; ?>
                         <form action="<?php echo e(route('add/subjects')); ?>" method="post" class=" flex-col justify-center">
                             <?php echo csrf_field(); ?>
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
-                                <input type="text" name="id" id="id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã bộ môn: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -29,13 +36,15 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('id')); ?>">
+                                </div>
+
                                 <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -45,9 +54,10 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Tên bộ môn: </p>
-                                <input type="text" name="name" id="name" placeholder="Nhập vào tên bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tên bộ môn: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào tên bộ môn ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -55,14 +65,15 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>">
+                                </div>
 
                                 <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -72,9 +83,10 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
 
-                            <div class="mb-4 flex">
-                                <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
+                                    <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['unit_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -82,14 +94,16 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('unit_id')); ?>">
+
+                                </div>
 
                                 <?php $__errorArgs = ['unit_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 text-sm">
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>

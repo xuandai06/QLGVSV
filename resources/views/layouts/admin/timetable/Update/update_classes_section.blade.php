@@ -30,7 +30,6 @@
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã lớp HP: </p>
                                     <input type="text" name="id" id="id" placeholder="Nhập vào mã lớp..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
-
                                 </div>
 
                                 @error('id')

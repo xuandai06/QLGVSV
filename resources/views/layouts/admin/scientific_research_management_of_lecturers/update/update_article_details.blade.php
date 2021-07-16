@@ -89,7 +89,7 @@
                         <thead>
                             <tr>
                                 <th class="w-3/12 border-collapse border border-gray-500 p-2">Mã bài báo</th>
-                                <th class="w-5/12 border-collapse border border-gray-500 p-2">Tên bài báo</th>
+                                <th class="w-5/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
                                 <th class="w-4/12 border-collapse border border-gray-500 p-2">Vai trò</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>

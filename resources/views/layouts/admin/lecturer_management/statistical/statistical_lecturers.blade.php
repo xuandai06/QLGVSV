@@ -11,7 +11,7 @@
                 <ul class="p-4">
                     <li class="float-left">
                         <p class="text-gray-700">Tìm theo bộ môn</p>
-                        <select id="subject_types" name="subject_types" class="mr-10 form-select border-2 border-gray-200 p-2 text-gray-500
+                        <select id="subject_types" name="subject_types" class="mr-2 mb-4 form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <option>Không</option>
 
@@ -31,7 +31,7 @@
                     </li>
                     <li class="float-left">
                         <p class="text-gray-700">Tìm theo ngành</p>
-                        <select id="major_types" name="major_types" class="mr-10 form-select border-2 border-gray-200 p-2 text-gray-500
+                        <select id="major_types" name="major_types" class="mr-2 form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <option>Không</option>
                             <?php
@@ -65,7 +65,7 @@
                     </li>
                     <li class="float-left">
                         <p class="text-gray-700">Tìm theo chức vụ</p>
-                        <select id="position_types" name="position_types" class="mr-10 form-select border-2 border-gray-200 p-2 text-gray-500
+                        <select id="position_types" name="position_types" class="mr-2 form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <option>Không</option>
                             <?php
@@ -84,7 +84,7 @@
                     </li>
                     <li class="float-left">
                         <p class="text-gray-700">Tìm theo giới tính</p>
-                        <select id="sex_types" name="sex_types" class="mr-20 form-select border-2 border-gray-200 p-2 text-gray-500
+                        <select id="sex_types" name="sex_types" class="mr-12 form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <option>Không</option>
                             <option> Nam</option>
@@ -96,7 +96,7 @@
                     <li class="float-left">
 
                         <p class="text-gray-700">Tìm theo khu vực sinh sống</p>
-                        <select id="address_types" name="address_types" class="mr-10 form-select border-2 border-gray-200 p-2 text-gray-500
+                        <select id="address_types" name="address_types" class=" form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <option>Không</option>
                             <?php
@@ -119,7 +119,7 @@
             </form>
         </div>
 
-        <table class="bg-white table-fixed flex-col justify-center text-xs">
+        <table class="bg-white table-fixed flex-col justify-center text-xs clear-left">
             <thead>
                 <tr>
                     <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
