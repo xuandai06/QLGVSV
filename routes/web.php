@@ -393,6 +393,16 @@ Route::group(
     function () {
         Route::get('/update/journals', [journals_controller::class, 'index'])
             ->name('update/journals');
+        Route::post('/add/journals', [journals_controller::class, 'store'])
+            ->name('add/journals');
+        Route::post('/search/journals', [journals_controller::class, 'search'])
+            ->name('search/journals');
+        Route::post('/delete/journals/{journal}', [journals_controller::class, 'delete'])
+            ->name('delete/journals');
+        Route::get('/edit/journals/index/{id}', [journals_controller::class, 'edit_index'])
+            ->name('edit/journals/index');
+        Route::post('/edit/journals/{journal}', [journals_controller::class, 'edit'])
+            ->name('edit/journals');
     }
 );
 //end journals
@@ -403,6 +413,16 @@ Route::group(
     function () {
         Route::get('/update/articles', [articles_controller::class, 'index'])
             ->name('update/articles');
+        Route::post('/add/articles', [articles_controller::class, 'store'])
+            ->name('add/articles');
+        Route::post('/search/articles', [articles_controller::class, 'search'])
+            ->name('search/articles');
+        Route::post('/delete/articles/{article}', [articles_controller::class, 'delete'])
+            ->name('delete/articles');
+        Route::get('/edit/articles/index/{id}', [articles_controller::class, 'edit_index'])
+            ->name('edit/articles/index');
+        Route::post('/edit/articles/{article}', [articles_controller::class, 'edit'])
+            ->name('edit/articles');
     }
 );
 //end articles
@@ -423,6 +443,16 @@ Route::group(
     function () {
         Route::get('/update/conferences', [conferences_controller::class, 'index'])
             ->name('update/conferences');
+        Route::post('/add/conferences', [conferences_controller::class, 'store'])
+            ->name('add/conferences');
+        Route::post('/search/conferences', [conferences_controller::class, 'search'])
+            ->name('search/conferences');
+        Route::post('/delete/conferences/{conference}', [conferences_controller::class, 'delete'])
+            ->name('delete/conferences');
+        Route::get('/edit/conferences/index/{id}', [conferences_controller::class, 'edit_index'])
+            ->name('edit/conferences/index');
+        Route::post('/edit/conferences/{conference}', [conferences_controller::class, 'edit'])
+            ->name('edit/conferences');
     }
 );
 //end conferences

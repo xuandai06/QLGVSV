@@ -20,7 +20,7 @@
 
                         <form action="{{route('edit/implementation_levels', $implementation_levels)}}" method="post" class="flex justify-between">
                             @csrf
-                            <input type="text" id="temp_id" name="temp_id" value="{{$implementation_levels->id }}" disabled class="bg-white p-2 font-bold rounded-lg">
+                            <input type="text" id="temp_id" name="temp_id" value="{{$implementation_levels->id}}" disabled class="bg-white p-2 font-bold rounded-lg">
                             <input type="text" id="name" name="name" value="{{old('name') ?? $implementation_levels->name}}" class="bg-white p-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             @error('name')

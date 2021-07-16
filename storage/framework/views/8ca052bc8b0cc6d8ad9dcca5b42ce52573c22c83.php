@@ -23,7 +23,7 @@
 
                         </div>
                         <?php endif; ?>
-                        <form action="" method="post" class=" flex-col justify-center">
+                        <form action="<?php echo e(route('add/articles')); ?>" method="post" class=" flex-col justify-center">
                             <?php echo csrf_field(); ?>
 
                             <div class="mb-4 flex-col">
@@ -44,7 +44,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -73,7 +73,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -102,7 +102,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -131,7 +131,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -160,7 +160,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -173,8 +173,8 @@ unset($__errorArgs, $__bag); ?>
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã tạp trí: </p>
-                                    <input type="text" name="id_journal" id="id_journal" placeholder="Nhập vào mã tạp trí..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id_journal'];
+                                    <input type="text" name="journal_id" id="journal_id" placeholder="Nhập vào mã tạp trí..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['journal_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -183,12 +183,12 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" value="">
                                 </div>
-                                <?php $__errorArgs = ['id_journal'];
+                                <?php $__errorArgs = ['journal_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
+                                <div class="text-red-500 mt-2 pl-44 text-sm">
                                     <?php echo e($message); ?>
 
                                 </div>
@@ -210,7 +210,7 @@ unset($__errorArgs, $__bag); ?>
                         <h1 class="">Danh sách bài báo</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
+                        <form action="<?php echo e(route('search/articles')); ?>" method="post">
                             <?php echo csrf_field(); ?>
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
@@ -231,7 +231,26 @@ unset($__errorArgs, $__bag); ?>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                        
+                        <tbody>
+                            <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article->id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article->name); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article->detail); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article->time); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article->note); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article->journal_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <a href="<?php echo e(route('edit/articles/index',$article->id)); ?>">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <form action="<?php echo e(route('delete/articles',$article)); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
 

@@ -75,7 +75,7 @@
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
                     <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
-                        <h1 class="">Danh sách bài báo</h1>
+                        <h1 class="">Danh sách chi tiết hội nghị/hội thảo</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="" method="post">
