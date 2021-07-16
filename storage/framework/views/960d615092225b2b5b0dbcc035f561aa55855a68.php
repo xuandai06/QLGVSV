@@ -152,7 +152,10 @@ unset($__errorArgs, $__bag); ?>
                                     <a href="<?php echo e(route('edit/topic_details/index',$topic_detail->topic_syllabus_id)); ?>">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="<?php echo e(route('delete/topic_details',$topic_detail)); ?>">Delete</a>
+                                    <form action="" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <button>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

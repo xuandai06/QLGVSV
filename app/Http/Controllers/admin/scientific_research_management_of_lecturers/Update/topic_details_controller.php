@@ -23,8 +23,8 @@ class topic_details_controller extends Controller
   {
     $request->validate([
       'topic_syllabus_id' => 'required|unique:topic_details,topic_syllabus_id|exists:App\Models\Topic_syllabu,id',
-      'lecturer_id' => 'required|unique:topic_details,topic_syllabus_id|exists:App\Models\Lectuer,id',
-      'time' => 'required',
+      'lecturer_id' => 'required|unique:topic_details,lecturer_id|exists:App\Models\Lecturer,id',
+      'role' => 'required',
     ]);
 
     $topic_details = new Topic_detail();
@@ -37,7 +37,7 @@ class topic_details_controller extends Controller
 
   public function search(Request $request)
   {
-    $topic_details =  Topic_detail::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
+    $topic_details =  Topic_detail::where('topic_syllabus_id', 'LIKE', '%' . $request->id . '%')->paginate(10);
     return view('layouts.admin.scientific_research_management_of_lecturers.update.update_topic_details', ['topic_details' => $topic_details]);
   }
 
@@ -60,7 +60,7 @@ class topic_details_controller extends Controller
   {
     $request->validate([
       'topic_syllabus_id' => 'required|unique:topic_details,topic_syllabus_id|exists:App\Models\Topic_syllabu,id',
-      'lecturer_id' => 'required|unique:topic_details,topic_syllabus_id|exists:App\Models\Lectuer,id',
+      'lecturer_id' => 'required|unique:topic_details,lecturer_id|exists:App\Models\Lecturer,id',
       'role' => 'required',
     ]);
 
