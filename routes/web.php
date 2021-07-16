@@ -236,6 +236,10 @@ Route::group(
 // END UPDATE LECTURER SCHEDULES
 
 // END UPDATE NCKH GV
+
+
+
+
 //Route cua Hung
 
 
@@ -333,6 +337,33 @@ Route::get('/statistical/student', function () {
 
 Route::get('/student', function () {
     return view('layouts.admin.student_management.menu_update');
+});
+
+//Phan Update
+
+Route::get('/update/student_information', function () {
+    return view('layouts.admin.student_management.update.update_student_information');
+});
+Route::get('/update/student_class', function () {
+    return view('layouts.admin.student_management.update.update_student_class');
+});
+Route::get('/update/student_boarding', function () {
+    return view('layouts.admin.student_management.update.update_student_boarding');
+});
+Route::get('/update/student_outpatient', function () {
+    return view('layouts.admin.student_management.update.update_student_outpatient');
+});
+Route::get('/update/student_policy', function () {
+    return view('layouts.admin.student_management.update.update_student_policy');
+});
+Route::get('/update/student_reward_discipline', function () {
+    return view('layouts.admin.student_management.update.update_student_reward_discipline');
+});
+Route::get('/update/student_graduate', function () {
+    return view('layouts.admin.student_management.update.update_student_graduate');
+});
+Route::get('/update/student_quit', function () {
+    return view('layouts.admin.student_management.update.update_student_quit_school');
 });
 
 //Het Route cua Hung

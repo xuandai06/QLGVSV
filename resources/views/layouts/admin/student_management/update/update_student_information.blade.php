@@ -213,6 +213,111 @@
                                 @enderror
                             </div>
 
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Họ tên bố: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập họ tên ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Nghề nghiệp bố: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập nghề nghiệp ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Họ tên mẹ: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập họ tên ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Nghề nghiệp mẹ: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập nghề nghiệp ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
+                                    <input type="text" name="name" id="name" placeholder="..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã chức vụ: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập mã chức vụ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã lớp: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập mã lớp..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
                             <div class="flex justify-center">
                                 <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Lưu</button>
                             </div>
@@ -221,12 +326,12 @@
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
                     <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
-                        <h1 class="">Danh sách trình độ</h1>
+                        <h1 class="">Danh sách </h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="{{route('search/levels')}}" method="post">
                             @csrf
-                            <label for="id" class="ml-2">Tìm kiếm trình độ</label>
+                            <label for="id" class="ml-2">Tìm kiếm </label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" value="{{old('id')}}">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
@@ -235,10 +340,18 @@
                     <table class="bg-white table-fixed flex-col justify-center">
                         <thead>
                             <tr>
-                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã trình độ</th>
-                                <th class="w-full border-collapse border border-gray-500 p-2">Tên trình độ</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã SV</th>
+                                <th class="w-full border-collapse border border-gray-500 p-2">Tên SV</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Giới tính</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ngày sinh</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Địa chỉ</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Số CMTND/CCCD</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">SĐT</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Họ tên bố</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Họ tên mẹ</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa </th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xóa</th>
                             </tr>
                         </thead>
                     </table>

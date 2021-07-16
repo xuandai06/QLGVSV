@@ -18,7 +18,11 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về nội, ngoại trú</a>
+                            <a href="">=> Cập nhật thông tin về nội trú</a>
+                        </li>
+
+                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
+                            <a href="">=> Cập nhật thông tin về ngoại trú</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
