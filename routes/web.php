@@ -23,6 +23,7 @@ use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Updat
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
+use App\Http\Controllers\LecturerSchedule\Update\UpdateWorkController;
 use App\Http\Controllers\student\StudentController;
 use App\Models\Lecturer;
 use App\Models\Level;
@@ -211,21 +212,22 @@ Route::get('/analyse/lecturers', [LecturerStatisticController::class, 'analyse']
 
 
 // UPDATE  LECTURER SCHEDULES
+
 //update work
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
-        Route::get('/update/works', [UpdateLecturerController::class, 'index'])
+        Route::get('/update/works', [UpdateWorkController::class, 'index'])
             ->name('update/works');
-        Route::post('/add/works', [UpdateLecturerController::class, 'store'])
+        Route::post('/add/works', [UpdateWorkController::class, 'store'])
             ->name('add/works');
-        Route::post('/delete/works/{work}', [UpdateLecturerController::class, 'delete'])
+        Route::post('/delete/works/{work}', [UpdateWorkController::class, 'delete'])
             ->name('delete/works');
-        Route::get('/edit/works/index/{id}', [UpdateLecturerController::class, 'edit_index'])
+        Route::get('/edit/works/index/{id}', [UpdateWorkController::class, 'edit_index'])
             ->name('edit/works/index');
-        Route::post('/edit/works/{work}', [UpdateLecturerController::class, 'edit'])
+        Route::post('/edit/works/{work}', [UpdateWorkController::class, 'edit'])
             ->name('edit/works');
-        Route::post('/search/works', [UpdateLecturerController::class, 'search'])
+        Route::post('/search/works', [UpdateWorkController::class, 'search'])
             ->name('search/works');
     }
 );

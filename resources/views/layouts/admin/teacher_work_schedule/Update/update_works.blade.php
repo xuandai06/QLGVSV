@@ -22,7 +22,7 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="{{route('add/units')}}" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/works')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
@@ -58,12 +58,12 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian bắt đầu: </p>
-                                    <input type="date" name="name" id="name" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                                    <input type="datetime-local" name="start_time" id="start_time" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('start_time') border-red-500 @enderror" value="{{old('start_time')}}">
 
                                 </div>
 
-                                @error('name')
+                                @error('start_time')
                                 <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
@@ -73,12 +73,12 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian kết thúc: </p>
-                                    <input type="date" name="name" id="name" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                                    <input type="datetime-local" name="end_time" id="end_time" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('end_time') border-red-500 @enderror" value="{{old('end_time')}}">
 
                                 </div>
 
-                                @error('name')
+                                @error('end_time')
                                 <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
@@ -88,12 +88,12 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Địa điểm: </p>
-                                    <input type="text" name="name" id="name" placeholder="Nhập vào địa điểm ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                                    <input type="text" name="place" id="place" placeholder="Nhập vào địa điểm ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('place') border-red-500 @enderror" value="{{old('place')}}">
 
                                 </div>
 
-                                @error('name')
+                                @error('place')
                                 <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
@@ -103,12 +103,12 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
-                                    <input type="text" name="name" id="name" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                                    <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note')}}">
 
                                 </div>
 
-                                @error('name')
+                                @error('note')
                                 <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
@@ -123,9 +123,6 @@
                     </div>
                 </div>
                 <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
-                    <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
-                        <h1 class="">Danh sách phân công công việc</h1>
-                    </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
                         <form action="{{route('search/units')}}" method="post">
                             @csrf
@@ -135,6 +132,46 @@
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
                     </nav>
+                    <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
+                        <h1 class="">Danh sách phân công công việc</h1>
+                    </div>
+                    <table class="bg-white table-fixed flex-col justify-center">
+                        <thead>
+                            <tr>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
+                                <th class="w-full border-collapse border border-gray-500 p-2">Tên công việc</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Thời gian bắt đầu</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Thời gian kết thúc</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Địa điểm</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($works as $work)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work->name}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work->start_time}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work->end_time}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work->place}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work->note}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <a href="{{route('edit/works/index', $work->id)}}">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <form action="{{route('delete/works',$work)}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{$works->links()}}
+
                     <table class="bg-white table-fixed flex-col justify-center">
                     </table>
                 </div>

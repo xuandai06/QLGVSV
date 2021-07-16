@@ -16,8 +16,8 @@ class CreateWorksTable extends Migration
         Schema::create('works', function (Blueprint $table) {
             $table->string('id',15)->primary();
             $table->string('name',100);
-            $table->date('start_time')->nullable();
-            $table->date('end_time')->nullable();
+            $table->dateTime('start_time')->nullable();
+            $table->dateTime('end_time')->nullable();
             $table->string('place',100)->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
