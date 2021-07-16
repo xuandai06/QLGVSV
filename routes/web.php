@@ -299,6 +299,29 @@ Route::get('update/timetable', function () {
     return view('layouts.admin.timetable.Update.update_timetables');
 });
 
+//phan search
+
+Route::get('search/by_student_code', function () {
+    return view('layouts.admin.timetable.Search.search_by_student_code');
+});
+Route::get('search/by_teacher_code', function () {
+    return view('layouts.admin.timetable.Search.search_by_teacher_code');
+});
+Route::get('search/by_rooms', function () {
+    return view('layouts.admin.timetable.Search.search_by_rooms');
+});
+Route::get('search/by_teaching_day', function () {
+    return view('layouts.admin.timetable.Search.search_by_teaching_day');
+});
+Route::get('search/by_teaching_day_and_lesson', function () {
+    return view('layouts.admin.timetable.Search.search_by_teaching_day_and_lesson');
+});
+
+//phan statistical
+Route::get('/statistical', function () {
+    return view('layouts.admin.timetable.statistical.menu_update');
+});
+
 //Het Route cua Hung
 
 
