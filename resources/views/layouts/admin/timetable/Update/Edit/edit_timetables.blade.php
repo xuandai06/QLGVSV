@@ -1,0 +1,162 @@
+@extends('layouts.admin.timetable.menu_update')
+
+@section('update_lecturer')
+<div class="w-9/12 ml-2 flex justify-center">
+    <div class="w-full bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
+        <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
+            <div class="flex items-center p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <p class="clear-left p-2">Cập nhập thông tin về phòng</p>
+            </div>
+
+            <div class="w-full bg-gray-200 flex-row justify-between px-6 text-gray-500 rounded-lg mt-1">
+                <div class="w-8/12 p-2 rounded-lg flex items-center">
+                    <div class="p-6 w-10/12">
+                        <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
+                            <h1 class="">Sửa thông tin phòng</h1>
+                        </div>
+
+
+
+                        <form action="" method="post">
+                            @csrf
+
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã học phần: </p>
+                                    <input disabled type="text" name="id" id="id" placeholder="Nhập vào mã học phần..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror">
+
+                                </div>
+
+                                @error('id')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã lớp học phần: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào mã lớp học phần ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã GV: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập mã GV....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã phòng: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập mã phòng....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ngày dạy: </p>
+                                    <input type="date" id="day" name="day" class="p-1 border-2 border-gray-200
+                                         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tiết bắt đầu: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập tiết bắt đầu....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Số tiết: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập số tiết....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
+                                    <input type="text" name="name" id="name" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror">
+
+                                </div>
+
+                                @error('name')
+                                <div class="text-red-500 mt-2 pl-56 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                        </form>
+                        @if(session('status'))
+                        <div class="text-green-500 p-3">
+                            {{session('status')}}
+                        </div>
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
