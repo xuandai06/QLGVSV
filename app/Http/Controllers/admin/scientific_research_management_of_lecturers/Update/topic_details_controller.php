@@ -37,7 +37,7 @@ class topic_details_controller extends Controller
 
   public function search(Request $request)
   {
-    $topic_details =  Topic_detail::where('id', 'LIKE', '%' . $request->id . '%')->paginate(10);
+    $topic_details =  Topic_detail::where('topic_syllabus_id', 'LIKE', '%' . $request->id . '%')->paginate(10);
     return view('layouts.admin.scientific_research_management_of_lecturers.update.update_topic_details', ['topic_details' => $topic_details]);
   }
 
