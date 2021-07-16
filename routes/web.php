@@ -290,14 +290,14 @@ Route::get('update/class', function () {
     return view('layouts.admin.timetable.Update.update_class_section');
 });
 Route::get('update/courses', function () {
-   return view('layouts.admin.timetable.Update.update_register_courses');
-}); 
+    return view('layouts.admin.timetable.Update.update_register_courses');
+});
 Route::get('update/rooms', function () {
     return view('layouts.admin.timetable.Update.update_rooms');
- }); 
- Route::get('update/timetable', function () {
+});
+Route::get('update/timetable', function () {
     return view('layouts.admin.timetable.Update.update_timetables');
- }); 
+});
 
 //Het Route cua Hung
 
@@ -373,6 +373,16 @@ Route::group(
     function () {
         Route::get('/update/topic_details', [topic_details_controller::class, 'index'])
             ->name('update/topic_details');
+        Route::post('/add/topic_details', [topic_details_controller::class, 'store'])
+            ->name('add/topic_details');
+        Route::post('/search/topic_details', [topic_details_controller::class, 'search'])
+            ->name('search/topic_details');
+        Route::post('/delete/topic_details/{topic_detail}', [topic_details_controller::class, 'delete'])
+            ->name('delete/topic_details');
+        Route::get('/edit/topic_details/index/{id}', [topic_details_controller::class, 'edit_index'])
+            ->name('edit/topic_details/index');
+        Route::post('/edit/topic_details/{topic_detail}', [topic_details_controller::class, 'edit'])
+            ->name('edit/topic_details');
     }
 );
 //end topics_details
