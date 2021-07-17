@@ -37,7 +37,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('id')); ?>">
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('id') ?? session('id')); ?>">
 
                                 </div>
 
@@ -67,7 +68,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>">
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('name') ?? session('name')); ?>">
 
                                 </div>
 
@@ -97,7 +99,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('start_time')); ?>">
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('start_time') ?? session('start_time')); ?>">
 
                                 </div>
 
@@ -119,6 +122,7 @@ unset($__errorArgs, $__bag); ?>
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian kết thúc: </p>
+
                                     <input type="datetime-local" name="end_time" id="end_time" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['end_time'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -127,7 +131,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('end_time')); ?>">
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('end_time') ?? session('end_time')); ?>">
 
                                 </div>
 
@@ -157,7 +162,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('place')); ?>">
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('place') ?? session('place')); ?>">
 
                                 </div>
 
@@ -187,7 +193,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('note')); ?>">
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('note') ?? session('note')); ?>">
 
                                 </div>
 

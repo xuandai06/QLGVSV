@@ -10,7 +10,7 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="{{ route('search/scientific_research_management') }}">=> Tìm kiếm loại khoa học</a>
+                            <a href="{{ route('search/kind_of_sciences') }}">=> Tìm kiếm loại khoa học</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">

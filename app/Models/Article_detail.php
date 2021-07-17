@@ -11,11 +11,9 @@ class Article_detail extends Model
     public $incrementing = false;
     
     protected $fillable = [
-        'id',
-        'name',
-        'detail',
+        'article_id',
+        'lecturer_id',
         'role',
-        'journal_id',
     ];
 
     public function journal()
