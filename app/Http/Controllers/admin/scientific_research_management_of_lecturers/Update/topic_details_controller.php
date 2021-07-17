@@ -22,54 +22,6 @@ class topic_details_controller extends Controller
 
   public function store(Request $request)
   {
-    $request->validate([
-      'topic_syllabus_id' => [
-        'required',
-        function($attribute, $value, $fail){
-        
-        }
-
-<<<<<<< HEAD
-    if ($t1->count() != 0 && $l1->count() != 0) {
-      return back()->with('error1', 'Mã khoa học và mã giảng viên đã được sử dụng')
-      ->with('topic_syllabus_id', $request->topic_syllabus_id)
-      ->with('lecturer_id', $request->lecturer_id)
-      ->with('role', $request->role);
-    }
-
-=======
-      ],
-      
-    ]);
-  //   $request = [
-  //     'topic_syllabus_id' => 'required|unique:topic_details,topic_syllabus_id',
-  //     'lecturer_id' => 'required|unique:topic_details,lecturer_id',
-  //     // 'user_id' => 'required|unique:service_details,user_id',
-  //     // 'service_id'=>'required|unique:service_details,service_id'
-  //  ];
-
-  //  Validator::make($request)->passes();
-
-//   $rules = [
-//     'topic_syllabus_id' => 'required|unique:topic_details,topic_syllabus_id',
-//     'lecturer_id' => 'required|unique:topic_details,lecturer_id',
-//  ];
-    
->>>>>>> f879c6fe68be036fb6c9c418c84173ebed3bbfa5
-    $topic_detail = new Topic_detail();
-    $topic_detail->topic_syllabus_id = $request->topic_syllabus_id;
-    $topic_detail->lecturer_id = $request->lecturer_id;
-    $topic_detail->role = $request->role;
-<<<<<<< HEAD
-
-=======
->>>>>>> f879c6fe68be036fb6c9c418c84173ebed3bbfa5
-    $topic_detail->save();
-    return redirect()->route('update/topic_details')->with('status', 'Thêm cấp thực hiện thành công')
-    ->with('topic_syllabus_id', $request->topic_syllabus_id)
-    ->with('lecturer_id', $request->lecturer_id)
-    ->with('role', $request->role)
-    ;
     
   }
 
