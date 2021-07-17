@@ -10,16 +10,8 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm theo tên sinh viên</a>
-                        </li>
-
-                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm theo địa chỉ</a>
-                        </li>
-
-                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm theo giới tính</a>
-                        </li>
+                            <a href="">=> Tìm kiếm theo thông tin sinh viên</a>
+                        </li>              
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
                             <a href="">=> Tìm kiếm theo khóa học</a>
@@ -57,7 +49,7 @@
                 </div>
             </div>
 
-            <?php echo $__env->yieldContent('update_work_info'); ?>
+            <?php echo $__env->yieldContent('search_student'); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>

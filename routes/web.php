@@ -395,14 +395,8 @@ Route::get('/search_student', function () {
     return view('layouts.admin.student_management.search.menu_search ');
 });
 
-Route::get('/search/student_by_name', function () {
+Route::get('/search/student_info', function () {
     return view('layouts.admin.student_management.search.search_student.search_student_name ');
-});
-Route::get('/search/student_by_address', function () {
-    return view('layouts.admin.student_management.search.search_student.search_student_address ');
-});
-Route::get('/search/student_by_sex', function () {
-    return view('layouts.admin.student_management.search.search_student.search_student_sex ');
 });
 Route::get('/search/student_by_course', function () {
     return view('layouts.admin.student_management.search.search_student.search_student_course ');
@@ -427,6 +421,30 @@ Route::get('/search/student_by_reward_discipline', function () {
 });
 Route::get('/search/student_by_study_point', function () {
     return view('layouts.admin.student_management.search.search_student.search_student_study_point ');
+});
+
+
+//phan statistical
+Route::get('/statistical_student', function () {
+    return view('layouts.admin.student_management.statistical.menu_statistical');
+});
+Route::get('/statistical_student/info', function () {
+    return view('layouts.admin.student_management.statistical.statistical_student.statistical_number_of_student');
+});
+Route::get('/statistical_student/boarding_outpatient', function () {
+    return view('layouts.admin.student_management.statistical.statistical_student.statistical_student_boarding_outpatient');
+});
+Route::get('/statistical_student/reward_discipline', function () {
+    return view('layouts.admin.student_management.statistical.statistical_student.statistical_student_reward_discipline');
+});
+Route::get('/statistical_student/policy', function () {
+    return view('layouts.admin.student_management.statistical.statistical_student.statistical_student_policy');
+});
+Route::get('/statistical_student/graduate_quit', function () {
+    return view('layouts.admin.student_management.statistical.statistical_student.statistical_student_graduate_quit');
+});
+Route::get('/statistical_student/study_point', function () {
+    return view('layouts.admin.student_management.statistical.statistical_student.statistical_student_study_point');
 });
 
 
