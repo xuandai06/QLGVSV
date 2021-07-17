@@ -18,74 +18,51 @@
                             <h1 class="">Sửa thông tin phân công công việc</h1>
                         </div>
 
-
-
-                        <form action="{{route('edit/positions', $position)}}" method="post">
-                            @csrf
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Vai trò: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
-                                    <input type="text" name="id" id="id" placeholder="..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
-                        </form>
                         @if(session('status'))
                         <div class="text-green-500 p-3">
                             {{session('status')}}
                         </div>
                         @endif
+
+                        <form action="{{route('edit/work/assignments', ['work_id' => $work_assignment->work_id
+                                        , 'unit_id' => $work_assignment->unit_id]) }}" method="post">
+                            @csrf
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
+                                    <input type="text" name="work_id" id="work_id" placeholder="Nhập vào mã công việc ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('work_id') border-red-500 @enderror" value="{{$work_assignment->work_id}}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
+                                    <input type="text" name="unit_id" id="unit_id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('unit_id') border-red-500 @enderror" value="{{$work_assignment->unit_id}}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Vai trò: </p>
+                                    <input type="text" name="role" id="role" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('role') ?? $work_assignment->role}}">
+                                </div>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
+                                    <input type="text" name="note" id="note" placeholder="..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note') ?? $work_assignment->note}}">
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                        </form>
 
                     </div>
                 </div>

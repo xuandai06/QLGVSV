@@ -56,7 +56,7 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
                                     <div class="flex">
-                                        <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
+                                        
                                         <?php
 
                                         $units = Unit::all();
@@ -122,8 +122,7 @@ unset($__errorArgs, $__bag); ?>"
                         <h1 class="">Danh sách</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="<?php echo e(route('search/units')); ?>" method="post">
-                            <?php echo csrf_field(); ?>
+                        <form action="<?php echo e(route('search/work/assignments')); ?>" >
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
@@ -149,10 +148,12 @@ unset($__errorArgs, $__bag); ?>"
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->role); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->note); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="">Edit</a>
+                                    <a href="<?php echo e(route('edit/work/assignments/index', ['work_id' => $work_assignment->work_id
+                                        , 'unit_id' => $work_assignment->unit_id])); ?>">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="<?php echo e(route('delete/work_assignments', $work_assignment)); ?>" method="post">
+                                    <form action="<?php echo e(route('delete/work/assignments', ['work_id' => $work_assignment->work_id
+                                        , 'unit_id' => $work_assignment->unit_id])); ?>" method="post">
                                         <?php echo csrf_field(); ?>
                                         <button>Delete</button>
                                     </form>

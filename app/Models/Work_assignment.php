@@ -9,7 +9,7 @@ class Work_assignment extends Model
 {
     use HasFactory;
     public $incrementing = false;
-
+    protected $primaryKey = ['work_id','unit_id'];
     protected $fillable = [
         'work_id',
         'unit_id',

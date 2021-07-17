@@ -24,13 +24,14 @@
 
                         </div>
                         <?php endif; ?>
-                        
+
                         <form action="<?php echo e(route('edit/works', $work)); ?>" method="post">
                             <?php echo csrf_field(); ?>
 
                             <label for="id">Mã công việc</label>
                             <input type="text" id="id" name="id" value="<?php echo e($work->id); ?>" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+
 
                             <hr>
                             <label for="name">Tên công việc</label>
@@ -51,9 +52,9 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             <label for="start_time">Thời gian bắt đầu</label>
 
-                            <input type="datetime-local" id="start_time" name="start_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->start_time) )?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            <input type="datetime-local" id="start_time" name="start_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->start_time)) ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            
+
                             <?php $__errorArgs = ['start_time'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -68,55 +69,242 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             <label for="end_time">Thời gian kết thúc</label>
-                                <input type="datetime-local" id="end_time" name="end_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->end_time) )?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            <input type="datetime-local" id="end_time" name="end_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->end_time)) ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                <?php $__errorArgs = ['end_time'];
+                            <?php $__errorArgs = ['end_time'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div>
-                                    <?php echo e($message); ?>
+                            <div>
+                                <?php echo e($message); ?>
 
-                                </div>
-                                <?php unset($message);
+                            </div>
+                            <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                <label for="place">Địa điểm</label>
-                                <input type="text" id="place" name="place" value="<?php echo e(old('place') ?? $work->place); ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            <label for="place">Địa điểm</label>
+                            <input type="text" id="place" name="place" value="<?php echo e(old('place') ?? $work->place); ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                <?php $__errorArgs = ['place'];
+                            <?php $__errorArgs = ['place'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div>
-                                    <?php echo e($message); ?>
+                            <div>
+                                <?php echo e($message); ?>
 
-                                </div>
-                                <?php unset($message);
+                            </div>
+                            <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                <label for="note">Ghi chú</label>
-                                <input type="text" id="note" name="note" value="<?php echo e(old('note') ?? $work->note); ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            <label for="note">Ghi chú</label>
+                            <input type="text" id="note" name="note" value="<?php echo e(old('note') ?? $work->note); ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                <?php $__errorArgs = ['note'];
+                            <?php $__errorArgs = ['note'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div>
-                                    <?php echo e($message); ?>
+                            <div>
+                                <?php echo e($message); ?>
 
-                                </div>
-                                <?php unset($message);
+                            </div>
+                            <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
                         </form>
+
+                        <form action="<?php echo e(route('edit/positions', $position)); ?>" method="post">
+                            <?php echo csrf_field(); ?>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name') ?? $position->name); ?>">
+                                </div>
+
+                                <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    <?php echo e($message); ?>
+
+                                </div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tên công việc </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name') ?? $position->name); ?>">
+                                </div>
+
+                                <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    <?php echo e($message); ?>
+
+                                </div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian bắt đầu: </p>
+                                    <input type="date" name="id" id="id" placeholder="" class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name') ?? $position->name); ?>">
+                                </div>
+
+                                <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    <?php echo e($message); ?>
+
+                                </div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian kết thúc: </p>
+                                    <input type="date" name="id" id="id" placeholder="" class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name') ?? $position->name); ?>">
+                                </div>
+
+                                <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    <?php echo e($message); ?>
+
+                                </div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Địa điểm: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập địa điểm ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name') ?? $position->name); ?>">
+                                </div>
+
+                                <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    <?php echo e($message); ?>
+
+                                </div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
+                                    <input type="text" name="id" id="id" placeholder="..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name') ?? $position->name); ?>">
+                                </div>
+
+                                <?php $__errorArgs = ['id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    <?php echo e($message); ?>
+
+                                </div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                        </form>
+                        <?php if(session('status')): ?>
+                        <div class="text-green-500 p-3">
+                            <?php echo e(session('status')); ?>
+
+                        </div>
+                        <?php endif; ?>
+
 
                     </div>
                 </div>

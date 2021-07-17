@@ -244,13 +244,13 @@ Route::group(
             ->name('update/work/assignments');
         Route::post('/add/work/assignments', [UpdateWorkAssignmentController::class, 'store'])
             ->name('add/work/assignments');
-        Route::post('/delete/work_assignments/{work_assignment}', [UpdateWorkAssignmentController::class, 'delete'])
-            ->name('delete/work_assignments');
-        Route::get('/edit/work/assignments/index/{work_assignment}', [UpdateWorkAssignmentController::class, 'edit_index'])
+        Route::post('/delete/work/assignments/{work_id}/{unit_id}', [UpdateWorkAssignmentController::class, 'delete'])
+            ->name('delete/work/assignments');
+        Route::get('/edit/work/assignments/index/{work_id}/{unit_id}', [UpdateWorkAssignmentController::class, 'edit_index'])
             ->name('edit/work/assignments/index');
-        Route::post('/edit/work/assignments/{work_assignment}', [UpdateWorkAssignmentController::class, 'edit'])
+        Route::post('/edit/work/assignments/{work_id}/{unit_id}', [UpdateWorkAssignmentController::class, 'edit'])
             ->name('edit/work/assignments');
-        Route::post('/search/work/assignments', [UpdateWorkAssignmentController::class, 'search'])
+        Route::get('/search/work/assignments', [UpdateWorkAssignmentController::class, 'search'])
             ->name('search/work/assignments');
     }
 );
