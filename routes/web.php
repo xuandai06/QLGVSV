@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkAssignmentController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkController;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\search_scientific_research_management_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\article_details_controller;
@@ -234,6 +235,26 @@ Route::group(
     }
 );
 //end update work
+
+//update work assignment
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/work/assignments', [UpdateWorkAssignmentController::class, 'index'])
+            ->name('update/work/assignments');
+        Route::post('/add/work/assignments', [UpdateWorkAssignmentController::class, 'store'])
+            ->name('add/work/assignments');
+        Route::post('/delete/work_assignments/{work_assignment}', [UpdateWorkAssignmentController::class, 'delete'])
+            ->name('delete/work_assignments');
+        Route::get('/edit/work/assignments/index/{work_assignment}', [UpdateWorkAssignmentController::class, 'edit_index'])
+            ->name('edit/work/assignments/index');
+        Route::post('/edit/work/assignments/{work_assignment}', [UpdateWorkAssignmentController::class, 'edit'])
+            ->name('edit/work/assignments');
+        Route::post('/search/work/assignments', [UpdateWorkAssignmentController::class, 'search'])
+            ->name('search/work/assignments');
+    }
+);
+//end update work assignment
 // END UPDATE LECTURER SCHEDULES
 
 // END UPDATE NCKH GV

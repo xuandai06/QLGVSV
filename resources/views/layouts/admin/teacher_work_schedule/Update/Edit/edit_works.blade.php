@@ -23,7 +23,7 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        
+
                         <form action="{{route('edit/works', $work)}}" method="post">
                             @csrf
 
@@ -43,45 +43,45 @@
                             @enderror
                             <label for="start_time">Thời gian bắt đầu</label>
 
-                            <input type="datetime-local" id="start_time" name="start_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->start_time) )?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            <input type="datetime-local" id="start_time" name="start_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->start_time)) ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            
+
                             @error('start_time')
                             <div>
                                 {{$message}}
                             </div>
                             @enderror
                             <label for="end_time">Thời gian kết thúc</label>
-                                <input type="datetime-local" id="end_time" name="end_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->end_time) )?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            <input type="datetime-local" id="end_time" name="end_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->end_time)) ?>" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                @error('end_time')
-                                <div>
-                                    {{$message}}
-                                </div>
-                                @enderror
-                                <label for="place">Địa điểm</label>
-                                <input type="text" id="place" name="place" value="{{old('place') ?? $work->place}}" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            @error('end_time')
+                            <div>
+                                {{$message}}
+                            </div>
+                            @enderror
+                            <label for="place">Địa điểm</label>
+                            <input type="text" id="place" name="place" value="{{old('place') ?? $work->place}}" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                @error('place')
-                                <div>
-                                    {{$message}}
-                                </div>
-                                @enderror
-                                <label for="note">Ghi chú</label>
-                                <input type="text" id="note" name="note" value="{{old('note') ?? $work->note}}" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            @error('place')
+                            <div>
+                                {{$message}}
+                            </div>
+                            @enderror
+                            <label for="note">Ghi chú</label>
+                            <input type="text" id="note" name="note" value="{{old('note') ?? $work->note}}" class="bg-white p-4 py-2 mx-4 rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                @error('note')
-                                <div>
-                                    {{$message}}
-                                </div>
-                                @enderror
-                                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                            @error('note')
+                            <div>
+                                {{$message}}
+                            </div>
+                            @enderror
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
                         </form>
 
-    <form action="{{route('edit/positions', $position)}}" method="post">
-        @csrf
+                        <form action="{{route('edit/positions', $position)}}" method="post">
+                            @csrf
 
-        <div class="mb-4 flex-col">
+                            <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
                                     <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc ..." class="bg-white w-8/12 p-4 rounded-lg
@@ -165,13 +165,13 @@
                                 @enderror
                             </div>
 
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
-    </form>
-    @if(session('status'))
-    <div class="text-green-500 p-3">
-        {{session('status')}}
-    </div>
-    @endif
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                        </form>
+                        @if(session('status'))
+                        <div class="text-green-500 p-3">
+                            {{session('status')}}
+                        </div>
+                        @endif
 
 
                     </div>

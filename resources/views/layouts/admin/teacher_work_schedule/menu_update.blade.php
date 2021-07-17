@@ -10,11 +10,11 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về công việc</a>
+                            <a href="{{route('update/works')}}">=> Cập nhật thông tin về công việc</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin về phân công công việc</a>
+                            <a href="{{route('update/work/assignments')}}">=> Cập nhật thông tin về phân công công việc</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
