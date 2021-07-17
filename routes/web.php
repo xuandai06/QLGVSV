@@ -250,7 +250,7 @@ Route::get('/teacherwork', function () {
     return view('layouts.admin.teacher_work_schedule.menu_update');
 });
 Route::get('update/work_info', function () {
-    return view('layouts.admin.teacher_work_schedule.update.update_work_info');
+    return view('layouts.admin.teacher_work_schedule.update.update_works');
 });
 Route::get('update/work_assignment', function () {
     return view('layouts.admin.teacher_work_schedule.update.update_work_assignment');
@@ -259,7 +259,7 @@ Route::get('update/result', function () {
     return view('layouts.admin.teacher_work_schedule.update.update_result');
 });
 Route::get('update/detail', function () {
-    return view('layouts.admin.teacher_work_schedule.update.update_jobs_detail');
+    return view('layouts.admin.teacher_work_schedule.update.update_works_detail');
 });
 
 //Phan Search

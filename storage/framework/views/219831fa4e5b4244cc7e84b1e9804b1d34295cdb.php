@@ -137,6 +137,16 @@ unset($__errorArgs, $__bag); ?>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
+                        <thead>
+                            <tr>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Trạng thái</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
+                            </tr>
+                        </thead>
+                       
                     </table>
                 </div>
             </div>

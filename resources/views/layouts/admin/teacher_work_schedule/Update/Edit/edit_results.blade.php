@@ -20,32 +20,62 @@
 
 
 
-    <form action="{{route('edit/positions', $position)}}" method="post">
-        @csrf
+                        <form action="{{route('edit/positions', $position)}}" method="post">
+                            @csrf
 
-        <label for="name">Mã công việc</label>
-        <input type="text" id="id" name="id" value="{{$position->id }}" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"><hr>
-        <label for="name">Trạng thái</label>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        <label for="name">Ghi chú</label>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        @error('name')
-        <div>
-            {{$message}}
-        </div>
-        @enderror
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
-    </form>
-    @if(session('status'))
-    <div class="text-green-500 p-3">
-        {{session('status')}}
-    </div>
-    @endif
 
-    </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã sinh viên ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{$position->id }}" disabled>
+                                </div>
+
+                                @error('id')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Trạng thái: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã sinh viên ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
+                                </div>
+
+                                @error('id')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4 flex-col">
+                                <div class="flex">
+                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã sinh viên ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
+                                </div>
+
+                                @error('id')
+                                <div class="text-red-500 mt-2 pl-40 text-sm">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                        </form>
+                        @if(session('status'))
+                        <div class="text-green-500 p-3">
+                            {{session('status')}}
+                        </div>
+                        @endif
+
+                    </div>
                 </div>
             </div>
         </div>
