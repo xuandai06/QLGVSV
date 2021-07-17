@@ -1,6 +1,6 @@
-@extends('layouts.admin.teacher_work_schedule.menu_update')
 
-@section('update_work_info')
+
+<?php $__env->startSection('update_work_info'); ?>
 <div class="w-9/12 ml-2 flex justify-center">
     <div class="w-full bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -17,18 +17,20 @@
                         <div class="text-blue-300 text-2xl font-black mb-6 flex justify-center">
                             <h1 class="">Thêm thông tin phân công công việc</h1>
                         </div>
-                        @if(session('status'))
+                        <?php if(session('status')): ?>
                         <div class="text-green-500 p-3">
-                            {{session('status')}}
+                            <?php echo e(session('status')); ?>
+
                         </div>
-                        @endif
-                        @if(session('error'))
+                        <?php endif; ?>
+                        <?php if(session('error')): ?>
                         <div class="text-red-500 p-3">
-                            {{session('error')}}
+                            <?php echo e(session('error')); ?>
+
                         </div>
-                        @endif
-                        <form action="{{route('add/work/assignments')}}" method="post" class=" flex-col justify-center">
-                            @csrf
+                        <?php endif; ?>
+                        <form action="<?php echo e(route('add/work/assignments')); ?>" method="post" class=" flex-col justify-center">
+                            <?php echo csrf_field(); ?>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
@@ -41,9 +43,9 @@
                                     $works = Work::all();
                                     ?>
                                     <select name="work_id" id="work_id">
-                                        @foreach($works as $work)
-                                        <option value="{{$work->id}}">{{$work->id}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $works; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $work): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($work->id); ?>"><?php echo e($work->id); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
 
                                 </div>
@@ -60,9 +62,9 @@
                                         $units = Unit::all();
                                         ?>
                                         <select name="unit_id" id="unit_id">
-                                            @foreach($units as $unit)
-                                            <option value="{{$unit->id}}">{{$unit->id}}</option>
-                                            @endforeach
+                                            <?php $__currentLoopData = $units; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($unit->id); ?>"><?php echo e($unit->id); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </select>
 
                                     </div>
@@ -74,8 +76,15 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Vai trò: </p>
                                     <input type="text" name="role" id="role" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror"
-                                 value="{{old('role') ?? session('role')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['role'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                 value="<?php echo e(old('role') ?? session('role')); ?>">
 
                                 </div>
 
@@ -86,8 +95,15 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
                                     <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" 
-                                value="{{old('note') ?? session('note')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['note'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('note') ?? session('note')); ?>">
 
                                 </div>
 
@@ -106,8 +122,8 @@
                         <h1 class="">Danh sách</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/units')}}" method="post">
-                            @csrf
+                        <form action="<?php echo e(route('search/units')); ?>" method="post">
+                            <?php echo csrf_field(); ?>
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
@@ -126,29 +142,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($work_assignments as $work_assignment)
+                            <?php $__currentLoopData = $work_assignments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $work_assignment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$work_assignment->work_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$work_assignment->unit_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$work_assignment->role}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$work_assignment->note}}</td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->work_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->unit_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->role); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->note); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <a href="">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="{{route('delete/work_assignments', $work_assignment)}}" method="post">
-                                        @csrf
+                                    <form action="<?php echo e(route('delete/work_assignments', $work_assignment)); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
                                         <button>Delete</button>
                                     </form>
                                 </td>
                             </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
-                    {{$work_assignments->links()}}
+                    <?php echo e($work_assignments->links()); ?>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin.teacher_work_schedule.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/update/update_work_assignment.blade.php ENDPATH**/ ?>
