@@ -564,6 +564,8 @@ Route::group(
     function () {
         Route::get('/update/article_details', [article_details_controller::class, 'index'])
             ->name('update/article_details');
+        Route::post('/add/article_details', [article_details_controller::class, 'store'])
+            ->name('add/article_details');
     }
 );
 //end article_details
