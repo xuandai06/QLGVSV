@@ -31,7 +31,7 @@
                             <input type="text" id="id" name="id" value="{{$work->id}}" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
                             border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
 
-<<<<<<< HEAD
+
                             <hr>
                             <label for="name">Tên công việc</label>
                             <input type="text" id="name" name="name" value="{{old('name') ?? $work->name}}" class="bg-white p-4 py-2 mx-4 rounded-lg
@@ -77,7 +77,7 @@
                                 @enderror
                                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
                         </form>
-=======
+
     <form action="{{route('edit/positions', $position)}}" method="post">
         @csrf
 
@@ -172,7 +172,7 @@
         {{session('status')}}
     </div>
     @endif
->>>>>>> f0c78197a803f551a4397965d0c3056aab3a106c
+
 
                     </div>
                 </div>
