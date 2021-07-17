@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('search_student'); ?>
 <div class="flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
@@ -55,4 +55,4 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLGVSV\resources\views/layouts/admin/student_management/search/search_student/search_student_reward_discipline.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin.student_management.Search.menu_search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLGVSV\resources\views/layouts/admin/student_management/search/search_student/search_student_reward_discipline.blade.php ENDPATH**/ ?>
