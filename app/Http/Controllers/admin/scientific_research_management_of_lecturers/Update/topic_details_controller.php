@@ -30,17 +30,24 @@ class topic_details_controller extends Controller
   $l1 = Topic_detail::where('lecturer_id', '=', $request->lecturer_id)->get();
 
     if ($t1->count() != 0 && $l1->count() != 0) {
-      return back()->with('error1', 'Mã khoa học và mã giảng viên đã được sử dụng');
+      return back()->with('error1', 'Mã khoa học và mã giảng viên đã được sử dụng')
+      ->with('topic_syllabus_id', $request->topic_syllabus_id)
+      ->with('lecturer_id', $request->lecturer_id)
+      ->with('role', $request->role);
     }
-
 
     $topic_detail = new Topic_detail();
     $topic_detail->topic_syllabus_id = $request->topic_syllabus_id;
     $topic_detail->lecturer_id = $request->lecturer_id;
     $topic_detail->role = $request->role;
-    
+
     $topic_detail->save();
-    return redirect()->route('update/topic_details')->with('status', 'Thêm cấp thực hiện thành công');
+    return redirect()->route('update/topic_details')->with('status', 'Thêm cấp thực hiện thành công')
+    ->with('topic_syllabus_id', $request->topic_syllabus_id)
+    ->with('lecturer_id', $request->lecturer_id)
+    ->with('role', $request->role)
+    ;
+    
   }
 
   public function search(Request $request)

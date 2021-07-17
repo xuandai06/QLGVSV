@@ -35,7 +35,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã khoa học: </p>
                                     <input type="text" name="topic_syllabus_id" id="topic_syllabus_id" placeholder="Nhập vào mã loại khoa học..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('topic_syllabus_id') border-red-500 @enderror" value="{{old('topic_syllabus_id')}}??{{('sciense_code')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('topic_syllabus_id') border-red-500 @enderror"
+                                 value="{{ old('topic_syllabus_id') ?? session('topic_syllabus_id') }}">
                                 </div>
                                 @error('topic_syllabus_id')
                                 <div class="text-red-500 mt-2 pl-44 text-sm">
@@ -48,7 +49,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
                                     <input type="text" name="lecturer_id" id="lecturer_id" placeholder="Nhập mã giảng viên ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('lecturer_id') border-red-500 @enderror" value="{{old('lecturer_id')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('lecturer_id') border-red-500 @enderror" 
+                                value="{{old('lecturer_id') ?? session('lecturer_id')}}">
                                 </div>
 
                                 @error('lecturer_id')
@@ -62,7 +64,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Vai trò: </p>
                                     <input type="text" name="role" id="role" placeholder="Nhập vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror" value="">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror"
+                                 value="{{old('role') ?? session('role')}}">
                                 </div>
 
                                 @error('role')

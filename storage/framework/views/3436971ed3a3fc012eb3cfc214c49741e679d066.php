@@ -28,8 +28,8 @@
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
-                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Mã loại khoa học: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã loại khoa học..." class="bg-white w-8/12 p-4 rounded-lg
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Mã cấp thực hiện: </p>
+                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã cấp thực hiện ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -56,8 +56,8 @@ unset($__errorArgs, $__bag); ?>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
-                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Tên loại khoa học: </p>
-                                    <input type="text" name="name" id="name" placeholder="Nhập vào tên loại ..." class="bg-white w-8/12 p-4 rounded-lg
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Tên cấp thực hiện: </p>
+                                    <input type="text" name="name" id="name" placeholder="Nhập vào tên lcấp thực hiện ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

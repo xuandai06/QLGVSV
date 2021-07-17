@@ -34,6 +34,10 @@ class CreateStudentsTable extends Migration
             $table->string('major_id',15);
             $table->string('note')->nullable();
 
+            $table->foreign('id')->references('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
             $table->string('student_position_id',15);
             $table->string('class_id',15);
 
