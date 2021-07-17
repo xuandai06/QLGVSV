@@ -38,6 +38,7 @@ class UpdateWorkController extends Controller
       ->with('id',$request->id)
       ->with('name',$request->name)
       ->with('start_time',$request->start_time)
+      ->with('end_time',$request->end_time)
       ->with('name',$request->end_time)
       ->with('place',$request->place)
       ->with('note',$request->note)
@@ -53,8 +54,9 @@ class UpdateWorkController extends Controller
     public function edit_index($id)
     {
       $work = Work::find($id);
+     
       return view(
-        'layouts.admin.teacher_work_schedule.update.edit_works',['works' => $work]
+        'layouts.admin.teacher_work_schedule.update.edit.edit_works',['work' => $work]
       );
     }
   
@@ -66,7 +68,13 @@ class UpdateWorkController extends Controller
       ]);
   
       $work->name = $request->name;
+      $work->start_time = $request->start_time;
+      $work->end_time = $request->end_time;
+      $work->place = $request->place;
+      $work->note = $request->note;
+
       $work->save();
+      
       return back()->with('status', 'Cập nhật công việc thành công');
     }
     public function search(Request $request)

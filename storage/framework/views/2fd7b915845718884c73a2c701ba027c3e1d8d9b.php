@@ -122,6 +122,7 @@ unset($__errorArgs, $__bag); ?>
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian kết thúc: </p>
+
                                     <input type="datetime-local" name="end_time" id="end_time" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['end_time'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

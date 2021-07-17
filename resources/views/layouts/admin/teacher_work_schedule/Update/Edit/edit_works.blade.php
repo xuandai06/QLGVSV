@@ -18,44 +18,66 @@
                             <h1 class="">Sửa thông tin công việc</h1>
                         </div>
 
+                        @if(session('status'))
+                        <div class="text-green-500 p-3">
+                            {{session('status')}}
+                        </div>
+                        @endif
+                        
+                        <form action="{{route('edit/works', $work)}}" method="post">
+                            @csrf
 
+                            <label for="id">Mã công việc</label>
+                            <input type="text" id="id" name="id" value="{{$work->id}}" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
 
-    <form action="{{route('edit/positions', $position)}}" method="post">
-        @csrf
+                            <hr>
+                            <label for="name">Tên công việc</label>
+                            <input type="text" id="name" name="name" value="{{old('name') ?? $work->name}}" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                            @error('name')
+                            <div>
+                                {{$message}}
+                            </div>
+                            @enderror
+                            <label for="start_time">Thời gian bắt đầu</label>
 
-        <label for="name">Mã công việc</label>
-        <input type="text" id="id" name="id" value="{{$position->id }}" disabled class="bg-white p-2 mx-5 font-bold rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"><hr>
+                            <input type="datetime-local" id="start_time" name="start_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->start_time) )?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                            
+                            @error('start_time')
+                            <div>
+                                {{$message}}
+                            </div>
+                            @enderror
+                            <label for="end_time">Thời gian kết thúc</label>
+                                <input type="datetime-local" id="end_time" name="end_time" value="<?php echo  date('Y-m-d\TH:i', strtotime($work->end_time) )?>" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                @error('end_time')
+                                <div>
+                                    {{$message}}
+                                </div>
+                                @enderror
+                                <label for="place">Địa điểm</label>
+                                <input type="text" id="place" name="place" value="{{old('place') ?? $work->place}}" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                @error('place')
+                                <div>
+                                    {{$message}}
+                                </div>
+                                @enderror
+                                <label for="note">Ghi chú</label>
+                                <input type="text" id="note" name="note" value="{{old('note') ?? $work->note}}" class="bg-white p-4 py-2 mx-4 rounded-lg
+                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                @error('note')
+                                <div>
+                                    {{$message}}
+                                </div>
+                                @enderror
+                                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
+                        </form>
 
-       <label for="name">Tên công việc</label>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        <label for="name">Thời gian bắt đầu</label>
-        <input type="date" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        <label for="name">Thời gian kết thúc</label>
-        <input type="date" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        <label for="name">Địa điểm</label>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        <label for="name">Ghi chú</label>
-        <input type="text" id="name" name="name" value="{{old('name') ?? $position->name}}"  class="bg-white p-4 py-2 mx-4 rounded-lg
-                            border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-        @error('name')
-        <div>
-            {{$message}}
-        </div>
-        @enderror
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
-    </form>
-    @if(session('status'))
-    <div class="text-green-500 p-3">
-        {{session('status')}}
-    </div>
-    @endif
-
-    </div>
+                    </div>
                 </div>
             </div>
         </div>
