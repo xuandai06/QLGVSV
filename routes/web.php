@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkController;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\search_scientific_research_management_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\article_details_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\articles_controller;
@@ -24,7 +25,7 @@ use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Updat
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\lecturer\LecturerController;
-use App\Http\Controllers\LecturerSchedule\Update\UpdateWorkController;
+
 use App\Http\Controllers\student\StudentController;
 use App\Models\Lecturer;
 use App\Models\Level;

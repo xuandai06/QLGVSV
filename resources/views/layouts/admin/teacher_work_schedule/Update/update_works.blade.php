@@ -29,7 +29,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
                                     <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" 
+                                value="{{old('id') ?? session('id')}}">
 
                                 </div>
 
@@ -44,7 +45,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Tên công việc: </p>
                                     <input type="text" name="name" id="name" placeholder="Nhập vào tên công việc ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" 
+                                value="{{old('name') ?? session('name')}}">
 
                                 </div>
 
@@ -59,7 +61,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian bắt đầu: </p>
                                     <input type="datetime-local" name="start_time" id="start_time" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('start_time') border-red-500 @enderror" value="{{old('start_time')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('start_time') border-red-500 @enderror" 
+                                value="{{old('start_time') ?? session('start_time')}}">
 
                                 </div>
 
@@ -74,7 +77,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian kết thúc: </p>
                                     <input type="datetime-local" name="end_time" id="end_time" placeholder="Nhập vào thời gian ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('end_time') border-red-500 @enderror" value="{{old('end_time')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('end_time') border-red-500 @enderror" 
+                                value="{{old('end_time') ?? session('end_time')}}">
 
                                 </div>
 
@@ -89,7 +93,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Địa điểm: </p>
                                     <input type="text" name="place" id="place" placeholder="Nhập vào địa điểm ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('place') border-red-500 @enderror" value="{{old('place')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('place') border-red-500 @enderror" 
+                                value="{{old('place') ?? session('place')}}">
 
                                 </div>
 
@@ -104,7 +109,8 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
                                     <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" 
+                                value="{{old('note') ?? session('note')}}">
 
                                 </div>
 

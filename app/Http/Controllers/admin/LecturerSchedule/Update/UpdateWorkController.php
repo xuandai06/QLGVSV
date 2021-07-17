@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\LecturerSchedule\Update;
+namespace App\Http\Controllers\admin\LecturerSchedule\Update;
 
 use App\Http\Controllers\Controller;
 use App\Models\Work;
@@ -34,7 +34,14 @@ class UpdateWorkController extends Controller
       $work->note = $request->note;
       $work->save();
   
-      return redirect()->route('update/works')->with('status', 'Thêm công việc thành công');
+      return redirect()->route('update/works')->with('status', 'Thêm công việc thành công')
+      ->with('id',$request->id)
+      ->with('name',$request->name)
+      ->with('start_time',$request->start_time)
+      ->with('name',$request->end_time)
+      ->with('place',$request->place)
+      ->with('note',$request->note)
+      ;
     }
   
     public function delete(Work $work)
