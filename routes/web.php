@@ -392,38 +392,42 @@ Route::get('/update/student_study_point', function () {
 });
 
 //phan search
+Route::get('/search_student', function () {
+    return view('layouts.admin.student_management.search.menu_search ');
+});
+
 Route::get('/search/student_by_name', function () {
-    return view('layouts.admin.student_management.search.search_student_name ');
+    return view('layouts.admin.student_management.search.search_student.search_student_name ');
 });
 Route::get('/search/student_by_address', function () {
-    return view('layouts.admin.student_management.search.search_student_address ');
+    return view('layouts.admin.student_management.search.search_student.search_student_address ');
 });
 Route::get('/search/student_by_sex', function () {
-    return view('layouts.admin.student_management.search.search_student_sex ');
+    return view('layouts.admin.student_management.search.search_student.search_student_sex ');
 });
 Route::get('/search/student_by_course', function () {
-    return view('layouts.admin.student_management.search.search_student_course ');
+    return view('layouts.admin.student_management.search.search_student.search_student_course ');
 });
 Route::get('/search/student_by_boarding_outpatient', function () {
-    return view('layouts.admin.student_management.search.search_student_boarding_outpatient ');
+    return view('layouts.admin.student_management.search.search_student.search_student_boarding_outpatient ');
 });
 Route::get('/search/student_by_class', function () {
-    return view('layouts.admin.student_management.search.search_student_class ');
+    return view('layouts.admin.student_management.search.search_student.search_student_class ');
 });
 Route::get('/search/student_by_policy', function () {
-    return view('layouts.admin.student_management.search.search_student_policy ');
+    return view('layouts.admin.student_management.search.search_student.search_student_policy ');
 });
 Route::get('/search/student_by_graduate', function () {
-    return view('layouts.admin.student_management.search.search_student_graduate ');
+    return view('layouts.admin.student_management.search.search_student.search_student_graduate ');
 });
 Route::get('/search/student_by_quit', function () {
-    return view('layouts.admin.student_management.search.search_student_quit ');
+    return view('layouts.admin.student_management.search.search_student.search_student_quit ');
 });
 Route::get('/search/student_by_reward_discipline', function () {
-    return view('layouts.admin.student_management.search.search_student_reward_discipline ');
+    return view('layouts.admin.student_management.search.search_student.search_student_reward_discipline ');
 });
 Route::get('/search/student_by_study_point', function () {
-    return view('layouts.admin.student_management.search.search_student_study_point ');
+    return view('layouts.admin.student_management.search.search_student.search_student_study_point ');
 });
 
 

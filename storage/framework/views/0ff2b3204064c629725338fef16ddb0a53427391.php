@@ -23,127 +23,91 @@
 
                         </div>
                         <?php endif; ?>
-                        <form action="<?php echo e(route('add/units')); ?>" method="post" class=" flex-col justify-center">
+                        <?php if(session('error')): ?>
+                        <div class="text-red-500 p-3">
+                            <?php echo e(session('error')); ?>
+
+                        </div>
+                        <?php endif; ?>
+                        <form action="<?php echo e(route('add/work/assignments')); ?>" method="post" class=" flex-col justify-center">
                             <?php echo csrf_field(); ?>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('id')); ?>">
+                                    <?php
+
+                                    use App\Models\Unit;
+                                    use App\Models\Work;
+
+                                    $works = Work::all();
+                                    ?>
+                                    <select name="work_id" id="work_id">
+                                        <?php $__currentLoopData = $works; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $work): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($work->id); ?>"><?php echo e($work->id); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
 
                                 </div>
 
-                                <?php $__errorArgs = ['id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    <?php echo e($message); ?>
-
-                                </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
-                                    <input type="text" name="name" id="name" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>">
+                                    <div class="flex">
+                                        <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
+                                        <?php
 
+                                        $units = Unit::all();
+                                        ?>
+                                        <select name="unit_id" id="unit_id">
+                                            <?php $__currentLoopData = $units; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($unit->id); ?>"><?php echo e($unit->id); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </select>
+
+                                    </div>
                                 </div>
 
-                                <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    <?php echo e($message); ?>
-
-                                </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Vai trò: </p>
-                                    <input type="text" name="name" id="name" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
+                                    <input type="text" name="role" id="role" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['role'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>">
+unset($__errorArgs, $__bag); ?>"
+                                 value="<?php echo e(old('role') ?? session('role')); ?>">
 
                                 </div>
 
-                                <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    <?php echo e($message); ?>
-
-                                </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                           
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
-                                    <input type="text" name="name" id="name" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['name'];
+                                    <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['note'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>">
+unset($__errorArgs, $__bag); ?>" 
+                                value="<?php echo e(old('note') ?? session('note')); ?>">
 
                                 </div>
 
-                                <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    <?php echo e($message); ?>
-
-                                </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                             
                             </div>
 
                             <div class="flex justify-center">
@@ -167,7 +131,38 @@ unset($__errorArgs, $__bag); ?>
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
+                        <thead>
+                            <tr>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
+                                <th class="w-full border-collapse border border-gray-500 p-2">Mã đơn vị</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Thời gian bắt đầu</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $__currentLoopData = $work_assignments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $work_assignment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->work_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->unit_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->role); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($work_assignment->note); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <a href="">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <form action="<?php echo e(route('delete/work_assignments', $work_assignment)); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </tbody>
                     </table>
+                    <?php echo e($work_assignments->links()); ?>
+
                 </div>
             </div>
         </div>
