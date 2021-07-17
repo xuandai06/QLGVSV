@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\search_scientific_research_management_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\article_details_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\articles_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\conferences_controller;
@@ -235,6 +236,10 @@ Route::group(
 // END UPDATE LECTURER SCHEDULES
 
 // END UPDATE NCKH GV
+
+
+
+
 //Route cua Hung
 
 
@@ -297,6 +302,71 @@ Route::get('update/rooms', function () {
 });
 Route::get('update/timetable', function () {
     return view('layouts.admin.timetable.Update.update_timetables');
+});
+
+//phan search
+
+Route::get('search/by_student_code', function () {
+    return view('layouts.admin.timetable.Search.search_by_student_code');
+});
+Route::get('search/by_teacher_code', function () {
+    return view('layouts.admin.timetable.Search.search_by_teacher_code');
+});
+Route::get('search/by_rooms', function () {
+    return view('layouts.admin.timetable.Search.search_by_rooms');
+});
+Route::get('search/by_teaching_day', function () {
+    return view('layouts.admin.timetable.Search.search_by_teaching_day');
+});
+Route::get('search/by_teaching_day_and_lesson', function () {
+    return view('layouts.admin.timetable.Search.search_by_teaching_day_and_lesson');
+});
+
+//phan statistical
+Route::get('/statistical', function () {
+    return view('layouts.admin.timetable.statistical.menu_update');
+});
+Route::get('/statistical/lecturer', function () {
+    return view('layouts.admin.timetable.statistical.GV.statistical_lecturer');
+});
+Route::get('/statistical/student', function () {
+    return view('layouts.admin.timetable.statistical.SV.statistical_student');
+});
+
+//Phan quan ly sinh vien
+
+Route::get('/student', function () {
+    return view('layouts.admin.student_management.menu_update');
+});
+
+//Phan Update
+
+Route::get('/update/student_information', function () {
+    return view('layouts.admin.student_management.update.update_student_information');
+});
+Route::get('/update/student_class', function () {
+    return view('layouts.admin.student_management.update.update_student_class');
+});
+Route::get('/update/student_boarding', function () {
+    return view('layouts.admin.student_management.update.update_student_boarding');
+});
+Route::get('/update/student_outpatient', function () {
+    return view('layouts.admin.student_management.update.update_student_outpatient');
+});
+Route::get('/update/student_policy', function () {
+    return view('layouts.admin.student_management.update.update_student_policy');
+});
+Route::get('/update/student_reward_discipline', function () {
+    return view('layouts.admin.student_management.update.update_student_reward_discipline');
+});
+Route::get('/update/student_graduate', function () {
+    return view('layouts.admin.student_management.update.update_student_graduate');
+});
+Route::get('/update/student_quit', function () {
+    return view('layouts.admin.student_management.update.update_student_quit_school');
+});
+Route::get('/update/student_study_point', function () {
+    return view('layouts.admin.student_management.update.update_student_study_point ');
 });
 
 //Het Route cua Hung
@@ -476,6 +546,11 @@ Route::group(
     }
 );
 //end extra_trainings
+
+//SEARCHING LECTURER NCKH
+Route::get('/search/scientific_research_management', [search_scientific_research_management_controller::class, 'index'])
+    ->name('search/scientific_research_management');
+//END SEARCHING LECTURER
 //end Hiep
 
 //datatest
