@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkAssignmentController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkController;
-use App\Http\Controllers\admin\scientific_research_management_of_lecturers\search_scientific_research_management_controller;
+use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Search\search_kind_of_sciences_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\article_details_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\articles_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\conferences_controller;
@@ -25,7 +25,6 @@ use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Updat
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\update_kind_of_sciences_controller;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
-use App\Http\Controllers\lecturer\LecturerController;
 
 use App\Http\Controllers\student\StudentController;
 use App\Models\Lecturer;
@@ -610,8 +609,8 @@ Route::group(
 //end extra_trainings
 
 //SEARCHING LECTURER NCKH
-Route::get('/search/scientific_research_management', [search_scientific_research_management_controller::class, 'index'])
-    ->name('search/scientific_research_management');
+Route::get('/search/kind_of_sciences', [search_kind_of_sciences_controller::class, 'index'])
+    ->name('search/kind_of_sciences');
 //END SEARCHING LECTURER
 //end Hiep
 
