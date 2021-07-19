@@ -447,6 +447,18 @@ Route::get('/statistical_student/study_point', function () {
     return view('layouts.admin.student_management.statistical.statistical_student.statistical_student_study_point');
 });
 
+// NCKH SV
+
+//phan update
+Route::get('/update_scientific_student', function () {
+    return view('layouts.admin.scientific_research_management_of_student.menu_update');
+});
+Route::get('/update_scientific_student/name', function () {
+    return view('layouts.admin.scientific_research_management_of_student.update.update_scientific_name');
+});
+Route::get('/update_scientific_student/essay_course', function () {
+    return view('layouts.admin.scientific_research_management_of_student.update.update_essay_graduation_course');
+});
 
 //Het Route cua Hung
 
