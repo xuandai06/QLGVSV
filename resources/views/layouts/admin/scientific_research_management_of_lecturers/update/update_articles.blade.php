@@ -96,7 +96,7 @@
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
-                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Mã tạp trí: </p>
+                                    <p class="text-gray-500 text-xl w-5/12 pt-3">Mã tạp chí: </p>
                                     <input type="text" name="journal_id" id="journal_id" placeholder="Nhập vào mã tạp trí..." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('journal_id') border-red-500 @enderror" value="">
                                 </div>

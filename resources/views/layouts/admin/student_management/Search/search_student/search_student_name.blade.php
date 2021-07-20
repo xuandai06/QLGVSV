@@ -1,18 +1,34 @@
-@extends('layouts.menu')
+@extends('layouts.admin.student_management.Search.menu_search')
 
-@section('content')
+@section('search_student')
 <div class="flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
-            <h1>Tìm kiếm theo tên sinh viên</h1>
+            <h1>Tìm kiếm theo thông tin sinh viên sinh viên</h1>
         </div>
-        <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
+        <div class="m-4">
+            <form action="" class="w-8/12 flex justify-between">
 
                 <div class="flex-col">
                     <p class="text-gray-700">Nhập tên sinh viên:</p>
                     <input type="text" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập tên sinh viên ...">
+                </div>
+
+                <div class="flex-col">
+                    <p class="text-gray-700">Nhập địa chỉ:</p>
+                    <input type="text" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập địa chỉ ...">
+                </div>
+
+                <div class="flex-col">
+                    <p class="text-gray-700">Giới tính:</p>
+                    <select name="sex" id="sex" class="bg-white w-full p-2 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="bg-blue-500 text-white rounded px-4 font-medium">Search</button>
