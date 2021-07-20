@@ -1,4 +1,4 @@
-@extends('layouts.admin.lecturer_management.menu_update')
+@extends('layouts.admin.teacher_work_schedule.update.menu_update')
 
 @section('update_lecturer')
 <div class="w-9/12 ml-2 flex justify-center">

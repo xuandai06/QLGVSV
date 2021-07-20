@@ -459,6 +459,40 @@ Route::get('/update_scientific_student/name', function () {
 Route::get('/update_scientific_student/essay_course', function () {
     return view('layouts.admin.scientific_research_management_of_student.update.update_essay_graduation_course');
 });
+Route::get('/update_scientific_student/scientific', function () {
+    return view('layouts.admin.scientific_research_management_of_student.update.update_scientific_student');
+});
+
+//phan search
+Route::get('/search_scientific_student', function () {
+    return view('layouts.admin.scientific_research_management_of_student.search.menu_search');
+});
+Route::get('/search_scientific_student/name', function () {
+    return view('layouts.admin.scientific_research_management_of_student.search.search_science_student.search_science_name');
+});
+Route::get('/search_scientific_student/student_name', function () {
+    return view('layouts.admin.scientific_research_management_of_student.search.search_science_student.search_science_student_name');
+});
+Route::get('/search_scientific_student/instructor', function () {
+    return view('layouts.admin.scientific_research_management_of_student.search.search_science_student.search_science_instructor');
+});
+Route::get('/search_scientific_student/reward', function () {
+    return view('layouts.admin.scientific_research_management_of_student.search.search_science_student.search_science_reward');
+});
+
+//phan statistical
+Route::get('/statistical_scientific_student', function () {
+    return view('layouts.admin.scientific_research_management_of_student.statistical.menu_statistical');
+});
+Route::get('/statistical_scientific_student/scientific', function () {
+    return view('layouts.admin.scientific_research_management_of_student.statistical.statistical_science_student.statistical_sience');
+});
+Route::get('/statistical_scientific_student/reward', function () {
+    return view('layouts.admin.scientific_research_management_of_student.statistical.statistical_science_student.statistical_science_reward');
+});
+Route::get('/statistical_scientific_student/instructor', function () {
+    return view('layouts.admin.scientific_research_management_of_student.statistical.statistical_science_student.statistical_science_instructor');
+});
 
 //Het Route cua Hung
 
