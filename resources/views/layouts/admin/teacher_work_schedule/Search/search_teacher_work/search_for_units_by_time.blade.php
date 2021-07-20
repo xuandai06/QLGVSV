@@ -1,18 +1,18 @@
-@extends('layouts.menu')
+@extends('layouts.admin.teacher_work_schedule.search.menu_search')
 
-@section('content')
+@section('search_work')
 <div class="flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
-            <h1>Tìm kiếm theo tên công việc trong khoảng thời gian</h1>
+            <h1>Tìm kiếm theo mã đơn vị trong khoảng thời gian</h1>
         </div>
         <div class="flex justify-center m-4">
             <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
 
                 <div class="flex-col">
-                    <p class="text-gray-700">Nhập tên công việc:</p>
+                    <p class="text-gray-700">Nhập mã đơn vị:</p>
                     <input type="text" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
-                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập tên công việc ...">
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập mã đơn vị ...">
                 </div>
                 
                 <div class="flex-col">

@@ -1,31 +1,22 @@
-@extends('layouts.menu')
+@extends('layouts.admin.teacher_work_schedule.search.menu_search')
 
-@section('content')
+@section('search_work')
 <div class="flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
-            <h1>Tìm kiếm theo mã đơn vị trong khoảng thời gian</h1>
+            <h1>Tìm kiếm theo mức độ hoàn thành</h1>
         </div>
         <div class="flex justify-center m-4">
             <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
-
-                <div class="flex-col">
-                    <p class="text-gray-700">Nhập mã đơn vị:</p>
-                    <input type="text" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
-                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập mã đơn vị ...">
-                </div>
-                
-                <div class="flex-col">
-                    <p class="text-gray-700">Nhập ngày bắt đầu:</p>
-                    <input type="date" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
-                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập ngày bắt đầu ...">
-                </div>
-
-                <div class="flex-col">
-                    <p class="text-gray-700">Nhập ngày kết thúc:</p>
-                    <input type="date" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
-                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập ngày kết thúc ...">
-                </div>
+            <label class="flex-col">
+                    <p class="text-gray-700">Lựa chọn mức độ hoàn thành</p>
+                    <select id="search_type" name="search_type" class="form-select border-2 border-gray-200 p-2 text-gray-500
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                        <option>Chưa thực hiện</option>
+                        <option>Đang thực hiện</option>
+                        <option>Hoàn thành</option>
+                    </select>
+                </label>
 
                 <button type="submit" class="bg-blue-500 text-white rounded px-4 font-medium">Search</button>
             </form>
@@ -38,7 +29,7 @@
             <table class="bg-white table-fixed flex-col justify-center">
                 <thead>
                     <tr>
-                    <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
+                        <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
                         <th class="w-2/12 border-collapse border border-gray-500 p-2">Tên giảng viên</th>
                         <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
                         <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã đơn vị</th>
