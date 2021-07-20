@@ -26,7 +26,7 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="{{route('update/journals')}}">=> Cập nhật danh mục tạp trí</a>
+                            <a href="{{route('update/journals')}}">=> Cập nhật danh mục tạp chí</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
