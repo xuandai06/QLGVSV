@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\LecturerSchedule\Search\SearchByCompletionLevelController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateResultController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkAssignmentController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkController;
@@ -36,6 +37,7 @@ use App\Models\Position;
 use App\Models\Subject;
 use App\Models\Unit;
 use App\Models\User;
+use App\Models\Work;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -305,11 +307,8 @@ Route::group(
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
-        Route::get('/search/by_completion_level', [SearchLecturerController::class, 'index'])
+        Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'index'])
         ->name('search/by_completion_level');
-
-
-
 
         Route::get('/search/details/lecturers', [SearchLecturerController::class, 'search'])
             ->name('search/details/lecturers');
@@ -954,6 +953,30 @@ Route::get('/create/lecturers', function () {
     $lecturer->level_id = '2TD';
     $lecturer->major_id = '3N';
     $lecturer->save();
+});
+
+
+Route::get('/create/works', function () {
+    $work = new Work();
+    $work->id = '1CV';
+    $work->name = 'Phân tích thiết kế hệ thống quản lý giảng viên sinh viên';
+   // $work->start_time = 2018-06-12T19:30;
+  //  $level->save();
+
+    $level = new Level();
+    $level->id = '2TD';
+    $level->name = 'Tiến sĩ';
+    $level->save();
+
+    $level = new Level();
+    $level->id = '3TD';
+    $level->name = 'Thạc sĩ';
+    $level->save();
+
+    $level = new Level();
+    $level->id = '4TD';
+    $level->name = 'Đại học';
+    $level->save();
 });
 
 
