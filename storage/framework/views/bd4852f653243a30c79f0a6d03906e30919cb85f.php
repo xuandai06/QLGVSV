@@ -18,11 +18,11 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật chi tiết công việc</a>
+                            <a href="<?php echo e(route('update/work/details')); ?>">=> Cập nhật chi tiết công việc</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Cập nhật thông tin kết quả</a>
+                            <a href="<?php echo e(route('update/results')); ?>">=> Cập nhật thông tin kết quả</a>
                         </li>
 
                     </ul>

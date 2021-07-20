@@ -44,32 +44,40 @@
                                     ?>
                                     <select name="work_id" id="work_id">
                                         <?php $__currentLoopData = $works; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $work): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php if(session('work_id') == $work->id): ?>
+                                        <option selected value="<?php echo e($work->id); ?>"><?php echo e($work->id); ?></option>
+                                        <?php else: ?>
                                         <option value="<?php echo e($work->id); ?>"><?php echo e($work->id); ?></option>
+                                        <?php endif; ?>
+
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
-
                                 </div>
-
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
                                     <div class="flex">
-                                        
+
                                         <?php
 
                                         $units = Unit::all();
                                         ?>
                                         <select name="unit_id" id="unit_id">
                                             <?php $__currentLoopData = $units; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                            <?php if(session('unit_id') == $unit->id): ?>
+                                            <option selected value="<?php echo e($unit->id); ?>"><?php echo e($unit->id); ?></option>
+                                            <?php else: ?>
                                             <option value="<?php echo e($unit->id); ?>"><?php echo e($unit->id); ?></option>
+                                            <?php endif; ?>
+
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </select>
-
                                     </div>
                                 </div>
-
                             </div>
 
                             <div class="mb-4 flex-col">
@@ -83,12 +91,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                                 value="<?php echo e(old('role') ?? session('role')); ?>">
-
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('role') ?? session('role')); ?>">
                                 </div>
-
-                           
                             </div>
 
                             <div class="mb-4 flex-col">
@@ -102,12 +106,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" 
-                                value="<?php echo e(old('note') ?? session('note')); ?>">
-
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('note') ?? session('note')); ?>">
                                 </div>
-
-                             
                             </div>
 
                             <div class="flex justify-center">
@@ -122,7 +122,7 @@ unset($__errorArgs, $__bag); ?>"
                         <h1 class="">Danh sách</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="<?php echo e(route('search/work/assignments')); ?>" >
+                        <form action="<?php echo e(route('search/work/assignments')); ?>">
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
@@ -134,7 +134,7 @@ unset($__errorArgs, $__bag); ?>"
                             <tr>
                                 <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
                                 <th class="w-full border-collapse border border-gray-500 p-2">Mã đơn vị</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Thời gian bắt đầu</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Vai trò</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xóa</th>

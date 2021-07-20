@@ -10,8 +10,10 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateMajorController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
+use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateResultController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkAssignmentController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkController;
+use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkDetailController;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Search\search_kind_of_sciences_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\article_details_controller;
 use App\Http\Controllers\admin\scientific_research_management_of_lecturers\Update\articles_controller;
@@ -254,7 +256,66 @@ Route::group(
     }
 );
 //end update work assignment
+
+//update work details
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/work/details', [UpdateWorkDetailController::class, 'index'])
+            ->name('update/work/details');
+        Route::post('/add/work/details', [UpdateWorkDetailController::class, 'store'])
+            ->name('add/work/details');
+        Route::post('/delete/work/details/{work_id}/{lecturer_id}', [UpdateWorkDetailController::class, 'delete'])
+            ->name('delete/work/details');
+        Route::get('/edit/work/details/index/{work_id}/{lecturer_id}', [UpdateWorkDetailController::class, 'edit_index'])
+            ->name('edit/work/details/index');
+        Route::post('/edit/work/details/{work_id}/{lecturer_id}', [UpdateWorkDetailController::class, 'edit'])
+            ->name('edit/work/details');
+        Route::get('/search/work/details', [UpdateWorkDetailController::class, 'search'])
+            ->name('search/work/details');
+    }
+);
+//end update work details
+
+//update work results
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/update/results', [UpdateResultController::class, 'index'])
+            ->name('update/results');
+        Route::post('/add/results', [UpdateResultController::class, 'store'])
+            ->name('add/results');
+        Route::post('/delete/results/{result}', [UpdateResultController::class, 'delete'])
+            ->name('delete/results');
+        Route::get('/edit/results/index/{work_id}', [UpdateResultController::class, 'edit_index'])
+            ->name('edit/results/index');
+        Route::post('/edit/results//{result}', [UpdateResultController::class, 'edit'])
+            ->name('edit/results');
+        Route::get('/search/results', [UpdateResultController::class, 'search'])
+            ->name('search/results');
+    }
+);
+//end update results
+
 // END UPDATE LECTURER SCHEDULES
+
+//SEARCHING WORK
+
+
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/search/by_completion_level', [SearchLecturerController::class, 'index'])
+        ->name('search/by_completion_level');
+
+
+
+
+        Route::get('/search/details/lecturers', [SearchLecturerController::class, 'search'])
+            ->name('search/details/lecturers');
+    }
+);
+//END SEARCHING WORK
 
 // END UPDATE NCKH GV
 

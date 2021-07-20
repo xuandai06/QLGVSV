@@ -22,18 +22,31 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="{{route('add/units')}}" method="post" class=" flex-col justify-center">
+                        <form action="{{route('add/results')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
+                                    <?php
 
+                                    use App\Models\Work;
+
+                                    $works = Work::all();
+                                    ?>
+                                    <select name="work_id" id="work_id">
+                                        @foreach($works as $work)
+
+                                        @if(session('work_id') == $work->id)
+                                        <option selected value="{{$work->id}}">{{$work->id}}</option>
+                                        @else
+                                        <option value="{{$work->id}}">{{$work->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
-
-                                @error('id')
+                                @error('work_id')
                                 <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
@@ -43,12 +56,11 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Trạng thái: </p>
-                                    <input type="text" name="name" id="name" placeholder="Nhập vào trạng thái ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
-
+                                    <input type="text" name="status" id="status" placeholder="Nhập vào trạng thái ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('status') border-red-500 @enderror" value="{{old('status') ?? session('status')}}">
                                 </div>
 
-                                @error('name')
+                                @error('status')
                                 <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
@@ -58,12 +70,11 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
-                                    <input type="text" name="name" id="name" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
-
+                                    <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note') ?? session('note')}}">
                                 </div>
 
-                                @error('name')
+                                @error('note')
                                 <div class="text-red-500 mt-2 pl-56 text-sm">
                                     {{ $message }}
                                 </div>
@@ -82,7 +93,7 @@
                         <h1 class="">Danh sách</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/units')}}" method="post">
+                        <form action="{{route('search/results')}}" s>
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
@@ -100,7 +111,26 @@
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                       
+
+                        <tbody>
+                            @foreach($results as $result)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2">{{$result->work_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$result->status}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$result->note}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <a href="{{route('edit/results/index', $result->work_id)}}">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <form action="{{route('delete/results',$result)}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        {{$results->links()}}
                     </table>
                 </div>
             </div>
