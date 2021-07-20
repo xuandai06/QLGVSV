@@ -9,7 +9,7 @@ class Result extends Model
 {
     use HasFactory;
     public $incrementing = false;
-
+    protected $primaryKey = 'work_id';
     protected $fillable = [
         'work_id',
         'status',

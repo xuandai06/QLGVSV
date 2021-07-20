@@ -9,4 +9,11 @@ class Work_detail extends Model
 {
     use HasFactory;
     public $incrementing = false;
+    protected $primaryKey = ['work_id','lecturer_id'];
+    protected $fillable = [
+        'work_id',
+        'lecturer_id',
+        'role',
+        'note',
+    ];
 }

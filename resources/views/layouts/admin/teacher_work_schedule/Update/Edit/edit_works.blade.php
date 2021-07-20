@@ -1,4 +1,4 @@
-@extends('layouts.admin.lecturer_management.menu_update')
+@extends('layouts.admin.teacher_work_schedule.update.menu_update')
 
 @section('update_lecturer')
 <div class="w-9/12 ml-2 flex justify-center">
@@ -78,95 +78,6 @@
                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
                         </form>
 
-                        <form action="{{route('edit/positions', $position)}}" method="post">
-                            @csrf
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Tên công việc </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã đơn vị ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian bắt đầu: </p>
-                                    <input type="date" name="id" id="id" placeholder="" class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Thời gian kết thúc: </p>
-                                    <input type="date" name="id" id="id" placeholder="" class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Địa điểm: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập địa điểm ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
-                                    <input type="text" name="id" id="id" placeholder="..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('name') ?? $position->name}}">
-                                </div>
-
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium w-3/12">Save</button>
-                        </form>
                         @if(session('status'))
                         <div class="text-green-500 p-3">
                             {{session('status')}}

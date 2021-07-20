@@ -1,19 +1,22 @@
-@extends('layouts.menu')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
-            <h1>Tìm kiếm theo thời gian bắt đầu</h1>
+            <h1>Tìm kiếm theo mức độ hoàn thành</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
-
-                <div class="flex-col">
-                    <p class="text-gray-700">Nhập ngày bắt đầu:</p>
-                    <input type="date" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
-                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập ngày bắt đầu ...">
-                </div>
+            <form action="<?php echo e(route('search/details/lecturers')); ?>" class="w-6/12 flex justify-between">
+            <label class="flex-col">
+                    <p class="text-gray-700">Lựa chọn mức độ hoàn thành</p>
+                    <select id="search_type" name="search_type" class="form-select border-2 border-gray-200 p-2 text-gray-500
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                        <option>Chưa thực hiện</option>
+                        <option>Đang thực hiện</option>
+                        <option>Hoàn thành</option>
+                    </select>
+                </label>
 
                 <button type="submit" class="bg-blue-500 text-white rounded px-4 font-medium">Search</button>
             </form>
@@ -41,4 +44,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/search/search_by_completion_level.blade.php ENDPATH**/ ?>

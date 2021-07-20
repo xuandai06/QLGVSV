@@ -42,56 +42,56 @@
                                     ?>
                                     <select name="work_id" id="work_id">
                                         @foreach($works as $work)
+
+                                        @if(session('work_id') == $work->id)
+                                        <option selected value="{{$work->id}}">{{$work->id}}</option>
+                                        @else
                                         <option value="{{$work->id}}">{{$work->id}}</option>
+                                        @endif
+
                                         @endforeach
                                     </select>
-
                                 </div>
-
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã đơn vị: </p>
                                     <div class="flex">
-                                        
+
                                         <?php
 
                                         $units = Unit::all();
                                         ?>
                                         <select name="unit_id" id="unit_id">
                                             @foreach($units as $unit)
+
+                                            @if(session('unit_id') == $unit->id)
+                                            <option selected value="{{$unit->id}}">{{$unit->id}}</option>
+                                            @else
                                             <option value="{{$unit->id}}">{{$unit->id}}</option>
+                                            @endif
+
                                             @endforeach
                                         </select>
-
                                     </div>
                                 </div>
-
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Vai trò: </p>
                                     <input type="text" name="role" id="role" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror"
-                                 value="{{old('role') ?? session('role')}}">
-
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror" value="{{old('role') ?? session('role')}}">
                                 </div>
-
-                           
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
                                     <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" 
-                                value="{{old('note') ?? session('note')}}">
-
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note') ?? session('note')}}">
                                 </div>
-
-                             
                             </div>
 
                             <div class="flex justify-center">
@@ -106,7 +106,7 @@
                         <h1 class="">Danh sách</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/work/assignments')}}" >
+                        <form action="{{route('search/work/assignments')}}">
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
@@ -118,7 +118,7 @@
                             <tr>
                                 <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
                                 <th class="w-full border-collapse border border-gray-500 p-2">Mã đơn vị</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Thời gian bắt đầu</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Vai trò</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xóa</th>

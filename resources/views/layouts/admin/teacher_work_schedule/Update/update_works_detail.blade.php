@@ -22,67 +22,77 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="{{route('add/units')}}" method="post" class=" flex-col justify-center">
+                        @if(session('error'))
+                        <div class="text-red-500 p-3">
+                            {{session('error')}}
+                        </div>
+                        @endif
+                        <form action="{{route('add/work/details')}}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã công việc: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã công việc..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
+                                    <?php
 
-                                </div>
+                                    use App\Models\Lecturer;
+                                    use App\Models\Unit;
+                                    use App\Models\Work;
 
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    {{ $message }}
+                                    $works = Work::all();
+                                    ?>
+                                    <select name="work_id" id="work_id">
+                                        @foreach($works as $work)
+
+                                        @if(session('work_id') == $work->id)
+                                        <option selected value="{{$work->id}}">{{$work->id}}</option>
+                                        @else
+                                        <option value="{{$work->id}}">{{$work->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
-                                @enderror
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Mã giảng viên: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã giảng viên..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="{{old('id')}}">
+                                    <div class="flex">
 
-                                </div>
+                                        <?php
 
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    {{ $message }}
+                                        $lecturers = Lecturer::all();
+                                        ?>
+                                        <select name="lecturer_id" id="lecturer_id">
+                                            @foreach($lecturers as $lecturer)
+
+                                            @if(session('lecturer_id') == $lecturer->id)
+                                            <option selected value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                            @else
+                                            <option value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                            @endif
+
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                                @enderror
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Vai trò: </p>
-                                    <input type="text" name="name" id="name" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
-
+                                    <input type="text" name="role" id="role" placeholder="Nhập vào vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror" value="{{old('role') ?? session('role')}}">
                                 </div>
-
-                                @error('name')
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
-                                    <input type="text" name="name" id="name" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('name') border-red-500 @enderror" value="{{old('name')}}">
-
+                                    <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note') ?? session('note')}}">
                                 </div>
-
-                                @error('name')
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
                             </div>
 
                             <div class="flex justify-center">
@@ -97,7 +107,7 @@
                         <h1 class="">Danh sách</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/units')}}" method="post">
+                        <form action="{{route('search/work/details')}}">
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
@@ -106,7 +116,40 @@
                         </form>
                     </nav>
                     <table class="bg-white table-fixed flex-col justify-center">
+                        <thead>
+                            <tr>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
+                                <th class="w-full border-collapse border border-gray-500 p-2">Mã đơn vị</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Vai trò</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
+                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($work_details as $work_detail)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work_detail->work_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work_detail->lecturer_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work_detail->role}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$work_detail->note}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <a href="{{route('edit/work/details/index', ['work_id' => $work_detail->work_id
+                                        , 'lecturer_id' => $work_detail->lecturer_id])}}">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <form action="{{route('delete/work/details', ['work_id' => $work_detail->work_id
+                                        , 'lecturer_id' => $work_detail->lecturer_id])}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
+                    {{$work_details->links()}}
                 </div>
             </div>
         </div>

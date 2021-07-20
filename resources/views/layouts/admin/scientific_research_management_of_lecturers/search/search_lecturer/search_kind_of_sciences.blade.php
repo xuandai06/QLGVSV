@@ -8,13 +8,16 @@
         </div>
         <div class="flex justify-center m-4">
             <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
-                <label class="flex-col mr-4">
-                    <select id="search_type" name="search_type" class="form-select border-2 border-gray-200 p-2 text-gray-500
+               
+            <div class="flex-col">
+                    <label class="flex-col mr-4">
+                        <select id="search_type" name="search_type" class="form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                        <option>Tìm theo mã loại khoa học</option>
-                        <option>Tìm theo tên loại khoa học</option>
-                    </select>
-                </label>
+                            <option>Tìm theo mã loại khoa học</option>
+                            <option>Tìm theo tên loại khoa học</option>
+                        </select>
+                    </label>
+                </div>
 
                 <div class="flex-col">
                     <input type="text" id="keyword" name="keyword" class="p-1.5 border-2 border-gray-200
