@@ -1,6 +1,6 @@
-@extends('layouts.menu')
+@extends('layouts.admin.teacher_work_schedule.search.menu_search')
 
-@section('content')
+@section('search_work')
 <div class="flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
