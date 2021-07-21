@@ -554,6 +554,26 @@ Route::get('/statistical_scientific_student/instructor', function () {
     return view('layouts.admin.scientific_research_management_of_student.statistical.statistical_science_student.statistical_science_instructor');
 });
 
+
+
+//Phan NCKH GV
+Route::get('/update_scientific_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.menu_update');
+});
+//Phan update
+Route::get('/update_scientific_lecturers/article_details', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_article_details');
+});
+Route::get('/update_scientific_lecturers/articles', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_articles');
+});
+Route::get('/update_scientific_lecturers/conferences_details', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_conferences_details');
+});
+Route::get('/update_scientific_lecturers/conferences', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_conferences');
+});
+
 //Het Route cua Hung
 
 

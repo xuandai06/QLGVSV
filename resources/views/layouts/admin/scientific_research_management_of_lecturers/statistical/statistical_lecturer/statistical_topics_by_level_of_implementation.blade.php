@@ -11,7 +11,7 @@
 
             <div class="flex-col">
                     <p class="text-gray-700">Thống kê theo:</p>
-                    <select name="sex" id="sex" class="bg-white w-full p-2 rounded-lg
+                    <select name="topic" id="topic" class="bg-white w-full p-2 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                         <option value="đề tài">Đề tài</option>
                         <option value="báo cáo">Báo cáo</option>
