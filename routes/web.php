@@ -411,20 +411,20 @@ Route::get('update/detail', function () {
 });
 
 //Phan Search
-Route::get('search/instuctor', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_for_instuctors_by_time');
+Route::get('search/instructor', function () {
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_for_lecturers_by_time');
 });
 Route::get('search/jobs_name', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_for_jobs_name_by_time');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_for_jobs_name_by_time');
 });
 Route::get('search/units', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_for_units_by_time');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_for_units_by_time');
 });
 Route::get('search/time', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_by_start_time');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_by_start_time');
 });
 Route::get('search/completion', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_by_completion_level');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_by_completion_level');
 });
 
 //Phan Statistical
@@ -620,6 +620,26 @@ Route::get('/statistical_scientific_student/reward', function () {
 });
 Route::get('/statistical_scientific_student/instructor', function () {
     return view('layouts.admin.scientific_research_management_of_student.statistical.statistical_science_student.statistical_science_instructor');
+});
+
+
+
+//Phan NCKH GV
+Route::get('/update_scientific_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.menu_update');
+});
+//Phan update
+Route::get('/update_scientific_lecturers/article_details', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_article_details');
+});
+Route::get('/update_scientific_lecturers/articles', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_articles');
+});
+Route::get('/update_scientific_lecturers/conferences_details', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_conferences_details');
+});
+Route::get('/update_scientific_lecturers/conferences', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_conferences');
 });
 
 //Het Route cua Hung

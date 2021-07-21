@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            @yield('statistical_nckh')
+            @yield('statistical_lecturers')
         </div>
     </div>
 @endsection
