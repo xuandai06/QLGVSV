@@ -321,14 +321,8 @@ Route::get('/search/work', function () {
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
-<<<<<<< HEAD
         Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'index'])
             ->name('search/by_completion_level');
-=======
-        Route::get('/search/by_completion_level/index', [SearchByCompletionLevelController::class, 'index'])
-        ->name('search/by_completion_level/index');
->>>>>>> 805b4f0deb313637b61fde1fe26978c0776d9a1f
-
         Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'search'])
             ->name('search/by_completion_level');
     }
@@ -1071,7 +1065,6 @@ Route::get('/create/works', function () {
     $work = new Work();
     $work->id = '1CV';
     $work->name = 'Phân tích thiết kế hệ thống quản lý giảng viên sinh viên';
-<<<<<<< HEAD
     // $work->start_time = 2018-06-12T19:30;
     //  $level->save();
 
@@ -1079,13 +1072,7 @@ Route::get('/create/works', function () {
     $level->id = '2TD';
     $level->name = 'Tiến sĩ';
     $level->save();
-=======
-    $work->start_time = Carbon::create(2018, 10, 18, 21, 40, 16);
-   $work->end_time = Carbon::create(2021, 10, 18, 10, 40, 16);;
-    $work->place = 'Giảng đường E';
-    $work->note = 'Không được nghìn nào';
-    $work->save();
->>>>>>> 805b4f0deb313637b61fde1fe26978c0776d9a1f
+
 
     $work = new Work();
     $work->id = '2CV';
