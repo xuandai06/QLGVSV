@@ -1,6 +1,6 @@
-@extends('layouts.admin.teacher_work_schedule.update.menu_update')
+@extends('layouts.admin.teacher_work_schedule.menu_update')
 
-@section('update_lecturer')
+@section('update_work_info')
 <div class="w-9/12 ml-2 flex justify-center">
     <div class="w-full bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">

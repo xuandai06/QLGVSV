@@ -1,43 +1,40 @@
-@extends('layouts.menu')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="flex justify-center mt-2">
         <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg flex justify-between">
             <div class="w-3/12 bg-gray-200 rounded-lg p-2">
                 <div class="flex justify-center pt-2">
-                    <h1 class="text-2xl text-blue-400">Thống kê</h1>
+                    <h1 class="text-2xl text-blue-400">Tìm kiếm</h1>
                 </div>
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Số lượng đề tài, báo cáo, giáo trình theo cấp thực hiện, loại khoa học</a>
+                            <a href="">=>Tìm kiếm và xuất file theo giảng viên trong khoảng thời gian</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Số lượng đề tài, báo cáo, giáo trình theo từng GV là chủ nhiệm/ chủ biên</a>
+                            <a href="">=> Tìm kiếm và xuất file theo tên công việc trong khoảng thời gian</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Số lượng hội thảo hội nghị theo thời gian, khoảng thời gian</a>
+                            <a href="">=> Tìm kiếm và xuất file theo đơn vị trong khoảng thời gian</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Số lượng NCKH từng loại theo năm</a>
+                            <a href="">=> Tìm kiếm và xuất theo thời gian bắt đầu </a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Số lượng bài báo theo từng tạp chí</a>
-                        </li>
-
-                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Số lượng các bồi dưỡng của GV theo năm</a>
+                            <a href="">=>Tìm kiếm và xuất file theo mức độ hoàn thành trong thời gian</a>
                         </li>
 
                     </ul>
                 </div>
             </div>
 
-            @yield('statistical_lecturers')
+            <?php echo $__env->yieldContent('search_work'); ?>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/search/menu_search.blade.php ENDPATH**/ ?>

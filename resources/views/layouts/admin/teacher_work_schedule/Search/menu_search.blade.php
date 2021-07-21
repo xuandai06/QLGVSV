@@ -10,23 +10,23 @@
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=>Tìm kiếm và xuất file theo giảng viên trong khoảng thời gian</a>
+                            <a href="{{route('search/for_lecturers_by_time/index')}}">=>Tìm kiếm và xuất file theo giảng viên trong khoảng thời gian</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm và xuất file theo tên công việc trong khoảng thời gian</a>
+                            <a href="{{route('search/for_jobs_name_by_time/index')}}">=> Tìm kiếm và xuất file theo tên công việc trong khoảng thời gian</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm và xuất file theo đơn vị trong khoảng thời gian</a>
+                            <a href="{{route('search/for_units_by_time/index')}}">=> Tìm kiếm và xuất file theo đơn vị trong khoảng thời gian</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm và xuất theo thời gian bắt đầu </a>
+                            <a href="{{route('search/by_start_time/index')}}">=> Tìm kiếm và xuất theo thời gian bắt đầu </a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=>Tìm kiếm và xuất file theo mức độ hoàn thành trong thời gian</a>
+                            <a href="{{route('search/by_completion_level/index')}}">=>Tìm kiếm và xuất file theo mức độ hoàn thành trong thời gian</a>
                         </li>
 
                     </ul>

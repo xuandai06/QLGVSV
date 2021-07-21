@@ -1,13 +1,13 @@
-@extends('layouts.admin.teacher_work_schedule.search.menu_search')
 
-@section('search_work')
+
+<?php $__env->startSection('search_work'); ?>
 <div class="flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
             <h1>Tìm kiếm theo mức độ hoàn thành</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
+            <form action="<?php echo e(route('search/details/lecturers')); ?>" class="w-6/12 flex justify-between">
           
                     <p class="text-gray-700">Lựa chọn mức độ hoàn thành</p>
                     <select id="search_type" name="search_type" class="form-select border-2 border-gray-200 p-2 text-gray-500
@@ -44,4 +44,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin.teacher_work_schedule.search.menu_search', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/Search/search_teacher_work/search_by_completion_level.blade.php ENDPATH**/ ?>
