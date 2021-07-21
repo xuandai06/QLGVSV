@@ -28,9 +28,29 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã bài báo: </p>
-                                    <input type="text" name="article_id" id="article_id" placeholder="Nhập vào mã bài báo..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('article_id') border-red-500 @enderror" value="">
+                                    <?php
+
+                                    use App\Models\Lecturer;
+                                    use App\Models\Article;
+
+                                    $articles = Article::all();
+                                    $lecturers = Lecturer::all();
+                                    ?>
+
+                                    <select name="article_id" id="article_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        @foreach($articles as $article)
+
+                                        @if(session('article_id') == $article->id)
+                                        <option selected value="{{$article->id}}">{{$article->id}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
+
                                 @error('article_id')
                                 <div class="text-red-500 mt-2 pl-44 text-sm">
                                     {{ $message }}
@@ -41,8 +61,19 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
-                                    <input type="text" name="lecturer_id" id="lecturer_id" placeholder="Nhập vào mã giảng viên..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('lecturer_id') border-red-500 @enderror" value="">
+
+                                    <select name="lecturer_id" id="lecturer_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        @foreach($lecturers as $lecturer)
+
+                                        @if(session('lecturer') == $lecturer->id)
+                                        <option selected value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @else
+                                        <option value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
                                 @error('lecturer_id')
                                 <div class="text-red-500 mt-2 pl-44 text-sm">
@@ -77,10 +108,10 @@
                         <h1 class="">Danh sách bài báo</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
+                        <form action="{{route('search/article_details')}}" method="post">
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
-                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="article_id" name="article_id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
@@ -95,7 +126,25 @@
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                        
+                        <tbody>
+                            @foreach($article_details as $article_detail)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2">{{$article_detail->article_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$article_detail->lecturer_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$article_detail->role}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <a href="{{route('edit/article_details/index',['article_id' => $article_detail->article_id
+                                        , 'lecturer_id' => $article_detail->lecturer_id])}}">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2">
+                                    <form action="{{route('delete/article_details',['article_id' => $article_detail->article_id
+                                        , 'lecturer_id' => $article_detail->lecturer_id])}}" method="post">
+                                        @csrf
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
 

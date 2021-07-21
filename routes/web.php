@@ -308,7 +308,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'index'])
-        ->name('search/by_completion_level');
+            ->name('search/by_completion_level');
 
         Route::get('/search/details/lecturers', [SearchLecturerController::class, 'search'])
             ->name('search/details/lecturers');
@@ -632,11 +632,11 @@ Route::group(
             ->name('add/topic_details');
         Route::post('/search/topic_details', [topic_details_controller::class, 'search'])
             ->name('search/topic_details');
-        Route::post('/delete/topic_details/{topic_detail}', [topic_details_controller::class, 'delete'])
+        Route::post('/delete/topic_details/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'delete'])
             ->name('delete/topic_details');
-        Route::get('/edit/topic_details/index/{id}', [topic_details_controller::class, 'edit_index'])
+        Route::get('/edit/topic_details/index/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'edit_index'])
             ->name('edit/topic_details/index');
-        Route::post('/edit/topic_details/{topic_detail}', [topic_details_controller::class, 'edit'])
+        Route::post('/edit/topic_details/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'edit'])
             ->name('edit/topic_details');
     }
 );
@@ -690,6 +690,14 @@ Route::group(
             ->name('update/article_details');
         Route::post('/add/article_details', [article_details_controller::class, 'store'])
             ->name('add/article_details');
+        Route::post('/search/article_details', [article_details_controller::class, 'search'])
+            ->name('search/article_details');
+        Route::post('/delete/article_details/{article_id}/{lecturer_id}', [article_details_controller::class, 'delete'])
+            ->name('delete/article_details');
+        Route::get('/edit/article_details/index/{article_id}/{lecturer_id}', [article_details_controller::class, 'edit_index'])
+            ->name('edit/article_details/index');
+        Route::post('/edit/article_details/{article_id}/{lecturer_id}', [article_details_controller::class, 'edit'])
+            ->name('edit/article_details');
     }
 );
 //end article_details
@@ -720,6 +728,16 @@ Route::group(
     function () {
         Route::get('/update/conferences_details', [conferences_details_controller::class, 'index'])
             ->name('update/conferences_details');
+        Route::post('/add/conferences_details', [conferences_details_controller::class, 'store'])
+            ->name('add/conferences_details');
+        Route::post('/search/conferences_details', [conferences_details_controller::class, 'search'])
+            ->name('search/conferences_details');
+        Route::post('/delete/conferences_details/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'delete'])
+            ->name('delete/conferences_details');
+        Route::get('/edit/conferences_details/index/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'edit_index'])
+            ->name('edit/conferences_details/index');
+        Route::post('/edit/conferences_details/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'edit'])
+            ->name('edit/conferences_details');
     }
 );
 //end conferences_details
@@ -960,8 +978,8 @@ Route::get('/create/works', function () {
     $work = new Work();
     $work->id = '1CV';
     $work->name = 'Phân tích thiết kế hệ thống quản lý giảng viên sinh viên';
-   // $work->start_time = 2018-06-12T19:30;
-  //  $level->save();
+    // $work->start_time = 2018-06-12T19:30;
+    //  $level->save();
 
     $level = new Level();
     $level->id = '2TD';
