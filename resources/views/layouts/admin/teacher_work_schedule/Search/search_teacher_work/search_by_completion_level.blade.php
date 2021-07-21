@@ -8,7 +8,7 @@
         </div>
         <div class="flex justify-center m-4">
             <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
-            <label class="flex-col">
+          
                     <p class="text-gray-700">Lựa chọn mức độ hoàn thành</p>
                     <select id="search_type" name="search_type" class="form-select border-2 border-gray-200 p-2 text-gray-500
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
@@ -16,7 +16,7 @@
                         <option>Đang thực hiện</option>
                         <option>Hoàn thành</option>
                     </select>
-                </label>
+               
 
                 <button type="submit" class="bg-blue-500 text-white rounded px-4 font-medium">Search</button>
             </form>

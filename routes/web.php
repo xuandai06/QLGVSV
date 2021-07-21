@@ -343,20 +343,20 @@ Route::get('update/detail', function () {
 });
 
 //Phan Search
-Route::get('search/instuctor', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_for_instuctors_by_time');
+Route::get('search/instructor', function () {
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_for_lecturers_by_time');
 });
 Route::get('search/jobs_name', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_for_jobs_name_by_time');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_for_jobs_name_by_time');
 });
 Route::get('search/units', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_for_units_by_time');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_for_units_by_time');
 });
 Route::get('search/time', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_by_start_time');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_by_start_time');
 });
 Route::get('search/completion', function () {
-    return view('layouts.admin.teacher_work_schedule.Search.search_by_completion_level');
+    return view('layouts.admin.teacher_work_schedule.Search.search_teacher_work.search_by_completion_level');
 });
 
 //Phan Statistical
