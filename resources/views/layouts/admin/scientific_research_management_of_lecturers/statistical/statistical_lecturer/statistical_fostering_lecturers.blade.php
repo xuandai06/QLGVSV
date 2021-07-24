@@ -1,13 +1,13 @@
 @extends('layouts.admin.scientific_research_management_of_lecturers.statistical.menu_statistical')
 
 @section('statistical_lecturers')
-<div class="flex justify-center mt-2">
+<div class="w-full flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
             <h1>Thống kê số lượng số lượng bồi dưỡng GV theo năm</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
+            <form action="{{route('search/details/lecturers')}}" class="w-8/12 flex justify-between">
 
                 <div class="flex-col">
                     <p class="text-gray-700">Nhập năm:</p>
