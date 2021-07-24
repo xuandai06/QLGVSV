@@ -640,6 +640,63 @@ Route::get('/update_scientific_lecturers/conferences_details', function () {
 Route::get('/update_scientific_lecturers/conferences', function () {
     return view('layouts.admin.scientific_research_management_of_lecturers.update.update_conferences');
 });
+Route::get('/update_scientific_lecturers/extra_trainings', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_extra_trainings');
+});
+Route::get('/update_scientific_lecturers/implementation', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_implementation_levels');
+});
+Route::get('/update_scientific_lecturers/kind_of_sciences', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_kind_of_sciences');
+});
+Route::get('/update_scientific_lecturers/topics_syllabuses', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_topics_syllabuses');
+});
+
+//Phan search
+Route::get('/search_scientific_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.menu');
+});
+Route::get('/search_scientific_lecturers/search_by_magazine', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_by_magazine');
+});
+Route::get('/search_scientific_lecturers/search_fostering_lecturer', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_fostering_lecturer');
+});
+Route::get('/search_scientific_lecturers/kind_of_sciences', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_kind_of_sciences');
+});
+Route::get('/search_scientific_lecturers/lecturer_role', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_lecturer_role');
+});
+Route::get('/search_scientific_lecturers/science_by_lecturer', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_science_by_lecturer');
+});
+
+//Phan statistaical
+Route::get('/statistical_scientific_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.menu_statistical');
+});
+Route::get('/statistical_scientific_lecturers/articles_by_magazine', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_articles_by_magazine');
+});
+Route::get('/statistical_scientific_lecturers/fostering_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_fostering_lecturers');
+});
+Route::get('/statistical_scientific_lecturers/scientific_by_years', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_scientific_by_years');
+});
+Route::get('/statistical_scientific_lecturers/seminor_by_time', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_seminor_by_time');
+});
+Route::get('/statistical_scientific_lecturers/topics_by_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_topics_by_lecturers');
+});
+Route::get('/statistical_scientific_lecturers/topics_by_level_of_implementation', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_topics_by_level_of_implementation');
+});
+
+
 
 //Het Route cua Hung
 

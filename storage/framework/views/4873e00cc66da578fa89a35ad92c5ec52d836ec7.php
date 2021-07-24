@@ -1,13 +1,13 @@
-@extends('layouts.admin.scientific_research_management_of_lecturers.statistical.menu_statistical')
 
-@section('statistical_lecturers')
+
+<?php $__env->startSection('statistical_lecturers'); ?>
 <div class="w-full flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
             <h1>Thống kê số lượng NCKH từng loại theo năm</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-8/12 flex justify-between">
+            <form action="<?php echo e(route('search/details/lecturers')); ?>" class="w-6/12 flex justify-between">
 
                 <div class="flex-col">
                     <p class="text-gray-700">Nhập loại khoa học:</p>
@@ -49,4 +49,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin.scientific_research_management_of_lecturers.statistical.menu_statistical', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLGVSV\resources\views/layouts/admin/scientific_research_management_of_lecturers/statistical/statistical_lecturer/statistical_scientific_by_years.blade.php ENDPATH**/ ?>
