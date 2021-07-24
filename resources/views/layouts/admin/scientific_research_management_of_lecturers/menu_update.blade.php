@@ -9,7 +9,7 @@
                 </div>
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
-                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
+                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white ">
                             <a href="{{route('update/kind_of_sciences')}}">=> Cập nhật loại khoa học</a>
                         </li>
 

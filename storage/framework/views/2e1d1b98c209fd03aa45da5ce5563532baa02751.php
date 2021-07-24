@@ -234,19 +234,19 @@ unset($__errorArgs, $__bag); ?>
                         <tbody>
                             <?php $__currentLoopData = $conferences; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $conference): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($conference->id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($conference->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($conference->name); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($conference->time); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($conference->time); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($conference->place); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($conference->note); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($conference->implementation_level_id); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="<?php echo e(route('edit/conferences/index',$conference->id)); ?>">Edit</a>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($conference->implementation_level_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="<?php echo e(route('edit/conferences/index',$conference->id)); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="<?php echo e(route('delete/conferences',$conference)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-yellow-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

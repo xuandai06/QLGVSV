@@ -145,16 +145,16 @@ unset($__errorArgs, $__bag); ?>
                         <tbody>
                             <?php $__currentLoopData = $journals; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $journal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($journal->id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($journal->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($journal->name); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($journal->score); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="<?php echo e(route('edit/journals/index',$journal->id)); ?>">Edit</a>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($journal->score); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="<?php echo e(route('edit/journals/index',$journal->id)); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="<?php echo e(route('delete/journals',$journal)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

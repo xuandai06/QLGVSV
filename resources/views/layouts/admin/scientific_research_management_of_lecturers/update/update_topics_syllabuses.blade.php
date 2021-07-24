@@ -157,20 +157,20 @@
                         <tbody>
                             @foreach($topics_syllabuses as $topics_syllabuse)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topics_syllabuse->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->name}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->time}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topics_syllabuse->time}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->result}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->note}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->kind_of_science_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topics_syllabuse->implementation_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topics_syllabuse->kind_of_science_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topics_syllabuse->implementation_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="{{route('edit/topics_syllabuses/index',$topics_syllabuse->id)}}">Edit</a>
+                                    <a href="{{route('edit/topics_syllabuses/index',$topics_syllabuse->id)}}" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="{{route('delete/topics_syllabuses',$topics_syllabuse)}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

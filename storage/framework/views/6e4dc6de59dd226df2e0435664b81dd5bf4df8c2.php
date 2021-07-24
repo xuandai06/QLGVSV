@@ -161,18 +161,18 @@ unset($__errorArgs, $__bag); ?>
                         <tbody>
                             <?php $__currentLoopData = $conferences_details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $conferences_detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($conferences_detail->conference_id); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($conferences_detail->lecturer_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($conferences_detail->conference_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($conferences_detail->lecturer_id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($conferences_detail->role); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <a href="<?php echo e(route('edit/conferences_details/index',['conference_id' => $conferences_detail->conference_id
-                                        , 'lecturer_id' => $conferences_detail->lecturer_id])); ?>">Edit</a>
+                                        , 'lecturer_id' => $conferences_detail->lecturer_id])); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="<?php echo e(route('delete/conferences_details',['conference_id' => $conferences_detail->conference_id
                                         , 'lecturer_id' => $conferences_detail->lecturer_id])); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

@@ -136,18 +136,18 @@
                         <tbody>
                             @foreach($topic_details as $topic_detail)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topic_detail->topic_syllabus_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topic_detail->lecturer_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topic_detail->topic_syllabus_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topic_detail->lecturer_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$topic_detail->role}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <a href="{{route('edit/topic_details/index',['topic_syllabus_id' => $topic_detail->topic_syllabus_id
-                                        , 'lecturer_id' => $topic_detail->lecturer_id])}}">Edit</a>
+                                        , 'lecturer_id' => $topic_detail->lecturer_id])}}" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="{{route('delete/topic_details',['topic_syllabus_id' => $topic_detail->topic_syllabus_id
                                         , 'lecturer_id' => $topic_detail->lecturer_id])}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

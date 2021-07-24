@@ -143,19 +143,19 @@
                         <tbody>
                             @foreach($conferences as $conference)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$conference->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$conference->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$conference->name}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$conference->time}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$conference->time}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$conference->place}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$conference->note}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$conference->implementation_level_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="{{route('edit/conferences/index',$conference->id)}}">Edit</a>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$conference->implementation_level_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="{{route('edit/conferences/index',$conference->id)}}" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="{{route('delete/conferences',$conference)}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-yellow-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

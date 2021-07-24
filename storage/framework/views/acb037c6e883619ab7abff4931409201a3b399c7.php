@@ -240,6 +240,10 @@
         </nav>
     </div>
     <?php echo $__env->yieldContent('content'); ?>
+
+    <div>
+        jhfsdhfgjhasdfj
+    </div>
 </body>
 
 </html><?php /**PATH G:\Tong hop de cuong on tap\du_an\QLGVSV\resources\views/layouts/menu.blade.php ENDPATH**/ ?>

@@ -14,23 +14,19 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm cấp thực hiện</a>
+                            <a href="">=> Tìm kiếm cấp thực hiện, loại khoa học</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm đề tài giáo trình</a>
+                            <a href="">=> Tìm kiếm danh mục tạp chí</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm danh mục tạp trí</a>
+                            <a href="">=> Tìm kiếm theo tên GV</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm kiếm bài báo</a>
-                        </li>
-
-                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="">=> Tìm danh mục hội nghị hội thảo</a>
+                            <a href="">=> Tìm kiếm theo vai trò GV</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">

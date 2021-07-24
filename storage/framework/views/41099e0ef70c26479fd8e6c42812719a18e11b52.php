@@ -115,15 +115,15 @@ unset($__errorArgs, $__bag); ?>
                         <tbody>
                             <?php $__currentLoopData = $implementation_levels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $implementation_level): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($implementation_level->id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($implementation_level->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($implementation_level->name); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="<?php echo e(route('edit/implementation_levels/index',$implementation_level->id)); ?>">Edit</a>
+                                    <a href="<?php echo e(route('edit/implementation_levels/index',$implementation_level->id)); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="<?php echo e(route('delete/implementation_levels',$implementation_level)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

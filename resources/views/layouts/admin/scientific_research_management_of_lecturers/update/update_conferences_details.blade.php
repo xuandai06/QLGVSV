@@ -129,18 +129,18 @@
                         <tbody>
                             @foreach($conferences_details as $conferences_detail)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$conferences_detail->conference_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$conferences_detail->lecturer_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$conferences_detail->conference_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$conferences_detail->lecturer_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$conferences_detail->role}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <a href="{{route('edit/conferences_details/index',['conference_id' => $conferences_detail->conference_id
-                                        , 'lecturer_id' => $conferences_detail->lecturer_id])}}">Edit</a>
+                                        , 'lecturer_id' => $conferences_detail->lecturer_id])}}" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="{{route('delete/conferences_details',['conference_id' => $conferences_detail->conference_id
                                         , 'lecturer_id' => $conferences_detail->lecturer_id])}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

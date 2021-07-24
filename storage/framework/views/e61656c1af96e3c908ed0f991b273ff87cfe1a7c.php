@@ -322,24 +322,24 @@ unset($__errorArgs, $__bag); ?>
                         <tbody>
                             <?php $__currentLoopData = $extra_trainings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $extra_training): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->lecturer_id); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($extra_training->lecturer_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($extra_training->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->name); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->place); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->specialization); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->start_time); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->end_time); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($extra_training->start_time); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($extra_training->end_time); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->result); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($extra_training->note); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <a href="<?php echo e(route('edit/extra_trainings/index',['id' => $extra_training->id
-                                        , 'lecturer_id' => $extra_training->lecturer_id])); ?>">Edit</a>
+                                        , 'lecturer_id' => $extra_training->lecturer_id])); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="<?php echo e(route('delete/extra_trainings',['id' => $extra_training->id
                                         , 'lecturer_id' => $extra_training->lecturer_id])); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

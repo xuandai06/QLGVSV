@@ -151,28 +151,28 @@ unset($__errorArgs, $__bag); ?>
                     <table class="bg-white table-fixed flex-col justify-center">
                         <thead>
                             <tr>
-                                <th class="w-3/12 border-collapse border border-gray-500 p-2">Mã bài báo</th>
-                                <th class="w-5/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
-                                <th class="w-4/12 border-collapse border border-gray-500 p-2">Vai trò</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã bài báo</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
+                                <th class="w-6/12 border-collapse border border-gray-500 p-2">Vai trò</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Sửa</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $article_details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article_detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article_detail->article_id); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article_detail->lecturer_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($article_detail->article_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($article_detail->lecturer_id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($article_detail->role); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <a href="<?php echo e(route('edit/article_details/index',['article_id' => $article_detail->article_id
-                                        , 'lecturer_id' => $article_detail->lecturer_id])); ?>">Edit</a>
+                                        , 'lecturer_id' => $article_detail->lecturer_id])); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="<?php echo e(route('delete/article_details',['article_id' => $article_detail->article_id
                                         , 'lecturer_id' => $article_detail->lecturer_id])); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>
