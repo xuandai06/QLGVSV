@@ -334,7 +334,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/by_start_time/index', [SearchByStartTimeController::class, 'index'])
-        ->name('search/by_start_time/index');
+            ->name('search/by_start_time/index');
 
         Route::get('/search/by_start_time', [SearchByStartTimeController::class, 'search'])
             ->name('search/by_start_time');
@@ -348,7 +348,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/for_jobs_name_by_time/index', [SearchForJobsNameByTimeController::class, 'index'])
-        ->name('search/for_jobs_name_by_time/index');
+            ->name('search/for_jobs_name_by_time/index');
 
         Route::get('/search/for_jobs_name_by_time', [SearchForJobsNameByTimeController::class, 'search'])
             ->name('search/for_jobs_name_by_time');
@@ -361,7 +361,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/for_lecturers_by_time/index', [SearchForLecturersByTimeController::class, 'index'])
-        ->name('search/for_lecturers_by_time/index');
+            ->name('search/for_lecturers_by_time/index');
 
         Route::get('/search/for_lecturers_by_time', [SearchForLecturersByTimeController::class, 'search'])
             ->name('search/for_lecturers_by_time');
@@ -374,7 +374,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('search/for_units_by_time/index', [SearchForUnitsByTimeController::class, 'index'])
-        ->name('search/for_units_by_time/index');
+            ->name('search/for_units_by_time/index');
 
         Route::get('/search/for_units_by_time', [SearchForUnitsByTimeController::class, 'search'])
             ->name('search/for_units_by_time');
@@ -835,13 +835,30 @@ Route::group(
     function () {
         Route::get('/update/extra_trainings', [extra_trainings_controller::class, 'index'])
             ->name('update/extra_trainings');
+        Route::post('/add/extra_trainings', [extra_trainings_controller::class, 'store'])
+            ->name('add/extra_trainings');
+        Route::post('/search/extra_trainings', [extra_trainings_controller::class, 'search'])
+            ->name('search/extra_trainings');
+        Route::post('/delete/extra_trainings/{id}/{lecturer_id}', [extra_trainings_controller::class, 'delete'])
+            ->name('delete/extra_trainings');
+        Route::get('/edit/extra_trainings/index/{id}/{lecturer_id}', [extra_trainings_controller::class, 'edit_index'])
+            ->name('edit/extra_trainings/index');
+        Route::post('/edit/extra_trainings/{id}/{lecturer_id}', [extra_trainings_controller::class, 'edit'])
+            ->name('edit/extra_trainings');
     }
 );
 //end extra_trainings
 
 //SEARCHING LECTURER NCKH
-Route::get('/search/kind_of_sciences', [search_kind_of_sciences_controller::class, 'index'])
-    ->name('search/kind_of_sciences');
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/search/kind_of_sciences', [search_kind_of_sciences_controller::class, 'index'])
+            ->name('search/kind_of_sciences');
+        Route::get('/search/kind_of_sciences/keyword', [search_kind_of_sciences_controller::class, 'search'])
+            ->name('search/kind_of_sciences/keyword');
+    }
+);
 //END SEARCHING LECTURER
 //end Hiep
 
@@ -1078,7 +1095,7 @@ Route::get('/create/works', function () {
     $work->id = '2CV';
     $work->name = 'Mút đồ';
     $work->start_time = Carbon::create(2020, 10, 18, 21, 40, 16);
-   $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
+    $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
     $work->place = 'Phòng Hiệp Đen';
     $work->note = 'Đói thì vl';
     $work->save();
@@ -1087,7 +1104,7 @@ Route::get('/create/works', function () {
     $work->id = '3CV';
     $work->name = 'Trêu con chó nhăn';
     $work->start_time = Carbon::create(2020, 7, 18, 21, 40, 16);
-   $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
+    $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
     $work->place = 'Xóm trọ đại';
     $work->note = 'Con chó bố láo';
     $work->save();

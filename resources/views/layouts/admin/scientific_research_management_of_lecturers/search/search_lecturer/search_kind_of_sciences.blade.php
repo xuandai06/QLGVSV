@@ -7,7 +7,7 @@
             <h1>Tìm kiếm loại khoa học</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
+            <form action="{{route('search/kind_of_sciences/keyword')}}" class="w-6/12 flex justify-between">
                
             <div class="flex-col">
                     <label class="flex-col mr-4">
