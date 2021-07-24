@@ -11,6 +11,10 @@ use App\Http\Controllers\Admin\LecturerManagement\Update\UpdatePositionControlle
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateSubjectController;
 use App\Http\Controllers\Admin\LecturerManagement\Update\UpdateUnitController;
 use App\Http\Controllers\admin\LecturerSchedule\Search\SearchByCompletionLevelController;
+use App\Http\Controllers\admin\LecturerSchedule\Search\SearchByStartTimeController;
+use App\Http\Controllers\admin\LecturerSchedule\Search\SearchForJobsNameByTimeController;
+use App\Http\Controllers\admin\LecturerSchedule\Search\SearchForLecturersByTimeController;
+use App\Http\Controllers\admin\LecturerSchedule\Search\SearchForUnitsByTimeController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateResultController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkAssignmentController;
 use App\Http\Controllers\admin\LecturerSchedule\Update\UpdateWorkController;
@@ -34,10 +38,14 @@ use App\Models\Lecturer;
 use App\Models\Level;
 use App\Models\Major;
 use App\Models\Position;
+use App\Models\Result;
 use App\Models\Subject;
 use App\Models\Unit;
 use App\Models\User;
 use App\Models\Work;
+use App\Models\Work_assignment;
+use App\Models\Work_detail;
+use Carbon\Carbon;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -303,17 +311,76 @@ Route::group(
 
 //SEARCHING WORK
 
+Route::get('/search/work', function () {
+    return view('layouts.admin.teacher_work_schedule.search.menu_search');
+})
+    ->name('search/work')
+    ->middleware('AdminMiddleware');
 
+//search by completion level
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'index'])
-        ->name('search/by_completion_level');
-
-        Route::get('/search/details/lecturers', [SearchLecturerController::class, 'search'])
-            ->name('search/details/lecturers');
+            ->name('search/by_completion_level');
+        Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'search'])
+            ->name('search/by_completion_level');
     }
 );
+// end search by completion level
+
+//search by start time
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/search/by_start_time/index', [SearchByStartTimeController::class, 'index'])
+        ->name('search/by_start_time/index');
+
+        Route::get('/search/by_start_time', [SearchByStartTimeController::class, 'search'])
+            ->name('search/by_start_time');
+    }
+);
+// end search by start time
+
+//search for jobs name by time
+
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/search/for_jobs_name_by_time/index', [SearchForJobsNameByTimeController::class, 'index'])
+        ->name('search/for_jobs_name_by_time/index');
+
+        Route::get('/search/for_jobs_name_by_time', [SearchForJobsNameByTimeController::class, 'search'])
+            ->name('search/for_jobs_name_by_time');
+    }
+);
+// end search for jobs name by time
+
+//search for lecturers by time
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/search/for_lecturers_by_time/index', [SearchForLecturersByTimeController::class, 'index'])
+        ->name('search/for_lecturers_by_time/index');
+
+        Route::get('/search/for_lecturers_by_time', [SearchForLecturersByTimeController::class, 'search'])
+            ->name('search/for_lecturers_by_time');
+    }
+);
+// end search for lecturers by time
+
+//search for units by time
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('search/for_units_by_time/index', [SearchForUnitsByTimeController::class, 'index'])
+        ->name('search/for_units_by_time/index');
+
+        Route::get('/search/for_units_by_time', [SearchForUnitsByTimeController::class, 'search'])
+            ->name('search/for_units_by_time');
+    }
+);
+// end search for units by time
 //END SEARCHING WORK
 
 // END UPDATE NCKH GV
@@ -709,11 +776,11 @@ Route::group(
             ->name('add/topic_details');
         Route::post('/search/topic_details', [topic_details_controller::class, 'search'])
             ->name('search/topic_details');
-        Route::post('/delete/topic_details/{topic_detail}', [topic_details_controller::class, 'delete'])
+        Route::post('/delete/topic_details/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'delete'])
             ->name('delete/topic_details');
-        Route::get('/edit/topic_details/index/{id}', [topic_details_controller::class, 'edit_index'])
+        Route::get('/edit/topic_details/index/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'edit_index'])
             ->name('edit/topic_details/index');
-        Route::post('/edit/topic_details/{topic_detail}', [topic_details_controller::class, 'edit'])
+        Route::post('/edit/topic_details/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'edit'])
             ->name('edit/topic_details');
     }
 );
@@ -767,6 +834,14 @@ Route::group(
             ->name('update/article_details');
         Route::post('/add/article_details', [article_details_controller::class, 'store'])
             ->name('add/article_details');
+        Route::post('/search/article_details', [article_details_controller::class, 'search'])
+            ->name('search/article_details');
+        Route::post('/delete/article_details/{article_id}/{lecturer_id}', [article_details_controller::class, 'delete'])
+            ->name('delete/article_details');
+        Route::get('/edit/article_details/index/{article_id}/{lecturer_id}', [article_details_controller::class, 'edit_index'])
+            ->name('edit/article_details/index');
+        Route::post('/edit/article_details/{article_id}/{lecturer_id}', [article_details_controller::class, 'edit'])
+            ->name('edit/article_details');
     }
 );
 //end article_details
@@ -797,6 +872,16 @@ Route::group(
     function () {
         Route::get('/update/conferences_details', [conferences_details_controller::class, 'index'])
             ->name('update/conferences_details');
+        Route::post('/add/conferences_details', [conferences_details_controller::class, 'store'])
+            ->name('add/conferences_details');
+        Route::post('/search/conferences_details', [conferences_details_controller::class, 'search'])
+            ->name('search/conferences_details');
+        Route::post('/delete/conferences_details/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'delete'])
+            ->name('delete/conferences_details');
+        Route::get('/edit/conferences_details/index/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'edit_index'])
+            ->name('edit/conferences_details/index');
+        Route::post('/edit/conferences_details/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'edit'])
+            ->name('edit/conferences_details');
     }
 );
 //end conferences_details
@@ -1037,23 +1122,99 @@ Route::get('/create/works', function () {
     $work = new Work();
     $work->id = '1CV';
     $work->name = 'Phân tích thiết kế hệ thống quản lý giảng viên sinh viên';
-   // $work->start_time = 2018-06-12T19:30;
-  //  $level->save();
+    // $work->start_time = 2018-06-12T19:30;
+    //  $level->save();
 
     $level = new Level();
     $level->id = '2TD';
     $level->name = 'Tiến sĩ';
     $level->save();
 
-    $level = new Level();
-    $level->id = '3TD';
-    $level->name = 'Thạc sĩ';
-    $level->save();
 
-    $level = new Level();
-    $level->id = '4TD';
-    $level->name = 'Đại học';
-    $level->save();
+    $work = new Work();
+    $work->id = '2CV';
+    $work->name = 'Mút đồ';
+    $work->start_time = Carbon::create(2020, 10, 18, 21, 40, 16);
+   $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
+    $work->place = 'Phòng Hiệp Đen';
+    $work->note = 'Đói thì vl';
+    $work->save();
+
+    $work = new Work();
+    $work->id = '3CV';
+    $work->name = 'Trêu con chó nhăn';
+    $work->start_time = Carbon::create(2020, 7, 18, 21, 40, 16);
+   $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
+    $work->place = 'Xóm trọ đại';
+    $work->note = 'Con chó bố láo';
+    $work->save();
+});
+
+Route::get('/create/work_assignments', function () {
+    $work_assignment = new Work_assignment();
+    $work_assignment->work_id = '1CV';
+    $work_assignment->unit_id = '1KTCN';
+    $work_assignment->role = 'Thiết kế';
+    $work_assignment->note = 'Loằng ngoằng';
+    $work_assignment->save();
+
+    $work_assignment = new Work_assignment();
+    $work_assignment->work_id = '2CV';
+    $work_assignment->unit_id = '1KTCN';
+    $work_assignment->role = 'Dùng mút đồ';
+    $work_assignment->note = 'Hiệp k thèm làm';
+    $work_assignment->save();
+
+    $work_assignment = new Work_assignment();
+    $work_assignment->work_id = '3CV';
+    $work_assignment->unit_id = '2NN';
+    $work_assignment->role = 'Trêu chó';
+    $work_assignment->note = 'Đánh chết mẹ nó';
+    $work_assignment->save();
+});
+
+
+Route::get('/create/work_details', function () {
+    $work_detail = new Work_detail();
+    $work_detail->work_id = '1CV';
+    $work_detail->lecturer_id = '1GV';
+    $work_detail->role = 'Lập trình';
+    $work_detail->note = 'Không làm được đâu';
+    $work_detail->save();
+
+    $work_detail = new Work_detail();
+    $work_detail->work_id = '2CV';
+    $work_detail->lecturer_id = '2GV';
+    $work_detail->role = 'Xây dựng hệ thống E learning';
+    $work_detail->note = 'Hiệp k thèm làm';
+    $work_detail->save();
+
+    $work_detail = new Work_detail();
+    $work_detail->work_id = '3CV';
+    $work_detail->lecturer_id = '3GV';
+    $work_detail->role = 'Thuần hóa chó';
+    $work_detail->note = 'Con chó nhăn xấu như chó';
+    $work_detail->save();
+});
+
+Route::get('/create/results', function () {
+    $result = new Result();
+    $result->work_id = '1CV';
+    $result->status = 'Chưa hoàn thành';
+    $result->note = 'Khó lắm';
+    $result->save();
+
+    $result = new Result();
+    $result->work_id = '2CV';
+    $result->status = 'Sắp hoàn thành';
+    $result->note = 'Khó bình thường';
+    $result->save();
+
+    $result = new Result();
+    $result->work_id = '3CV';
+    $result->status = 'Hoàn thành';
+    $result->note = 'Dễ như ăn bánh';
+    $result->save();
 });
 
 

@@ -36,7 +36,6 @@
                                     <?php
 
                                     use App\Models\Lecturer;
-                                    use App\Models\Unit;
                                     use App\Models\Work;
 
                                     $works = Work::all();
@@ -61,7 +60,6 @@
                                     <div class="flex">
 
                                         <?php
-
                                         $lecturers = Lecturer::all();
                                         ?>
                                         <select name="lecturer_id" id="lecturer_id">

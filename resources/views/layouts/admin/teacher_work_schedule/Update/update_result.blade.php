@@ -56,85 +56,95 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-4/12 pt-3">Trạng thái: </p>
-                                    <input type="text" name="status" id="status" placeholder="Nhập vào trạng thái ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('status') border-red-500 @enderror" value="{{old('status') ?? session('status')}}">
-                                </div>
 
-                                @error('status')
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <select name="status" id="status">
+
+                                    @if(session('status') == 'Chưa thực hiện')
+                                    <option>Chưa thực hiện</option>
+                                    <option>Đang thực hiện</option>
+                                    <option>Hoàn thành</option>
+                                    @elseif(session('status') == 'Đang thực hiện')
+                                    <option>Đang thực hiện</option>
+                                    <option>Chưa thực hiện</option>
+                                    <option>Hoàn thành</option>
+                                    @else
+                                    <option>Hoàn thành</option>
+                                    <option>Đang thực hiện</option>
+                                    <option>Chưa thực hiện</option>
+                                    @endif
+                                    
+                                </select>
                             </div>
+                    </div>
 
-                            <div class="mb-4 flex-col">
-                                <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
-                                    <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
+                    <div class="mb-4 flex-col">
+                        <div class="flex">
+                            <p class="text-gray-500 text-xl w-4/12 pt-3">Ghi chú: </p>
+                            <input type="text" name="note" id="note" placeholder="....." class="bg-white w-8/12 p-4 rounded-lg
                                 border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('note') border-red-500 @enderror" value="{{old('note') ?? session('note')}}">
-                                </div>
+                        </div>
 
-                                @error('note')
-                                <div class="text-red-500 mt-2 pl-56 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="flex justify-center">
-                                <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Lưu</button>
-                            </div>
-                        </form>
-
+                        @error('note')
+                        <div class="text-red-500 mt-2 pl-56 text-sm">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
+
+                    <div class="flex justify-center">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-3/12">Lưu</button>
+                    </div>
+                    </form>
+
                 </div>
-                <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
-                    <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
-                        <h1 class="">Danh sách</h1>
-                    </div>
-                    <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="{{route('search/results')}}" s>
-                            @csrf
-                            <label for="id" class="ml-2">Tìm kiếm</label>
-                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+            </div>
+            <div class="p-6 mb-2 w-full flex-col border-t-2 border-gray-400">
+                <div class="text-gray-700 text-2xl font-black mb-2 flex justify-center">
+                    <h1 class="">Danh sách</h1>
+                </div>
+                <nav class="w-8/12 p-2 flex-row-reverse justify-between">
+                    <form action="{{route('search/results')}}" s>
+                        @csrf
+                        <label for="id" class="ml-2">Tìm kiếm</label>
+                        <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                            <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
-                        </form>
-                    </nav>
-                    <table class="bg-white table-fixed flex-col justify-center">
-                        <thead>
-                            <tr>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
-                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Trạng thái</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
-                            </tr>
-                        </thead>
+                        <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
+                    </form>
+                </nav>
+                <table class="bg-white table-fixed flex-col justify-center">
+                    <thead>
+                        <tr>
+                            <th class="w-1/12 border-collapse border border-gray-500 p-2">Mã công việc</th>
+                            <th class="w-2/12 border-collapse border border-gray-500 p-2">Trạng thái</th>
+                            <th class="w-1/12 border-collapse border border-gray-500 p-2">Ghi chú</th>
+                            <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
+                            <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
+                        </tr>
+                    </thead>
 
-                        <tbody>
-                            @foreach($results as $result)
-                            <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$result->work_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$result->status}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$result->note}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="{{route('edit/results/index', $result->work_id)}}">Edit</a>
-                                </td>
-                                <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="{{route('delete/results',$result)}}" method="post">
-                                        @csrf
-                                        <button>Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                        {{$results->links()}}
-                    </table>
-                </div>
+                    <tbody>
+                        @foreach($results as $result)
+                        <tr>
+                            <td class="border-collapse border border-gray-500 p-2">{{$result->work_id}}</td>
+                            <td class="border-collapse border border-gray-500 p-2">{{$result->status}}</td>
+                            <td class="border-collapse border border-gray-500 p-2">{{$result->note}}</td>
+                            <td class="border-collapse border border-gray-500 p-2">
+                                <a href="{{route('edit/results/index', $result->work_id)}}">Edit</a>
+                            </td>
+                            <td class="border-collapse border border-gray-500 p-2">
+                                <form action="{{route('delete/results',$result)}}" method="post">
+                                    @csrf
+                                    <button>Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    {{$results->links()}}
+                </table>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
