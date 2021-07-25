@@ -37,16 +37,24 @@
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Trạng thái: </p>
-                                    <input type="text" name="status" id="status" placeholder="Nhập vào trạng thái ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('status') border-red-500 @enderror" value="{{old('status') ?? $result->status}}">
-                                </div>
+                                <p class="text-gray-500 text-xl w-4/12 pt-3">Trạng thái: </p>
+                                <select name="status" id="status">
 
-                                @error('status')
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                    @if($result->status == 'Chưa thực hiện')
+                                    <option>Chưa thực hiện</option>
+                                    <option>Đang thực hiện</option>
+                                    <option>Hoàn thành</option>
+                                    @elseif($result->status == 'Đang thực hiện')
+                                    <option>Đang thực hiện</option>
+                                    <option>Chưa thực hiện</option>
+                                    <option>Hoàn thành</option>
+                                    @else
+                                    <option>Hoàn thành</option>
+                                    <option>Đang thực hiện</option>
+                                    <option>Chưa thực hiện</option>
+                                    @endif
+                                    
+                                </select>
                             </div>
 
                             <div class="mb-4 flex-col">

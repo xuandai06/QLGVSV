@@ -16,4 +16,9 @@ class Work_assignment extends Model
         'role',
         'note',
     ];
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
 }

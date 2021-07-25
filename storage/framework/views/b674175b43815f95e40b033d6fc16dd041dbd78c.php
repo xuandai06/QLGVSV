@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('update_lecturer'); ?>
+<?php $__env->startSection('update_work_info'); ?>
 <div class="w-9/12 ml-2 flex justify-center">
     <div class="w-full bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -100,4 +100,4 @@ unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('note') ?? $work_assign
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin.teacher_work_schedule.update.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/update/edit/edit_work_assignments.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin.teacher_work_schedule.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/update/edit/edit_work_assignments.blade.php ENDPATH**/ ?>

@@ -15,4 +15,9 @@ class Result extends Model
         'status',
         'note',
     ];
+
+    public function work()
+    {
+        return $this->belongsTo(Work::class);
+    }
 }

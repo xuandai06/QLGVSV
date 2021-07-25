@@ -17,4 +17,13 @@ class Work extends Model
         'place',
         'note'
     ];
+
+    public function result()
+    {
+        return $this->hasOne(Result::class);
+    }
+
+    public function work_assignments(){
+        return $this->hasMany(Work_assignment::class);
+    }
 }

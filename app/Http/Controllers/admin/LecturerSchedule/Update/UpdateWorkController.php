@@ -39,7 +39,6 @@ class UpdateWorkController extends Controller
       ->with('name',$request->name)
       ->with('start_time',$request->start_time)
       ->with('end_time',$request->end_time)
-      ->with('name',$request->end_time)
       ->with('place',$request->place)
       ->with('note',$request->note)
       ;

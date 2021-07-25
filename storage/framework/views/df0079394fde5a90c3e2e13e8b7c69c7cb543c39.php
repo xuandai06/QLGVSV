@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('update_lecturer'); ?>
+<?php $__env->startSection('update_work_info'); ?>
 <div class="w-9/12 ml-2 flex justify-center">
     <div class="w-full bg-white p-6 border-double border-4 border-gray-400 rounded-lg">
         <div class="w-full bg-white flex-col justify-between px-6 text-black rounded-lg mt-1">
@@ -45,31 +45,24 @@ unset($__errorArgs, $__bag); ?>" value="<?php echo e($result->work_id); ?>" disa
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
-                                    <p class="text-gray-500 text-xl w-4/12 pt-3">Trạng thái: </p>
-                                    <input type="text" name="status" id="status" placeholder="Nhập vào trạng thái ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['status'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('status') ?? $result->status); ?>">
-                                </div>
+                                <p class="text-gray-500 text-xl w-4/12 pt-3">Trạng thái: </p>
+                                <select name="status" id="status">
 
-                                <?php $__errorArgs = ['status'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <div class="text-red-500 mt-2 pl-40 text-sm">
-                                    <?php echo e($message); ?>
-
-                                </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                                    <?php if($result->status == 'Chưa thực hiện'): ?>
+                                    <option>Chưa thực hiện</option>
+                                    <option>Đang thực hiện</option>
+                                    <option>Hoàn thành</option>
+                                    <?php elseif($result->status == 'Đang thực hiện'): ?>
+                                    <option>Đang thực hiện</option>
+                                    <option>Chưa thực hiện</option>
+                                    <option>Hoàn thành</option>
+                                    <?php else: ?>
+                                    <option>Hoàn thành</option>
+                                    <option>Đang thực hiện</option>
+                                    <option>Chưa thực hiện</option>
+                                    <?php endif; ?>
+                                    
+                                </select>
                             </div>
 
                             <div class="mb-4 flex-col">
@@ -111,4 +104,4 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin.teacher_work_schedule.update.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/update/edit/edit_results.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin.teacher_work_schedule.menu_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\ungDung\laragon\wwww\QLGVSV\resources\views/layouts/admin/teacher_work_schedule/update/edit/edit_results.blade.php ENDPATH**/ ?>
