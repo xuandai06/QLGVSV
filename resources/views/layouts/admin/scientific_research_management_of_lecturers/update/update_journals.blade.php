@@ -99,16 +99,16 @@
                         <tbody>
                             @foreach($journals as $journal)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$journal->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$journal->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$journal->name}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$journal->score}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="{{ route('edit/journals/index',$journal->id) }}">Edit</a>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$journal->score}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="{{ route('edit/journals/index',$journal->id) }}" class="hover:text-yellow-500">Edit</a>
                                 </td>
-                                <td class="border-collapse border border-gray-500 p-2">
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
                                     <form action="{{route('delete/journals',$journal)}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

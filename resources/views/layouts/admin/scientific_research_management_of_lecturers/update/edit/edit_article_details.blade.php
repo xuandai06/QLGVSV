@@ -22,14 +22,15 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="" method="post" class=" flex-col justify-center">
+                        <form action="{{route('edit/article_details', ['article_id' => $article_detail->article_id
+                                        , 'lecturer_id' => $article_detail->lecturer_id]) }}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã bài báo: </p>
-                                    <input type="text" name="article_id" id="article_id" placeholder="Nhập vào mã bài báo..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('article_id') border-red-500 @enderror" value="">
+                                    <input disabled type="text" name="article_id" id="article_id" placeholder="Nhập vào mã bài báo..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('article_id') border-red-500 @enderror" value="{{ $article_detail->article_id }}">
                                 </div>
                                 @error('article_id')
                                 <div class="text-red-500 mt-2 pl-44 text-sm">
@@ -41,8 +42,8 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
-                                    <input type="text" name="lecturer_id" id="lecturer_id" placeholder="Nhập vào mã giảng viên..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('lecturer_id') border-red-500 @enderror" value="">
+                                    <input disabled type="text" name="lecturer_id" id="lecturer_id" placeholder="Nhập vào mã giảng viên..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('lecturer_id') border-red-500 @enderror" value="{{ $article_detail->lecturer_id }}">
                                 </div>
                                 @error('lecturer_id')
                                 <div class="text-red-500 mt-2 pl-44 text-sm">

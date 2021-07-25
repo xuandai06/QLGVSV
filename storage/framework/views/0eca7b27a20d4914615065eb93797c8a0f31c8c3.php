@@ -99,7 +99,7 @@ unset($__errorArgs, $__bag); ?>
                             <?php echo csrf_field(); ?>
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
-                                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent focus:bg-blue-400">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
                     </nav>
@@ -115,15 +115,15 @@ unset($__errorArgs, $__bag); ?>
                         <tbody>
                             <?php $__currentLoopData = $kind_of_sciences; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kind_of_science): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($kind_of_science->id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($kind_of_science->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($kind_of_science->name); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="<?php echo e(route('edit/kind_of_sciences/index',$kind_of_science->id)); ?>">Edit</a>
+                                    <a href="<?php echo e(route('edit/kind_of_sciences/index',$kind_of_science->id)); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="<?php echo e(route('delete/kind_of_sciences',$kind_of_science)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

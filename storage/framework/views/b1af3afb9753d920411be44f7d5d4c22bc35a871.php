@@ -29,16 +29,29 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã bài báo: </p>
-                                    <input type="text" name="article_id" id="article_id" placeholder="Nhập vào mã bài báo..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['article_id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+                                    <?php
+
+                                    use App\Models\Lecturer;
+                                    use App\Models\Article;
+
+                                    $articles = Article::all();
+                                    $lecturers = Lecturer::all();
+                                    ?>
+
+                                    <select name="article_id" id="article_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php if(session('article_id') == $article->id): ?>
+                                        <option selected value="<?php echo e($article->id); ?>"><?php echo e($article->id); ?></option>
+                                        <?php else: ?>
+                                        <option value="<?php echo e($article->id); ?>"><?php echo e($article->id); ?></option>
+                                        <?php endif; ?>
+
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
                                 </div>
+
                                 <?php $__errorArgs = ['article_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -57,15 +70,19 @@ unset($__errorArgs, $__bag); ?>
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
-                                    <input type="text" name="lecturer_id" id="lecturer_id" placeholder="Nhập vào mã giảng viên..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent <?php $__errorArgs = ['lecturer_id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" value="">
+
+                                    <select name="lecturer_id" id="lecturer_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        <?php $__currentLoopData = $lecturers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lecturer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php if(session('lecturer') == $lecturer->id): ?>
+                                        <option selected value="<?php echo e($lecturer->id); ?>"><?php echo e($lecturer->id); ?></option>
+                                        <?php else: ?>
+                                        <option value="<?php echo e($lecturer->id); ?>"><?php echo e($lecturer->id); ?></option>
+                                        <?php endif; ?>
+
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
                                 </div>
                                 <?php $__errorArgs = ['lecturer_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -123,10 +140,10 @@ unset($__errorArgs, $__bag); ?>
                         <h1 class="">Danh sách bài báo</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
+                        <form action="<?php echo e(route('search/article_details')); ?>" method="post">
                             <?php echo csrf_field(); ?>
                             <label for="id" class="ml-2">Tìm kiếm</label>
-                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="article_id" name="article_id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
@@ -134,14 +151,32 @@ unset($__errorArgs, $__bag); ?>
                     <table class="bg-white table-fixed flex-col justify-center">
                         <thead>
                             <tr>
-                                <th class="w-3/12 border-collapse border border-gray-500 p-2">Mã bài báo</th>
-                                <th class="w-5/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
-                                <th class="w-4/12 border-collapse border border-gray-500 p-2">Vai trò</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Sửa</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã bài báo</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Mã giảng viên</th>
+                                <th class="w-6/12 border-collapse border border-gray-500 p-2">Vai trò</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Sửa</th>
+                                <th class="w-2/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                        
+                        <tbody>
+                            <?php $__currentLoopData = $article_details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article_detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($article_detail->article_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($article_detail->lecturer_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($article_detail->role); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="<?php echo e(route('edit/article_details/index',['article_id' => $article_detail->article_id
+                                        , 'lecturer_id' => $article_detail->lecturer_id])); ?>" class="hover:text-yellow-500">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <form action="<?php echo e(route('delete/article_details',['article_id' => $article_detail->article_id
+                                        , 'lecturer_id' => $article_detail->lecturer_id])); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <button class="hover:text-red-500">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
 

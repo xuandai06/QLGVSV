@@ -321,9 +321,8 @@ Route::get('/search/work', function () {
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
-        Route::get('/search/by_completion_level/index', [SearchByCompletionLevelController::class, 'index'])
-        ->name('search/by_completion_level/index');
-
+        Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'index'])
+            ->name('search/by_completion_level');
         Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'search'])
             ->name('search/by_completion_level');
     }
@@ -335,7 +334,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/by_start_time/index', [SearchByStartTimeController::class, 'index'])
-        ->name('search/by_start_time/index');
+            ->name('search/by_start_time/index');
 
         Route::get('/search/by_start_time', [SearchByStartTimeController::class, 'search'])
             ->name('search/by_start_time');
@@ -349,7 +348,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/for_jobs_name_by_time/index', [SearchForJobsNameByTimeController::class, 'index'])
-        ->name('search/for_jobs_name_by_time/index');
+            ->name('search/for_jobs_name_by_time/index');
 
         Route::get('/search/for_jobs_name_by_time', [SearchForJobsNameByTimeController::class, 'search'])
             ->name('search/for_jobs_name_by_time');
@@ -362,7 +361,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('/search/for_lecturers_by_time/index', [SearchForLecturersByTimeController::class, 'index'])
-        ->name('search/for_lecturers_by_time/index');
+            ->name('search/for_lecturers_by_time/index');
 
         Route::get('/search/for_lecturers_by_time', [SearchForLecturersByTimeController::class, 'search'])
             ->name('search/for_lecturers_by_time');
@@ -375,7 +374,7 @@ Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
         Route::get('search/for_units_by_time/index', [SearchForUnitsByTimeController::class, 'index'])
-        ->name('search/for_units_by_time/index');
+            ->name('search/for_units_by_time/index');
 
         Route::get('/search/for_units_by_time', [SearchForUnitsByTimeController::class, 'search'])
             ->name('search/for_units_by_time');
@@ -641,6 +640,63 @@ Route::get('/update_scientific_lecturers/conferences_details', function () {
 Route::get('/update_scientific_lecturers/conferences', function () {
     return view('layouts.admin.scientific_research_management_of_lecturers.update.update_conferences');
 });
+Route::get('/update_scientific_lecturers/extra_trainings', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_extra_trainings');
+});
+Route::get('/update_scientific_lecturers/implementation', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_implementation_levels');
+});
+Route::get('/update_scientific_lecturers/kind_of_sciences', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_kind_of_sciences');
+});
+Route::get('/update_scientific_lecturers/topics_syllabuses', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.update.update_topics_syllabuses');
+});
+
+//Phan search
+Route::get('/search_scientific_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.menu');
+});
+Route::get('/search_scientific_lecturers/search_by_magazine', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_by_magazine');
+});
+Route::get('/search_scientific_lecturers/search_fostering_lecturer', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_fostering_lecturer');
+});
+Route::get('/search_scientific_lecturers/kind_of_sciences', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_kind_of_sciences');
+});
+Route::get('/search_scientific_lecturers/lecturer_role', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_lecturer_role');
+});
+Route::get('/search_scientific_lecturers/science_by_lecturer', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.search.search_lecturer.search_science_by_lecturer');
+});
+
+//Phan statistaical
+Route::get('/statistical_scientific_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.menu_statistical');
+});
+Route::get('/statistical_scientific_lecturers/articles_by_magazine', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_articles_by_magazine');
+});
+Route::get('/statistical_scientific_lecturers/fostering_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_fostering_lecturers');
+});
+Route::get('/statistical_scientific_lecturers/scientific_by_years', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_scientific_by_years');
+});
+Route::get('/statistical_scientific_lecturers/seminor_by_time', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_seminor_by_time');
+});
+Route::get('/statistical_scientific_lecturers/topics_by_lecturers', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_topics_by_lecturers');
+});
+Route::get('/statistical_scientific_lecturers/topics_by_level_of_implementation', function () {
+    return view('layouts.admin.scientific_research_management_of_lecturers.statistical.statistical_lecturer.statistical_topics_by_level_of_implementation');
+});
+
+
 
 //Het Route cua Hung
 
@@ -720,11 +776,11 @@ Route::group(
             ->name('add/topic_details');
         Route::post('/search/topic_details', [topic_details_controller::class, 'search'])
             ->name('search/topic_details');
-        Route::post('/delete/topic_details/{topic_detail}', [topic_details_controller::class, 'delete'])
+        Route::post('/delete/topic_details/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'delete'])
             ->name('delete/topic_details');
-        Route::get('/edit/topic_details/index/{id}', [topic_details_controller::class, 'edit_index'])
+        Route::get('/edit/topic_details/index/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'edit_index'])
             ->name('edit/topic_details/index');
-        Route::post('/edit/topic_details/{topic_detail}', [topic_details_controller::class, 'edit'])
+        Route::post('/edit/topic_details/{topic_syllabus_id}/{lecturer_id}', [topic_details_controller::class, 'edit'])
             ->name('edit/topic_details');
     }
 );
@@ -778,6 +834,14 @@ Route::group(
             ->name('update/article_details');
         Route::post('/add/article_details', [article_details_controller::class, 'store'])
             ->name('add/article_details');
+        Route::post('/search/article_details', [article_details_controller::class, 'search'])
+            ->name('search/article_details');
+        Route::post('/delete/article_details/{article_id}/{lecturer_id}', [article_details_controller::class, 'delete'])
+            ->name('delete/article_details');
+        Route::get('/edit/article_details/index/{article_id}/{lecturer_id}', [article_details_controller::class, 'edit_index'])
+            ->name('edit/article_details/index');
+        Route::post('/edit/article_details/{article_id}/{lecturer_id}', [article_details_controller::class, 'edit'])
+            ->name('edit/article_details');
     }
 );
 //end article_details
@@ -808,6 +872,16 @@ Route::group(
     function () {
         Route::get('/update/conferences_details', [conferences_details_controller::class, 'index'])
             ->name('update/conferences_details');
+        Route::post('/add/conferences_details', [conferences_details_controller::class, 'store'])
+            ->name('add/conferences_details');
+        Route::post('/search/conferences_details', [conferences_details_controller::class, 'search'])
+            ->name('search/conferences_details');
+        Route::post('/delete/conferences_details/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'delete'])
+            ->name('delete/conferences_details');
+        Route::get('/edit/conferences_details/index/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'edit_index'])
+            ->name('edit/conferences_details/index');
+        Route::post('/edit/conferences_details/{conference_id}/{lecturer_id}', [conferences_details_controller::class, 'edit'])
+            ->name('edit/conferences_details');
     }
 );
 //end conferences_details
@@ -818,13 +892,30 @@ Route::group(
     function () {
         Route::get('/update/extra_trainings', [extra_trainings_controller::class, 'index'])
             ->name('update/extra_trainings');
+        Route::post('/add/extra_trainings', [extra_trainings_controller::class, 'store'])
+            ->name('add/extra_trainings');
+        Route::post('/search/extra_trainings', [extra_trainings_controller::class, 'search'])
+            ->name('search/extra_trainings');
+        Route::post('/delete/extra_trainings/{id}/{lecturer_id}', [extra_trainings_controller::class, 'delete'])
+            ->name('delete/extra_trainings');
+        Route::get('/edit/extra_trainings/index/{id}/{lecturer_id}', [extra_trainings_controller::class, 'edit_index'])
+            ->name('edit/extra_trainings/index');
+        Route::post('/edit/extra_trainings/{id}/{lecturer_id}', [extra_trainings_controller::class, 'edit'])
+            ->name('edit/extra_trainings');
     }
 );
 //end extra_trainings
 
 //SEARCHING LECTURER NCKH
-Route::get('/search/kind_of_sciences', [search_kind_of_sciences_controller::class, 'index'])
-    ->name('search/kind_of_sciences');
+Route::group(
+    ['middleware' => ['protectedAdminPage']],
+    function () {
+        Route::get('/search/kind_of_sciences', [search_kind_of_sciences_controller::class, 'index'])
+            ->name('search/kind_of_sciences');
+        Route::get('/search/kind_of_sciences/keyword', [search_kind_of_sciences_controller::class, 'search'])
+            ->name('search/kind_of_sciences/keyword');
+    }
+);
 //END SEARCHING LECTURER
 //end Hiep
 
@@ -1048,17 +1139,20 @@ Route::get('/create/works', function () {
     $work = new Work();
     $work->id = '1CV';
     $work->name = 'Phân tích thiết kế hệ thống quản lý giảng viên sinh viên';
-    $work->start_time = Carbon::create(2018, 10, 18, 21, 40, 16);
-   $work->end_time = Carbon::create(2021, 10, 18, 10, 40, 16);;
-    $work->place = 'Giảng đường E';
-    $work->note = 'Không được nghìn nào';
-    $work->save();
+    // $work->start_time = 2018-06-12T19:30;
+    //  $level->save();
+
+    $level = new Level();
+    $level->id = '2TD';
+    $level->name = 'Tiến sĩ';
+    $level->save();
+
 
     $work = new Work();
     $work->id = '2CV';
     $work->name = 'Mút đồ';
     $work->start_time = Carbon::create(2020, 10, 18, 21, 40, 16);
-   $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
+    $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
     $work->place = 'Phòng Hiệp Đen';
     $work->note = 'Đói thì vl';
     $work->save();
@@ -1067,7 +1161,7 @@ Route::get('/create/works', function () {
     $work->id = '3CV';
     $work->name = 'Trêu con chó nhăn';
     $work->start_time = Carbon::create(2020, 7, 18, 21, 40, 16);
-   $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
+    $work->end_time = Carbon::create(2021, 1, 10, 9, 40, 16);;
     $work->place = 'Xóm trọ đại';
     $work->note = 'Con chó bố láo';
     $work->save();

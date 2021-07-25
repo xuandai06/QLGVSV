@@ -22,29 +22,43 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="" method="post" class=" flex-col justify-center">
+                        <form action="{{ route('add/extra_trainings') }}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã giảng viên ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
+                                    <?php
+
+                                    use App\Models\Lecturer;
+
+                                    $lecturers = Lecturer::all();
+                                    ?>
+
+                                    <select name="lecturer_id" id="lecturer_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        @foreach($lecturers as $lecturer)
+
+                                        @if(session('lecturer') == $lecturer->id)
+                                        <option selected value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @else
+                                        <option value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
+
                                 </div>
-                                @error('id')
-                                <div class="text-red-500 mt-2 pl-64 text-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+
                             </div>
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã bồi dưỡng: </p>
-                                    <input type="text" name="id_tranings" id="id_tranings" placeholder="Nhập vào mã bồi dưỡng ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id_tranings') border-red-500 @enderror" value="">
+                                    <input type="text" name="id" id="id_tranings" placeholder="Nhập vào mã bồi dưỡng ..." class="bg-white w-8/12 p-4 rounded-lg
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
                                 </div>
-                                @error('id_tranings')
+                                @error('id')
                                 <div class="text-red-500 mt-2 pl-64 text-sm">
                                     {{ $message }}
                                 </div>
@@ -160,7 +174,7 @@
                         <h1 class="">Danh sách hội nghị hội thảo</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
+                        <form action="{{route('search/extra_trainings')}}" method="post">
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
                             <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
@@ -176,7 +190,6 @@
                                 <th class="w-2/12 border-collapse border border-gray-500 p-2">Nội dung</th>
                                 <th class="w-2/12 border-collapse border border-gray-500 p-2">Địa điểm</th>
                                 <th class="w-2/12 border-collapse border border-gray-500 p-2">Chuyên môn</th>
-                                <th class="w-1/12 border-collapse border border-gray-500 p-2">Nơi đào tạo</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Thời gian bắt đầu</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Thời gian kết thúc</th>
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Kết quả</th>
@@ -185,7 +198,31 @@
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                        
+                        <tbody>
+                            @foreach($extra_trainings as $extra_training)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$extra_training->lecturer_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$extra_training->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$extra_training->name}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$extra_training->place}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$extra_training->specialization}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$extra_training->start_time}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$extra_training->end_time}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$extra_training->result}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$extra_training->note}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="{{route('edit/extra_trainings/index',['id' => $extra_training->id
+                                        , 'lecturer_id' => $extra_training->lecturer_id])}}" class="hover:text-yellow-500">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <form action="{{route('delete/extra_trainings',['id' => $extra_training->id
+                                        , 'lecturer_id' => $extra_training->lecturer_id])}}" method="post">
+                                        @csrf
+                                        <button class="hover:text-red-500">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
 

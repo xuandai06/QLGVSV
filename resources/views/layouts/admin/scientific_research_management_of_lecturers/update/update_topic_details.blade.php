@@ -23,9 +23,9 @@
                         </div>
                         @endif
 
-                        @if(session('error1'))
+                        @if(session('error'))
                         <div class="text-red-500 p-3">
-                            {{session('error1')}}
+                            {{session('error')}}
                         </div>
                         @endif
                         <form action="{{route('add/topic_details')}}" method="post" class=" flex-col justify-center">
@@ -34,10 +34,29 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã khoa học: </p>
-                                    <input type="text" name="topic_syllabus_id" id="topic_syllabus_id" placeholder="Nhập vào mã loại khoa học..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('topic_syllabus_id') border-red-500 @enderror"
-                                value="{{ old('topic_syllabus_id') ?? session('topic_syllabus_id') }}">
+                                    <?php
+
+                                    use App\Models\Lecturer;
+                                    use App\Models\Topics_syllabuse;
+
+                                    $topics_syllabuses = Topics_syllabuse::all();
+                                    $lecturers = Lecturer::all();
+                                    ?>
+
+                                    <select name="topic_syllabus_id" id="topic_syllabus_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        @foreach($topics_syllabuses as $topics_syllabuse)
+
+                                        @if(session('topic_syllabus_id') == $topics_syllabuse->id)
+                                        <option selected value="{{$topics_syllabuse->id}}">{{$topics_syllabuse->id}}</option>
+                                        @else
+                                        <option value="{{$topics_syllabuse->id}}">{{$topics_syllabuse->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
+
                                 @error('topic_syllabus_id')
                                 <div class="text-red-500 mt-2 pl-44 text-sm">
                                     {{ $message }}
@@ -48,9 +67,19 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
-                                    <input type="text" name="lecturer_id" id="lecturer_id" placeholder="Nhập mã giảng viên ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('lecturer_id') border-red-500 @enderror" 
-                                value="{{old('lecturer_id') ?? session('lecturer_id')}}">
+                                    
+                                    <select name="lecturer_id" id="lecturer_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        @foreach($lecturers as $lecturer)
+
+                                        @if(session('lecturer') == $lecturer->id)
+                                        <option selected value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @else
+                                        <option value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 @error('lecturer_id')
@@ -64,8 +93,7 @@
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Vai trò: </p>
                                     <input type="text" name="role" id="role" placeholder="Nhập vai trò ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror"
-                                 value="{{old('role') ?? session('role')}}">
+                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('role') border-red-500 @enderror" value="{{old('role') ?? session('role')}}">
                                 </div>
 
                                 @error('role')
@@ -90,7 +118,7 @@
                         <form action="{{route('search/topic_details')}}" method="post">
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
-                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="topic_syllabus_id" name="topic_syllabus_id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
@@ -108,16 +136,18 @@
                         <tbody>
                             @foreach($topic_details as $topic_detail)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topic_detail->topic_syllabus_id}}</td>
-                                <td class="border-collapse border border-gray-500 p-2">{{$topic_detail->lecturer_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topic_detail->topic_syllabus_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$topic_detail->lecturer_id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$topic_detail->role}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="{{route('edit/topic_details/index',$topic_detail->topic_syllabus_id)}}">Edit</a>
+                                    <a href="{{route('edit/topic_details/index',['topic_syllabus_id' => $topic_detail->topic_syllabus_id
+                                        , 'lecturer_id' => $topic_detail->lecturer_id])}}" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <form action="" method="post">
+                                    <form action="{{route('delete/topic_details',['topic_syllabus_id' => $topic_detail->topic_syllabus_id
+                                        , 'lecturer_id' => $topic_detail->lecturer_id])}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

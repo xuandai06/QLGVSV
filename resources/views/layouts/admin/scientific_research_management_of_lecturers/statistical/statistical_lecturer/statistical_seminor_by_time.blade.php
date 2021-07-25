@@ -1,30 +1,31 @@
 @extends('layouts.admin.scientific_research_management_of_lecturers.statistical.menu_statistical')
 
 @section('statistical_lecturers')
-<div class="flex justify-center mt-2">
+<div class="w-full flex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
             <h1>Thống kê số lượng hội thảo, hội nghị theo thời gian</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
+            <form action="{{route('search/details/lecturers')}}" class="w-8/12 flex justify-between">
 
             <div class="flex-col">
                     <p class="text-gray-700">Thống kê theo:</p>
-                    <select name="seminor" id="seminor" class="bg-white w-full p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                    <select name="seminor" id="seminor" class="p-1 m-2 border-2 border-gray-200
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                         <option value="Hội thảo">Hội thảo</option>
                         <option value="Hội nghị">Hội nghị</option>
                     </select>
                 </div>
 
                 <div class="flex-col">
-                    <p class="text-gray-700">Nhập thời gian:</p>
+                    <p class="text-gray-700">Từ:</p>
                     <input type="date" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập ngày bắt đầu ...">
                 </div>
 
                 <div class="flex-col">
+                    <p class="text-gray-700">đến:</p>
                     <input type="date" id="keyword" name="keyword" class="p-1 border-2 border-gray-200
                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Nhập ngày kết thúc ...">
                 </div>

@@ -84,15 +84,15 @@
                         <tbody>
                             @foreach($kind_of_sciences as $kind_of_science)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$kind_of_science->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$kind_of_science->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$kind_of_science->name}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="{{ route('edit/kind_of_sciences/index',$kind_of_science->id) }}">Edit</a>
+                                    <a href="{{ route('edit/kind_of_sciences/index',$kind_of_science->id) }}" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="{{route('delete/kind_of_sciences',$kind_of_science)}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

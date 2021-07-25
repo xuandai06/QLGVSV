@@ -140,7 +140,27 @@
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                       
+                        <tbody>
+                            @foreach($articles as $article)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$article->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$article->name}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$article->detail}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$article->time}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$article->note}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$article->journal_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="{{route('edit/articles/index',$article->id )}}" class="hover:text-yellow-500">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <form action="{{route('delete/articles',$article->id)}}" method="post">
+                                        @csrf
+                                        <button class="hover:text-red-500">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
 
                 </div>

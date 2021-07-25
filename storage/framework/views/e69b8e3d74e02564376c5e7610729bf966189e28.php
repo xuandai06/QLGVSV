@@ -263,20 +263,20 @@ unset($__errorArgs, $__bag); ?>
                         <tbody>
                             <?php $__currentLoopData = $topics_syllabuses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $topics_syllabuse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($topics_syllabuse->id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->name); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->time); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($topics_syllabuse->time); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->result); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->note); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->kind_of_science_id); ?></td>
-                                <td class="border-collapse border border-gray-500 p-2"><?php echo e($topics_syllabuse->implementation_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($topics_syllabuse->kind_of_science_id); ?></td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center"><?php echo e($topics_syllabuse->implementation_id); ?></td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="<?php echo e(route('edit/topics_syllabuses/index',$topics_syllabuse->id)); ?>">Edit</a>
+                                    <a href="<?php echo e(route('edit/topics_syllabuses/index',$topics_syllabuse->id)); ?>" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="<?php echo e(route('delete/topics_syllabuses',$topics_syllabuse)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

@@ -1,18 +1,18 @@
 @extends('layouts.admin.scientific_research_management_of_lecturers.statistical.menu_statistical')
 
 @section('statistical_lecturers')
-<div class="flex justify-center mt-2">
+<div class="w-full lex justify-center mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
             <h1>Thống kê số lượng đề tài theo cấp thực hiện, loại khoa học</h1>
         </div>
         <div class="flex justify-center m-4">
-            <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">
+            <form action="{{route('search/details/lecturers')}}" class="w-8/12 flex justify-between">
 
             <div class="flex-col">
                     <p class="text-gray-700">Thống kê theo:</p>
-                    <select name="topic" id="topic" class="bg-white w-full p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                    <select name="topic" id="topic" class="p-1 border-2 border-gray-200
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" >
                         <option value="đề tài">Đề tài</option>
                         <option value="báo cáo">Báo cáo</option>
                         <option value="giáo trình">Giáo trình</option>
@@ -21,8 +21,8 @@
 
                 <div class="flex-col">
                     <p class="text-gray-700">Thống kê theo:</p>
-                    <select name="sex" id="sex" class="bg-white w-full p-2 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                    <select name="sex" id="sex" class="p-1 border-2 border-gray-200
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                         <option value="cấp thực hiện">Cấp thực hiện</option>
                         <option value="loại khoa học">Loại khoa học</option>
                     </select>

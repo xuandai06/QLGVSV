@@ -9,7 +9,7 @@
                 </div>
                 <div class="text-gray-500 p-3">
                     <ul class="flex-col">
-                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
+                        <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white ">
                             <a href="<?php echo e(route('update/kind_of_sciences')); ?>">=> Cập nhật loại khoa học</a>
                         </li>
 
@@ -26,7 +26,7 @@
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">
-                            <a href="<?php echo e(route('update/journals')); ?>">=> Cập nhật danh mục tạp trí</a>
+                            <a href="<?php echo e(route('update/journals')); ?>">=> Cập nhật danh mục tạp chí</a>
                         </li>
 
                         <li class="px-2 py-3 rounded-lg hover:bg-blue-400 hover:text-white">

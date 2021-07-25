@@ -4,7 +4,7 @@
 <div class="w-full ml-2 flex justify-between mt-2">
     <div class="w-full bg-white p-6 border-2 border-gray-400 rounded-lg">
         <div class="flex justify-center text-2xl text-blue-400">
-            <h1>Tìm kiếm theo danh mục tạp chí</h1>
+            <h1>Tìm kiếm theo danh mục bồi dưỡng</h1>
         </div>
         <div class="flex justify-center m-4">
             <form action="{{route('search/details/lecturers')}}" class="w-6/12 flex justify-between">

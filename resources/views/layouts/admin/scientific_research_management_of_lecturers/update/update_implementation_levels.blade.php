@@ -84,15 +84,15 @@
                         <tbody>
                             @foreach($implementation_levels as $implementation_level)
                             <tr>
-                                <td class="border-collapse border border-gray-500 p-2">{{$implementation_level->id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$implementation_level->id}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">{{$implementation_level->name}}</td>
                                 <td class="border-collapse border border-gray-500 p-2">
-                                    <a href="{{ route('edit/implementation_levels/index',$implementation_level->id) }}">Edit</a>
+                                    <a href="{{ route('edit/implementation_levels/index',$implementation_level->id) }}" class="hover:text-yellow-500">Edit</a>
                                 </td>
                                 <td class="border-collapse border border-gray-500 p-2">
                                     <form action="{{route('delete/implementation_levels',$implementation_level)}}" method="post">
                                         @csrf
-                                        <button>Delete</button>
+                                        <button class="hover:text-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

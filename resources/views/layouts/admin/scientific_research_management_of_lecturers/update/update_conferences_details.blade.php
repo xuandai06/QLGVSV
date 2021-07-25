@@ -22,16 +22,35 @@
                             {{session('status')}}
                         </div>
                         @endif
-                        <form action="" method="post" class=" flex-col justify-center">
+                        <form action="{{ route('add/conferences_details') }}" method="post" class=" flex-col justify-center">
                             @csrf
 
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã hội thảo: </p>
-                                    <input type="text" name="id" id="id" placeholder="Nhập vào mã hội thảo..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id') border-red-500 @enderror" value="">
+                                    <?php
+
+                                    use App\Models\Lecturer;
+                                    use App\Models\Conference;
+
+                                    $conferences = Conference::all();
+                                    $lecturers = Lecturer::all();
+                                    ?>
+
+                                    <select name="conference_id" id="conference_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        @foreach($conferences as $conference)
+
+                                        @if(session('conference_id') == $conference->id)
+                                        <option selected value="{{$conference->id}}">{{$conference->id}}</option>
+                                        @else
+                                        <option value="{{$conference->id}}">{{$conference->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
-                                @error('id')
+                                @error('conference_id')
                                 <div class="text-red-500 mt-2 pl-64 text-sm">
                                     {{ $message }}
                                 </div>
@@ -41,11 +60,22 @@
                             <div class="mb-4 flex-col">
                                 <div class="flex">
                                     <p class="text-gray-500 text-xl w-5/12 pt-3">Mã giảng viên: </p>
-                                    <input type="text" name="id_gv" id="id_gv" placeholder="Nhập vào mã giảng viên ..." class="bg-white w-8/12 p-4 rounded-lg
-                                border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent @error('id_gv') border-red-500 @enderror" value="">
+
+                                    <select name="lecturer_id" id="lecturer_id" class="bg-white w-8/12 p-4 rounded-lg
+                                    border-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
+                                        @foreach($lecturers as $lecturer)
+
+                                        @if(session('lecturer') == $lecturer->id)
+                                        <option selected value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @else
+                                        <option value="{{$lecturer->id}}">{{$lecturer->id}}</option>
+                                        @endif
+
+                                        @endforeach
+                                    </select>
                                 </div>
 
-                                @error('id_gv')
+                                @error('lecturer_id')
                                 <div class="text-red-500 mt-2 pl-64 text-sm">
                                     {{ $message }}
                                 </div>
@@ -78,10 +108,10 @@
                         <h1 class="">Danh sách chi tiết hội nghị/hội thảo</h1>
                     </div>
                     <nav class="w-8/12 p-2 flex-row-reverse justify-between">
-                        <form action="" method="post">
+                        <form action="{{route('search/conferences_details')}}" method="post">
                             @csrf
                             <label for="id" class="ml-2">Tìm kiếm</label>
-                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="id" name="id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
+                            <input class="m-2 p-1 border-2 border-gray-300" type="text" id="conference_id" name="conference_id" placeholder="Nhập mã muốn tìm ..." class="border-2 rounded-lg border-gray-100 p-1
                                     focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
                             <button type="submit" class="px-3 py-1 bg-white hover:bg-blue-400 hover:text-white">Search</button>
                         </form>
@@ -96,7 +126,25 @@
                                 <th class="w-1/12 border-collapse border border-gray-500 p-2">Xoá</th>
                             </tr>
                         </thead>
-                        
+                        <tbody>
+                            @foreach($conferences_details as $conferences_detail)
+                            <tr>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$conferences_detail->conference_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">{{$conferences_detail->lecturer_id}}</td>
+                                <td class="border-collapse border border-gray-500 p-2">{{$conferences_detail->role}}</td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <a href="{{route('edit/conferences_details/index',['conference_id' => $conferences_detail->conference_id
+                                        , 'lecturer_id' => $conferences_detail->lecturer_id])}}" class="hover:text-yellow-500">Edit</a>
+                                </td>
+                                <td class="border-collapse border border-gray-500 p-2 text-center">
+                                    <form action="{{route('delete/conferences_details',['conference_id' => $conferences_detail->conference_id
+                                        , 'lecturer_id' => $conferences_detail->lecturer_id])}}" method="post">
+                                        @csrf
+                                        <button class="hover:text-red-500">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
 
