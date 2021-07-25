@@ -321,8 +321,8 @@ Route::get('/search/work', function () {
 Route::group(
     ['middleware' => ['protectedAdminPage']],
     function () {
-        Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'index'])
-            ->name('search/by_completion_level');
+        Route::get('/search/by_completion_level/index', [SearchByCompletionLevelController::class, 'index'])
+            ->name('search/by_completion_level/index');
         Route::get('/search/by_completion_level', [SearchByCompletionLevelController::class, 'search'])
             ->name('search/by_completion_level');
     }
